@@ -32,6 +32,16 @@ const mixins = {
   transform: translateX(-50%);
   `,
 
+  marginX: (marginX: 0) => `
+  margin-left: ${marginX};
+  margin-right: ${marginX};
+  `,
+
+  marginY: (marginY: 0) => `
+  margin-top: ${marginY};
+  margin-bottom: ${marginY};
+  `,
+
   paddingX: (paddingX: 0) => `
   padding-left: ${paddingX};
   padding-right: ${paddingX};
