@@ -103,6 +103,8 @@ declare module 'styled-components' {
       autoMargin: any;
       centerTranslateY: any;
       centerTranslateX: any;
+      marginX: any;
+      marginY: any;
       paddingX: any;
       paddingY: any;
       a11yHidden: any;

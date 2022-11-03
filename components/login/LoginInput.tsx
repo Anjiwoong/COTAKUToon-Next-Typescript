@@ -9,7 +9,7 @@ const LoginInput = () => {
         type="text"
         name="userid"
         placeholder="아이디"
-        autocomplete="off"
+        autoComplete="off"
         login
       />
       <Input

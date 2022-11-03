@@ -6,14 +6,16 @@ interface InputProps {
   id?: string;
   name?: string;
   placeholder?: string;
-  autocomplete?: string;
+  autoComplete?: string;
   login?: boolean;
   password?: boolean;
+  box?: boolean;
 }
 
 interface StyleProps {
   login?: boolean;
   password?: boolean;
+  box?: boolean;
 }
 
 const Input = forwardRef(
@@ -50,6 +52,25 @@ const InputWrap = styled.input`
     css`
       border-radius: 0;
       border-top: 0;
+    `}
+
+    ${(props: StyleProps) =>
+    props.box &&
+    css`
+      width: 100%;
+      height: 100%;
+      border: 1px solid ${({ theme }) => theme.colors.gray1};
+      border-radius: 4px;
+      text-indent: 10px;
+
+      &:hover {
+        box-shadow: inset 0 0 1px 1px ${({ theme }) => theme.colors.fontSkyBlue};
+      }
+
+      &[name='birth'] {
+        background-size: 12%;
+        background-position: 96% center;
+      }
     `}
 `;
 
