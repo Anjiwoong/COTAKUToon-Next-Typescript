@@ -60,5 +60,48 @@ export const GlobalStyle = createGlobalStyle`
   padding: 0;
   }
 
-  a { cursor: pointer; text-decoration: none; }
+  a {color: inherit;
+    cursor: pointer; 
+    text-decoration: none; 
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 100%;
+    font-weight: inherit;
+  }
+
+  ul,
+  ol {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  img {
+  vertical-align: middle;
+  max-width: 100%;
+  }
+
+  address,
+  em {
+    font-style: normal;
+  }
+
+  fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  }
+
+  legend {
+    ${({ theme }) => theme.mixins.a11yHidden()}
+  }
+
+  button {
+  cursor: pointer;
+  }
 `;

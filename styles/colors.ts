@@ -5,7 +5,7 @@ const colors = {
   gray: '#ccc',
   darkGray: '#333333',
   sepia: '#f0e8d1',
-  blue: '#99d1ff',
+  blue: '#1f8ce6',
   red: '#dc3232',
   lightBlue: '#99d1ff',
 
@@ -36,6 +36,7 @@ const colors = {
   myAssetAmount: '#4b9bf8',
   myAssetLink: '#626d75',
   navDarkGray: '#b3b3b3',
+  error: '#e64938',
 
   // Borders ( 보더 색상 ) --------------------------------------------------------- /
   borderGray1: '#dddddd',

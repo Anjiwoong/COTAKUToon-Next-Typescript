@@ -16,7 +16,6 @@ declare module 'styled-components' {
       primaryColor: string;
       primaryFont: string;
 
-      gray0: string;
       gray1: string;
       gray2: string;
       gray3: string;
@@ -38,6 +37,7 @@ declare module 'styled-components' {
       myAssetAmount: string;
       myAssetLink: string;
       navDarkGray: string;
+      error: string;
 
       borderGray1: string;
       borderGray2: string;
@@ -103,6 +103,10 @@ declare module 'styled-components' {
       autoMargin: any;
       centerTranslateY: any;
       centerTranslateX: any;
+      paddingX: any;
+      paddingY: any;
+      a11yHidden: any;
+      removeBtnStyle: any;
     };
   }
 }
