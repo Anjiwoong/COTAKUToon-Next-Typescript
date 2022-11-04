@@ -1,14 +1,9 @@
 import styled, { css } from 'styled-components';
 import Button from '../UI/Button';
 import Input from '../UI/Input';
+import { StyleProps } from './signup-props';
 import SignupBirth from './SignupBirth';
 import SignupTos from './SignupTos';
-
-interface StyleProps {
-  margin?: boolean;
-  pwd?: boolean;
-  check?: boolean;
-}
 
 const SignupForm = () => {
   return (

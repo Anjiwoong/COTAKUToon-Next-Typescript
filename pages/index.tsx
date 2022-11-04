@@ -1,20 +1,10 @@
 import styled from 'styled-components';
+import Header from '../components/header/Header';
 
 const HomePage = () => {
   return (
     <>
-      <div>Test</div>
-      <button>Test</button>
-      <Test>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti atque
-        libero excepturi obcaecati optio soluta adipisci, non quaerat molestiae,
-        illo doloremque saepe iusto doloribus quisquam incidunt expedita! Sunt,
-        quis asperiores.
-      </Test>
-
-      <Test2>
-        <FlexBox>center</FlexBox>
-      </Test2>
+      <Header />
     </>
   );
 };

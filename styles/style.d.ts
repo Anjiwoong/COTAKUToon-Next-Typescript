@@ -16,6 +16,7 @@ declare module 'styled-components' {
       primaryColor: string;
       primaryFont: string;
 
+      secondaryFont: string;
       gray1: string;
       gray2: string;
       gray3: string;
