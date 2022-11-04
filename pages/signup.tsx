@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LoginHeader from '../components/Layout/LoginHeader';
+import LoginHeader from '../components/header/LoginHeader';
 import SignupForm from '../components/signup/SignupForm';
 
 const SignupPage = () => {
