@@ -1,13 +1,15 @@
 import styled, { css } from 'styled-components';
 
 interface ButtonProps {
-  children: string;
+  children: string | any;
   type?: 'button';
   login?: boolean;
   signup?: boolean;
   gender?: boolean;
   submit?: boolean;
   disabled?: boolean;
+  prev?: boolean;
+  next?: boolean;
 }
 
 interface StyleProps {
@@ -16,6 +18,8 @@ interface StyleProps {
   gender?: boolean;
   submit?: boolean;
   disabled?: boolean;
+  prev?: boolean;
+  next?: boolean;
 }
 
 const Button = (props: ButtonProps) => {
@@ -104,6 +108,40 @@ const ButtonWrap = styled.button`
         color: ${({ theme }) => theme.colors.gray1};
         border: 1px solid ${({ theme }) => theme.colors.gray2};
       }
+    `}
+
+    ${(props: StyleProps) =>
+    props.prev &&
+    css`
+      ${({ theme }) => theme.mixins.flexCenter()};
+      ${({ theme }) => theme.mixins.centerTranslateY()};
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: ${({ theme }) => theme.colors.white};
+      border: 2px solid ${({ theme }) => theme.colors.borderGray2};
+      border-radius: 50%;
+      font-size: 26px;
+      color: ${({ theme }) => theme.colors.fontGray1};
+
+      left: -20px;
+    `}
+
+    ${(props: StyleProps) =>
+    props.next &&
+    css`
+      ${({ theme }) => theme.mixins.flexCenter()};
+      ${({ theme }) => theme.mixins.centerTranslateY()};
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: ${({ theme }) => theme.colors.white};
+      border: 2px solid ${({ theme }) => theme.colors.borderGray2};
+      border-radius: 50%;
+      font-size: 26px;
+      color: ${({ theme }) => theme.colors.fontGray1};
+
+      right: -20px;
     `}
 `;
 

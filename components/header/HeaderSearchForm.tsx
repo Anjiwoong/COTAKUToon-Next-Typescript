@@ -14,7 +14,7 @@ const HeaderSearchForm = () => {
           <Input type="text" />
         </label>
       </Container>
-      <SearchContainer focused>
+      <SearchContainer>
         <SearchBooks>
           <span>작품 이름을 검색해주세요.</span>
         </SearchBooks>
