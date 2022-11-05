@@ -16,9 +16,9 @@ const LoginForm = () => {
 };
 
 const LoginFormWrap = styled.form`
-  ${({ theme }) => theme.mixins.autoMargin()}
-  ${({ theme }) => theme.mixins.paddingX('10px')}
-  ${({ theme }) => theme.mixins.paddingY('10px')}
+  ${({ theme }) => theme.mixins.autoMargin()};
+  ${({ theme }) => theme.mixins.paddingX('10px')};
+  ${({ theme }) => theme.mixins.paddingY('10px')};
 
   width: 360px;
   margin-top: 80px;

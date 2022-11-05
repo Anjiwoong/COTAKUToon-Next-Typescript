@@ -18,7 +18,7 @@ const HomeNav = () => {
           <Link href="">추천</Link>
         </GenreItem>
         <GenreItem>
-          <a href="">로맨스</a>
+          <Link href="">로맨스</Link>
         </GenreItem>
       </GenreList>
     </nav>
