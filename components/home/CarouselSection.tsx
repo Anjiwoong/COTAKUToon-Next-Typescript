@@ -11,7 +11,7 @@ const CarouselSection = () => {
           <CarouselItem>
             <Link href="#">
               <Image
-                src="/images/main-carousel/Carousel01.webp"
+                src="/images/mainCarousel/Carousel01.webp"
                 alt="carousel"
                 width={1110}
                 height={40}

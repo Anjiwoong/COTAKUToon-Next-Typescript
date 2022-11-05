@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import CarouselSection from './CarouselSection';
+import EventSection from './eventSection/EventSection';
 import NewArrivalSection from './newArrivalSection/NewArrivalSection';
+import OnlyRidiSection from './onlyRidiSection/OnlyRidiSection';
 import RankingSection from './rankingSection/RankingSection';
 import WebtoonSection from './webtoonSection/WebtoonSection';
 
@@ -13,6 +15,13 @@ const HomeMain = () => {
       <WebtoonSection />
       <WebtoonSection />
       <RankingSection />
+      <EventSection />
+      <WebtoonSection />
+      <WebtoonSection />
+      <WebtoonSection />
+      <WebtoonSection />
+      <OnlyRidiSection />
+      <WebtoonSection />
     </MainWrapper>
   );
 };
