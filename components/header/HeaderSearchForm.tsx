@@ -5,9 +5,9 @@ import Input from '../UI/Input';
 import Link from 'next/link';
 import { StyleProps } from './header-props';
 
-const HeaderSearchForm = () => {
+const HeaderSearchForm = (props: StyleProps) => {
   return (
-    <Wrapper role="search">
+    <Wrapper role="search" sub={props.sub}>
       <Container>
         <label>
           <AiOutlineSearch />
@@ -57,6 +57,12 @@ const Wrapper = styled.form`
     padding: 9px 16px 5px;
     width: 100%;
   `}
+
+  ${(props: StyleProps) =>
+    props.sub &&
+    css`
+      display: none;
+    `}
 `;
 
 const SearchContainer = styled.div`
