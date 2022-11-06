@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import LoginForm from '../components/login/LoginForm';
-import LoginHeader from '../components/header/LoginHeader';
-import SignupButton from '../components/login/SignupButton';
+import LoginForm from '../../components/login/LoginForm';
+import LoginHeader from '../../components/header/LoginHeader';
+import SignupButton from '../../components/login/SignupButton';
 
 const LoginPage = () => {
   return (
