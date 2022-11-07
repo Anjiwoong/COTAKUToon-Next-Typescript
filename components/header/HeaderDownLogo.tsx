@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { StyleProps } from './header-props';
 
-const HeaderDownLogo = () => {
+const HeaderDownLogo = (props: StyleProps) => {
   return (
-    <LogoWrapper>
+    <LogoWrapper sub={props.sub}>
       <Link href="/">
         <span>리디 홈으로 이동</span>
         <Image
@@ -12,12 +13,14 @@ const HeaderDownLogo = () => {
           alt="cotaku-logo"
           width={108}
           height={20}
+          priority
         />
         <Image
           src="/images/header/toon-02.svg"
           alt="toon-logo"
           width={78}
           height={20}
+          priority
         />
       </Link>
     </LogoWrapper>
@@ -55,6 +58,26 @@ const LogoWrapper = styled.h1`
       `}
     }
   }
+
+  ${(props: StyleProps) =>
+    props.sub &&
+    css`
+      margin-right: auto;
+
+      img {
+        height: 20px;
+
+        ${({ theme }) => theme.media.mobile`
+          width: auto;
+          height: 42px;
+          padding: 13px 5px 14px 16px;
+        `}
+
+        &:last-child {
+          display: none;
+        }
+      }
+    `}
 `;
 
 export default HeaderDownLogo;

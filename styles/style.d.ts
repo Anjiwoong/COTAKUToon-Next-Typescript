@@ -23,7 +23,6 @@ declare module 'styled-components' {
       gray4: string;
       gray5: string;
       gray6: string;
-      gray7: string;
 
       fontGray1: string;
       fontGray2: string;
@@ -99,17 +98,22 @@ declare module 'styled-components' {
     };
 
     mixins: {
-      flexBox: any;
-      flexCenter: any;
-      autoMargin: any;
-      centerTranslateY: any;
-      centerTranslateX: any;
-      marginX: any;
-      marginY: any;
-      paddingX: any;
-      paddingY: any;
-      a11yHidden: any;
-      removeBtnStyle: any;
+      flexBox: (
+        direction: 'row' | string,
+        justify: 'flex-start' | string,
+        align: 'stretch' | string,
+        wrap: 'nowrap' | string
+      ) => string;
+      flexCenter: () => string;
+      autoMargin: () => string;
+      centerTranslateY: () => string;
+      centerTranslateX: () => string;
+      marginX: (marginX: 0) => string;
+      marginY: (marginY: 0) => string;
+      paddingX: (paddingX: 0) => string;
+      paddingY: (paddingY: string) => string;
+      a11yHidden: () => string;
+      removeBtnStyle: () => string;
     };
   }
 }

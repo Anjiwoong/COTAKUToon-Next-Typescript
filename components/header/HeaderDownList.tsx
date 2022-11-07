@@ -1,14 +1,15 @@
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { BiBell } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { BiBookOpen } from 'react-icons/bi';
 import { AiOutlineUser } from 'react-icons/ai';
+import { StyleProps } from './header-props';
 
-const HeaderDownList = () => {
+const HeaderDownList = (props: StyleProps) => {
   return (
-    <Wrapper>
+    <Wrapper sub={props.sub}>
       <li>
         <Link href="/">
           <BiBell />
@@ -59,6 +60,14 @@ const Wrapper = styled.ul`
   a {
     ${({ theme }) => theme.mixins.flexCenter()}
   }
+
+  ${(props: StyleProps) =>
+    props.sub &&
+    css`
+      ${({ theme }) => theme.media.mobile`
+        display: none;
+      `}
+    `}
 `;
 
 export default HeaderDownList;

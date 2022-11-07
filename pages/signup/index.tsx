@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import LoginHeader from '../components/header/LoginHeader';
-import SignupForm from '../components/signup/SignupForm';
+import LoginHeader from '../../components/header/LoginHeader';
+import SignupForm from '../../components/signup/SignupForm';
 
 const SignupPage = () => {
   return (

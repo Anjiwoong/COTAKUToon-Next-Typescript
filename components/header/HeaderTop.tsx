@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components';
 import { IoIosArrowForward } from 'react-icons/io';
 import { StyleProps } from './header-props';
 
-const HeaderTop = () => {
+const HeaderTop = (props: StyleProps) => {
   return (
-    <HeaderWrap>
+    <HeaderWrap sub={props.sub}>
       <Container>
         <ul>
           <Item dot>
@@ -40,6 +40,14 @@ const HeaderWrap = styled.div`
     background: ${theme.colors.black};
     border-bottom: 0;
   `}
+
+  ${(props: StyleProps) =>
+    props.sub &&
+    css`
+      ${({ theme }) => theme.media.mobile`
+        display: none;
+      `}
+    `}
 `;
 
 const Container = styled.div`

@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { StyleProps } from './header-props';
 
-const HeaderLoginButton = () => {
+const HeaderLoginButton = (props: StyleProps) => {
   return (
-    <Login>
+    <Login sub={props.sub}>
       <Link href="/login">
         <span>로그인</span>
       </Link>
@@ -29,6 +30,14 @@ const Login = styled.div`
     border: 1px solid ${({ theme }) => theme.colors.borderGray1};
     border-radius: 16px;
   }
+
+  ${(props: StyleProps) =>
+    props.sub &&
+    css`
+      ${({ theme }) => theme.media.mobile`
+      display: none;
+      `}
+    `}
 `;
 
 export default HeaderLoginButton;

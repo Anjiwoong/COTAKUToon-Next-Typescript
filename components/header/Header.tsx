@@ -1,13 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { StyleProps } from './header-props';
 import HeaderDown from './HeaderDown';
 import HeaderTop from './HeaderTop';
 
-const Header = () => {
+const Header = (props: StyleProps) => {
   return (
     <HeaderWrap>
-      <HeaderTop />
-      <HeaderDown />
+      <HeaderTop sub={props.sub} />
+      <HeaderDown sub={props.sub} />
     </HeaderWrap>
   );
 };
@@ -16,8 +16,6 @@ const HeaderWrap = styled.div`
   ${({ theme }) => theme.media.mobile`
     background: ${theme.colors.black}};
   `}
-
-  ${(props: StyleProps) => props.sub && css``}
 `;
 
 export default Header;
