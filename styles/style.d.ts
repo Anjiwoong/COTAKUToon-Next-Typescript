@@ -17,6 +17,7 @@ declare module 'styled-components' {
       primaryFont: string;
 
       secondaryFont: string;
+      myTitle: string;
       gray1: string;
       gray2: string;
       gray3: string;
@@ -99,18 +100,18 @@ declare module 'styled-components' {
 
     mixins: {
       flexBox: (
-        direction: 'row' | string,
-        justify: 'flex-start' | string,
-        align: 'stretch' | string,
-        wrap: 'nowrap' | string
+        direction?: 'row' | string,
+        justify?: 'flex-start' | string,
+        align?: 'stretch' | string,
+        wrap?: 'nowrap' | string
       ) => string;
       flexCenter: () => string;
       autoMargin: () => string;
       centerTranslateY: () => string;
       centerTranslateX: () => string;
-      marginX: (marginX: 0) => string;
-      marginY: (marginY: 0) => string;
-      paddingX: (paddingX: 0) => string;
+      marginX: (marginX: string) => string;
+      marginY: (marginY: string) => string;
+      paddingX: (paddingX: string) => string;
       paddingY: (paddingY: string) => string;
       a11yHidden: () => string;
       removeBtnStyle: () => string;

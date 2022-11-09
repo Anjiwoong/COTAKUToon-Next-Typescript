@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const StartBg = styled.span`
+export const StartBg = styled.span`
   position: relative;
   width: 75px;
   height: 15px;
