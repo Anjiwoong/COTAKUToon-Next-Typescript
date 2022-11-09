@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 interface ButtonProps {
   children: string | any;
-  type?: 'button';
+  type?: 'button' | 'submit';
   login?: boolean;
   signup?: boolean;
   gender?: boolean;

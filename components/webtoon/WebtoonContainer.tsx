@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 import WebtoonInfo from './webtoonInfo/WebtoonInfo';
+import WebtoonIntroduce from './webtoonIntroduce/WebtoonIntroduce';
+import WebtoonKeyword from './webtoonKeyword/WebtoonKeyword';
+import WebtoonReview from './webtoonReview/WebtoonReview';
 import WebtoonSeries from './webtoonSeries/WebtoonSeries';
+import WebtoonSimilar from './webtoonSimilar/WebtoonSimilar';
 
 const WebtoonContainer = () => {
   return (
@@ -8,6 +12,10 @@ const WebtoonContainer = () => {
       <A11yHidden>상세페이지</A11yHidden>
       <WebtoonInfo />
       <WebtoonSeries />
+      <WebtoonKeyword />
+      <WebtoonIntroduce />
+      <WebtoonReview />
+      <WebtoonSimilar />
     </Wrapper>
   );
 };
