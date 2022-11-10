@@ -85,7 +85,7 @@ const ButtonWrap = styled.button`
 
       &:nth-child(2) {
         border-radius: 0 4px 4px 0;
-        border-left: 0;
+        /* border-left: 0; */
       }
     `}
 

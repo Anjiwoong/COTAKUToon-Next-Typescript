@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components';
 import Button from '../UI/Button';
-import Input from '../UI/Input';
-import { StyleProps } from './signup-props';
+import { StyleProps, validInputProps } from './signup-props';
 import SignupBirth from './SignupBirth';
+import SignupEmail from './SignupEmail';
+import SignupId from './SignupId';
+import SignupName from './SignupName';
+import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
 
 const SignupForm = () => {
@@ -10,35 +13,13 @@ const SignupForm = () => {
     <SignupFormWrap>
       <fieldset>
         <legend>회원가입</legend>
-        <SignupInput>
-          <SignupInputText>아이디</SignupInputText>
-          <Input type="text" name="userId" autoComplete="off" box />
-          <ErrorMessage></ErrorMessage>
-        </SignupInput>
-        <div>
-          <SignupInput pwd>
-            <SignupInputText>비밀번호</SignupInputText>
-            <Input type="password" name="password" box />
-          </SignupInput>
-          <SignupInput check>
-            <SignupInputText>비밀번호 확인</SignupInputText>
-            <Input type="password" name="confirmPassword" box />
-          </SignupInput>
-          <ErrorMessage></ErrorMessage>
-        </div>
-        <SignupInput margin>
-          <SignupInputText>이메일 주소</SignupInputText>
-          <Input type="email" name="userEmail" autoComplete="off" box />
-          <ErrorMessage></ErrorMessage>
-        </SignupInput>
-        <SignupInput>
-          <SignupInputText>이름</SignupInputText>
-          <Input type="text" name="username" autoComplete="off" box />
-          <ErrorMessage></ErrorMessage>
-        </SignupInput>
+        <SignupId />
+        <SignupPassword />
+        <SignupEmail />
+        <SignupName />
         <SignupBirth />
         <SignupTos />
-        <Button type="button" submit disabled>
+        <Button submit disabled>
           회원 가입 완료
         </Button>
       </fieldset>
@@ -56,7 +37,7 @@ const SignupFormWrap = styled.form`
   font-size: 14px;
 `;
 
-const SignupInput = styled.div`
+export const SignupInput = styled.div`
   position: relative;
   width: 340px;
   height: 48px;
@@ -94,6 +75,22 @@ export const SignupInputText = styled.span`
   position: absolute;
   left: 10px;
   color: ${({ theme }) => theme.colors.fontGray2};
+
+  ${(props: validInputProps) =>
+    props.text &&
+    css`
+      color: ${({ theme }) => theme.colors.blue};
+      transform: translateY(-20px);
+      transition: all 0.2s ease;
+      font-size: 11px;
+    `}
+
+  ${(props: validInputProps) =>
+    props.valid &&
+    css`
+      transform: translateY(-20px);
+      font-size: 11px;
+    `}
 `;
 
 export const ErrorMessage = styled.span`

@@ -1,28 +1,10 @@
 import { forwardRef, LegacyRef } from 'react';
 import styled, { css } from 'styled-components';
+import { InputProps, StyleProps } from './input-props';
 
-interface InputProps {
-  type: string;
-  id?: string;
-  name?: string;
-  placeholder?: string;
-  autoComplete?: string;
-  login?: boolean;
-  password?: boolean;
-  box?: boolean;
-}
-
-interface StyleProps {
-  login?: boolean;
-  password?: boolean;
-  box?: boolean;
-}
-
-const Input = forwardRef(
-  (props: InputProps, ref?: LegacyRef<HTMLInputElement>) => {
-    return <InputWrap {...props} ref={ref} />;
-  }
-);
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  return <InputWrap {...props} ref={ref} />;
+});
 
 const InputWrap = styled.input`
   ${(props: StyleProps) =>
