@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import WebtoonSeriesList from './WebtoonSeriesList';
 import WebtoonSeriesOption from './WebtoonSeriesOption';
