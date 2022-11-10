@@ -9,6 +9,7 @@ import { MdOutlineEventNote } from 'react-icons/md';
 import { FiBox } from 'react-icons/fi';
 
 const NewArrivalSection = () => {
+  // li  컴포넌트화
   return (
     <Wrapper>
       <ul>

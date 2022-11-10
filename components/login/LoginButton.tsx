@@ -17,7 +17,7 @@ const ErrorMessage = styled.span`
   padding-left: 4px;
   height: 20px;
   color: ${({ theme }) => theme.colors.error};
-  font-size: rem(11px);
+  font-size: 11px;
   font-weight: 700;
 `;
 
