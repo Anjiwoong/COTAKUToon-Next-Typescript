@@ -1,27 +1,29 @@
+import { useEffect } from 'react';
 import useInput from '../../hooks/use-input';
 import Input from '../UI/Input';
+import { checkProps } from './signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const passwordRegex = /^[A-Za-z0-9]{6,12}$/;
 
-const SignupPassword = () => {
+const SignupPassword = (props: checkProps) => {
   const {
     value: passwordValue,
     isValid: passwordIsValid,
-    hasError: passwordHasError,
     valueChangeHandler: passwordChangeHandler,
-    inputBlurHandler: passwordBlurHandler,
-    reset: resetPassword,
   } = useInput((value: any) => value.match(passwordRegex));
 
   const {
     value: confirmPasswordValue,
     isValid: confirmPasswordIsValid,
-    hasError: confirmPasswordHasError,
     valueChangeHandler: confirmPasswordChangeHandler,
-    inputBlurHandler: confirmPasswordBlurHandler,
-    reset: resetConfirmPassword,
   } = useInput((value: any) => value !== '' && value === passwordValue);
+
+  const { checkHandler } = props;
+
+  useEffect(() => {
+    checkHandler(!!confirmPasswordIsValid, 'password');
+  }, [!!confirmPasswordIsValid]);
 
   return (
     <>
@@ -39,7 +41,6 @@ const SignupPassword = () => {
           box
           value={passwordValue}
           onChange={passwordChangeHandler}
-          onBlur={passwordBlurHandler}
         />
       </SignupInput>
       <SignupInput check>
@@ -56,7 +57,6 @@ const SignupPassword = () => {
           box
           value={confirmPasswordValue}
           onChange={confirmPasswordChangeHandler}
-          onBlur={confirmPasswordBlurHandler}
         />
         {passwordValue !== '' && !passwordIsValid && (
           <ErrorMessage>! 비밀번호 형식에 맞게 입력해 주세요.</ErrorMessage>

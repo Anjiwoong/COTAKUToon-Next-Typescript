@@ -10,12 +10,7 @@ export interface InputProps {
   password?: boolean;
   box?: boolean;
   value?: string;
+  checked?: boolean;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
-
-export interface StyleProps {
-  login?: boolean;
-  password?: boolean;
-  box?: boolean;
 }

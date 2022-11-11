@@ -1,20 +1,23 @@
+import React, { useEffect } from 'react';
 import useInput from '../../hooks/use-input';
 import Input from '../UI/Input';
+import { checkProps } from './signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const idRegex = /^[A-Za-z0-9]{4,15}$/;
 
-const SignupId = () => {
+const SignupId = (props: checkProps) => {
   const {
     value: idValue,
     isValid: idIsValid,
-    hasError: idHasError,
     valueChangeHandler: idChangeHandler,
-    inputBlurHandler: idBlurHandler,
-    reset: resetId,
   } = useInput((value: any) => value.match(idRegex));
 
-  console.log(idHasError);
+  const { checkHandler } = props;
+
+  useEffect(() => {
+    checkHandler(!!idIsValid, 'id');
+  }, [!!idIsValid]);
 
   return (
     <SignupInput>
@@ -27,7 +30,6 @@ const SignupId = () => {
         box
         value={idValue}
         onChange={idChangeHandler}
-        onBlur={idBlurHandler}
       />
       {idValue !== '' && !idIsValid && (
         <ErrorMessage>! 아이디를 입력해 주세요.</ErrorMessage>

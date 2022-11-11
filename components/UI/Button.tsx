@@ -1,26 +1,5 @@
 import styled, { css } from 'styled-components';
-
-interface ButtonProps {
-  children: string | any;
-  type?: 'button' | 'submit';
-  login?: boolean;
-  signup?: boolean;
-  gender?: boolean;
-  submit?: boolean;
-  disabled?: boolean;
-  prev?: boolean;
-  next?: boolean;
-}
-
-interface StyleProps {
-  login?: boolean;
-  signup?: boolean;
-  gender?: boolean;
-  submit?: boolean;
-  disabled?: boolean;
-  prev?: boolean;
-  next?: boolean;
-}
+import { ButtonProps } from './button-props';
 
 const Button = (props: ButtonProps) => {
   return <ButtonWrap {...props}>{props.children}</ButtonWrap>;
@@ -29,13 +8,13 @@ const Button = (props: ButtonProps) => {
 const ButtonWrap = styled.button`
   ${({ theme }) => theme.mixins.removeBtnStyle()}
 
-  ${(props: StyleProps) =>
+  ${(props: ButtonProps) =>
     props.disabled &&
     css`
       cursor: not-allowed;
     `}
 
-  ${(props: StyleProps) =>
+  ${(props: ButtonProps) =>
     props.login &&
     css`
       ${({ theme }) => theme.mixins.paddingY('16px')}
@@ -51,7 +30,7 @@ const ButtonWrap = styled.button`
       border: 1px solid ${({ theme }) => theme.colors.borderBlue1};
     `}
 
-  ${(props: StyleProps) =>
+  ${(props: ButtonProps) =>
     props.signup &&
     css`
       ${({ theme }) => theme.mixins.paddingY('16px')}
@@ -67,7 +46,7 @@ const ButtonWrap = styled.button`
       font-weight: 600;
     `}
 
-    ${(props: StyleProps) =>
+    ${(props: ButtonProps) =>
     props.gender &&
     css`
       width: 50%;
@@ -89,7 +68,7 @@ const ButtonWrap = styled.button`
       }
     `}
 
-    ${(props: StyleProps) =>
+    ${(props: ButtonProps) =>
     props.submit &&
     css`
       width: 100%;
@@ -110,7 +89,7 @@ const ButtonWrap = styled.button`
       }
     `}
 
-    ${(props: StyleProps) =>
+    ${(props: ButtonProps) =>
     props.prev &&
     css`
       ${({ theme }) => theme.mixins.flexCenter()};
@@ -127,7 +106,7 @@ const ButtonWrap = styled.button`
       left: -20px;
     `}
 
-    ${(props: StyleProps) =>
+    ${(props: ButtonProps) =>
     props.next &&
     css`
       ${({ theme }) => theme.mixins.flexCenter()};

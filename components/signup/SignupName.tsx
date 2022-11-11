@@ -1,18 +1,23 @@
+import { useEffect } from 'react';
 import useInput from '../../hooks/use-input';
 import Input from '../UI/Input';
+import { checkProps } from './signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const nameRegex = /^[가-힣]{2,5}$/;
 
-const SignupName = () => {
+const SignupName = (props: checkProps) => {
   const {
     value: nameValue,
     isValid: nameIsValid,
-    hasError: nameHasError,
     valueChangeHandler: nameChangeHandler,
-    inputBlurHandler: nameBlurHandler,
-    reset: resetName,
   } = useInput((value: any) => value.match(nameRegex));
+
+  const { checkHandler } = props;
+
+  useEffect(() => {
+    checkHandler(!!nameIsValid, 'name');
+  }, [!!nameIsValid]);
 
   return (
     <SignupInput>
@@ -29,7 +34,6 @@ const SignupName = () => {
         box
         value={nameValue}
         onChange={nameChangeHandler}
-        onBlur={nameBlurHandler}
       />
       {nameValue !== '' && !nameIsValid && (
         <ErrorMessage>! 이름을 입력해 주세요.</ErrorMessage>

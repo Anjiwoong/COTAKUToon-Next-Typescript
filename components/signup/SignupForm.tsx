@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import Button from '../UI/Button';
 import { StyleProps, validInputProps } from './signup-props';
@@ -9,17 +10,38 @@ import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
 
 const SignupForm = () => {
+  const [allCheck, setAllCheck] = useState(false);
+  const [isChecked, setIsChecked] = useState({
+    id: false,
+    password: false,
+    email: false,
+    name: false,
+    birth: false,
+    tos: false,
+  });
+
+  const checkHandler = (check: boolean, inputName: string) => {
+    setIsChecked(prev => ({ ...prev, [inputName]: check }));
+  };
+
+  useEffect(() => {
+    const isAllCheck = Object.values(isChecked).every(check => check === true);
+
+    if (isAllCheck) setAllCheck(true);
+    else setAllCheck(false);
+  }, [isChecked]);
+
   return (
     <SignupFormWrap>
       <fieldset>
         <legend>회원가입</legend>
-        <SignupId />
-        <SignupPassword />
-        <SignupEmail />
-        <SignupName />
-        <SignupBirth />
-        <SignupTos />
-        <Button submit disabled>
+        <SignupId checkHandler={checkHandler} />
+        <SignupPassword checkHandler={checkHandler} />
+        <SignupEmail checkHandler={checkHandler} />
+        <SignupName checkHandler={checkHandler} />
+        <SignupBirth checkHandler={checkHandler} />
+        <SignupTos checkHandler={checkHandler} />
+        <Button submit disabled={!allCheck}>
           회원 가입 완료
         </Button>
       </fieldset>

@@ -20,7 +20,15 @@ export interface validInputProps {
   valid?: boolean;
 }
 
-export interface GenderButton {
-  selected: boolean;
-  onClick: () => void;
+export interface tosItemProps {
+  id: string;
+  title: string;
+  option: string;
+  allCheck: boolean;
+  essential?: boolean;
+  essentialCheckHandler: (check: boolean, inputName: string) => void;
+}
+
+export interface checkProps {
+  checkHandler: (check: boolean, inputName: string) => void;
 }

@@ -1,13 +1,13 @@
-import { forwardRef, LegacyRef } from 'react';
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { InputProps, StyleProps } from './input-props';
+import { InputProps } from './input-props';
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   return <InputWrap {...props} ref={ref} />;
 });
 
 const InputWrap = styled.input`
-  ${(props: StyleProps) =>
+  ${(props: InputProps) =>
     props.login &&
     css`
       ${({ theme }) => theme.mixins.paddingX('14px')}
@@ -29,14 +29,14 @@ const InputWrap = styled.input`
       }
     `}
 
-  ${(props: StyleProps) =>
+  ${(props: InputProps) =>
     props.password &&
     css`
       border-radius: 0;
       border-top: 0;
     `}
 
-    ${(props: StyleProps) =>
+    ${(props: InputProps) =>
     props.box &&
     css`
       width: 100%;

@@ -1,26 +1,30 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useInput from '../../hooks/use-input';
 import Button from '../UI/Button';
+import { ButtonProps } from '../UI/button-props';
 import Input from '../UI/Input';
-import { GenderButton } from './signup-props';
+import { checkProps } from './signup-props';
 import { ErrorMessage, SignupInputText } from './SignupForm';
 
 const birthRegex = /^[0-9]{4,4}$/;
 
-const SignupBirth = () => {
+const SignupBirth = (props: checkProps) => {
   const [isSelected, setIsSelected] = useState(true);
 
   const {
     value: birthValue,
     isValid: birthIsValid,
-    hasError: birthHasError,
     valueChangeHandler: birthChangeHandler,
-    inputBlurHandler: birthBlurHandler,
-    reset: resetBirth,
   } = useInput((value: any) => value.match(birthRegex));
 
   const toggleButton = () => setIsSelected(prev => !prev);
+
+  const { checkHandler } = props;
+
+  useEffect(() => {
+    checkHandler(!!birthIsValid, 'birth');
+  }, [!!birthIsValid]);
 
   return (
     <SignupOption>
@@ -39,7 +43,6 @@ const SignupBirth = () => {
             box
             value={birthValue}
             onChange={birthChangeHandler}
-            onBlur={birthBlurHandler}
           />
         </Birth>
         <Gender>
@@ -101,7 +104,7 @@ const Gender = styled.div`
 `;
 
 const SelectedButton = styled(Button)`
-  ${(props: GenderButton) =>
+  ${(props: ButtonProps) =>
     props.selected &&
     css`
       border: 1px solid ${({ theme }) => theme.colors.fontSkyBlue};
