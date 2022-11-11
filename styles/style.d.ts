@@ -64,6 +64,7 @@ declare module 'styled-components' {
       bgCharcoal: string;
       bgBtnGray: string;
       bgLightBlue: string;
+      bgLightBlue2: string;
       bgGreen: string;
       bgBarGray1: string;
       bgBarGray2: string;

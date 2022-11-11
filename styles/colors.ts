@@ -65,6 +65,7 @@ const colors = {
   bgCharcoal: '#7d8d9d',
   bgBtnGray: '#dfeef8',
   bgLightBlue: '#f7fbff',
+  bgLightBlue2: '#dbefff',
   bgGreen: '#f1faeb',
   bgBarGray1: '#e8edf3',
   bgBarGray2: '#9daab5',
