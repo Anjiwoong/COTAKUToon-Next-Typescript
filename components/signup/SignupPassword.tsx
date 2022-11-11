@@ -4,7 +4,7 @@ import Input from '../UI/Input';
 import { checkProps } from './signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
-const passwordRegex = /^[A-Za-z0-9]{6,12}$/;
+const passwordRegex = /^[A-Za-z0-9]{7,12}$/;
 
 const SignupPassword = (props: checkProps) => {
   const {
@@ -33,7 +33,7 @@ const SignupPassword = (props: checkProps) => {
           valid={!!passwordIsValid}
         >
           {passwordValue !== '' && !passwordIsValid
-            ? '6~12자 영문, 숫자 중 2가지 이상 입력'
+            ? '7~12자 영문, 숫자 중 2가지 이상 입력'
             : '비밀번호'}
         </SignupInputText>
         <Input
@@ -41,6 +41,7 @@ const SignupPassword = (props: checkProps) => {
           box
           value={passwordValue}
           onChange={passwordChangeHandler}
+          ref={props.inputRef}
         />
       </SignupInput>
       <SignupInput check>

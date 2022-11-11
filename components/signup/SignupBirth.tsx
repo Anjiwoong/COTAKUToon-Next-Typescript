@@ -43,6 +43,7 @@ const SignupBirth = (props: checkProps) => {
             box
             value={birthValue}
             onChange={birthChangeHandler}
+            ref={props.inputRef}
           />
         </Birth>
         <Gender>

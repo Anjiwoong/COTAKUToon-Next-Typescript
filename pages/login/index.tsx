@@ -2,8 +2,23 @@ import styled from 'styled-components';
 import LoginForm from '../../components/login/LoginForm';
 import LoginHeader from '../../components/header/LoginHeader';
 import SignupButton from '../../components/login/SignupButton';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { getSession } from 'next-auth/client';
 
 const LoginPage = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    getSession().then(session => {
+      if (session) router.replace('/');
+      else setIsLoading(false);
+    });
+  }, [router]);
+
+  if (isLoading) return <p>Loading...</p>;
+
   return (
     <Login>
       <LoginHeader />

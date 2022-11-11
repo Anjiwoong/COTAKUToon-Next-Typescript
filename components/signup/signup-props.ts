@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Ref, RefObject } from 'react';
 
 export interface StyleProps {
   margin?: boolean;
@@ -31,4 +31,5 @@ export interface tosItemProps {
 
 export interface checkProps {
   checkHandler: (check: boolean, inputName: string) => void;
+  inputRef?: Ref<HTMLInputElement>;
 }

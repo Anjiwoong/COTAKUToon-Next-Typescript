@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Ref } from 'react';
 
 export interface InputProps {
   type: string;
@@ -11,6 +11,7 @@ export interface InputProps {
   box?: boolean;
   value?: string;
   checked?: boolean;
+  ref?: Ref<HTMLInputElement>;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: ChangeEvent<HTMLInputElement>) => void;
 }

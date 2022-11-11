@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { createUser } from '../../lib/create-user';
 import Button from '../UI/Button';
 import { StyleProps, validInputProps } from './signup-props';
 import SignupBirth from './SignupBirth';
@@ -20,6 +21,11 @@ const SignupForm = () => {
     tos: false,
   });
 
+  const idRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const birthRef = useRef<HTMLInputElement>(null);
+
   const checkHandler = (check: boolean, inputName: string) => {
     setIsChecked(prev => ({ ...prev, [inputName]: check }));
   };
@@ -31,15 +37,35 @@ const SignupForm = () => {
     else setAllCheck(false);
   }, [isChecked]);
 
+  const submitHandler = async (e: FormEvent) => {
+    e.preventDefault();
+
+    const enteredId = idRef.current?.value;
+    const enteredPassword = passwordRef.current?.value;
+    const enteredEmail = emailRef.current?.value;
+    const enteredBirth = birthRef.current?.value;
+
+    try {
+      const result = await createUser(
+        enteredId,
+        enteredPassword,
+        enteredEmail,
+        enteredBirth
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <SignupFormWrap>
+    <SignupFormWrap onSubmit={submitHandler}>
       <fieldset>
         <legend>회원가입</legend>
-        <SignupId checkHandler={checkHandler} />
-        <SignupPassword checkHandler={checkHandler} />
-        <SignupEmail checkHandler={checkHandler} />
+        <SignupId checkHandler={checkHandler} inputRef={idRef} />
+        <SignupPassword checkHandler={checkHandler} inputRef={passwordRef} />
+        <SignupEmail checkHandler={checkHandler} inputRef={emailRef} />
         <SignupName checkHandler={checkHandler} />
-        <SignupBirth checkHandler={checkHandler} />
+        <SignupBirth checkHandler={checkHandler} inputRef={birthRef} />
         <SignupTos checkHandler={checkHandler} />
         <Button submit disabled={!allCheck}>
           회원 가입 완료
