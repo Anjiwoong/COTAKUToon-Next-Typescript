@@ -30,6 +30,7 @@ const SignupId = (props: checkProps) => {
         box
         value={idValue}
         onChange={idChangeHandler}
+        ref={props.inputRef}
       />
       {idValue !== '' && !idIsValid && (
         <ErrorMessage>! 아이디를 입력해 주세요.</ErrorMessage>

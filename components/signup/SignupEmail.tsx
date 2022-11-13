@@ -35,6 +35,7 @@ const SignupEmail = (props: checkProps) => {
         box
         value={emailValue}
         onChange={emailChangeHandler}
+        ref={props.inputRef}
       />
       {emailValue !== '' && !emailIsValid && (
         <ErrorMessage>! 이메일 형식에 맞게 입력해 주세요.</ErrorMessage>
