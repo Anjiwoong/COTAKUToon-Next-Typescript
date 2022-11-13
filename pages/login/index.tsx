@@ -11,8 +11,8 @@ const LoginPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    getSession().then(session => {
-      if (session) router.replace('/');
+    getSession().then(async session => {
+      if (session) await router.replace('/');
       else setIsLoading(false);
     });
   }, [router]);

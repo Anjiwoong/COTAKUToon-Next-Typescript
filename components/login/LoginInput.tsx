@@ -1,6 +1,7 @@
 import Input from '../UI/Input';
+import { loginProps } from './login-props';
 
-const LoginInput = () => {
+const LoginInput = (props: loginProps) => {
   return (
     <>
       <legend>로그인</legend>
@@ -10,6 +11,7 @@ const LoginInput = () => {
         placeholder="아이디"
         autoComplete="off"
         login
+        ref={props.idRef}
       />
       <Input
         type="password"
@@ -17,6 +19,7 @@ const LoginInput = () => {
         placeholder="비밀번호"
         login
         password
+        ref={props.passwordRef}
       />
     </>
   );

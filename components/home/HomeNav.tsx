@@ -1,16 +1,19 @@
+import { signOut } from 'next-auth/client';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { StyleProps } from './home-props';
 
 const HomeNav = () => {
+  const logoutHandler = () => signOut();
+
   return (
     <nav>
       <NavList>
         <NavItem selected>
           <Link href="#">웹툰</Link>
         </NavItem>
-        <NavItem>
-          <Link href="#">만화</Link>
+        <NavItem onClick={logoutHandler}>
+          <Link href="/login">만화</Link>
         </NavItem>
       </NavList>
       <GenreList>

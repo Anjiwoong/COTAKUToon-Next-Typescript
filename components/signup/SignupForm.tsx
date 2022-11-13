@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { createUser } from '../../lib/create-user';
@@ -11,6 +12,7 @@ import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
 
 const SignupForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [allCheck, setAllCheck] = useState(false);
   const [isChecked, setIsChecked] = useState({
     id: false,
@@ -26,6 +28,8 @@ const SignupForm = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const birthRef = useRef<HTMLInputElement>(null);
 
+  const router = useRouter();
+
   const checkHandler = (check: boolean, inputName: string) => {
     setIsChecked(prev => ({ ...prev, [inputName]: check }));
   };
@@ -39,6 +43,7 @@ const SignupForm = () => {
 
   const submitHandler = async (e: FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const enteredId = idRef.current?.value;
     const enteredPassword = passwordRef.current?.value;
@@ -52,6 +57,12 @@ const SignupForm = () => {
         enteredEmail,
         enteredBirth
       );
+
+      if (!result.error) {
+        alert('회원가입이 완료되었습니다.');
+        await router.replace('/login');
+        setIsLoading(false);
+      }
     } catch (error) {
       console.log(error);
     }
@@ -68,7 +79,7 @@ const SignupForm = () => {
         <SignupBirth checkHandler={checkHandler} inputRef={birthRef} />
         <SignupTos checkHandler={checkHandler} />
         <Button submit disabled={!allCheck}>
-          회원 가입 완료
+          {isLoading ? '회원가입 하는 중...' : '회원 가입 완료'}
         </Button>
       </fieldset>
     </SignupFormWrap>
