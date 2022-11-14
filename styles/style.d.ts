@@ -117,6 +117,7 @@ declare module 'styled-components' {
       paddingY: (paddingY: string) => string;
       a11yHidden: () => string;
       removeBtnStyle: () => string;
+      ellipsisLine: () => string;
     };
   }
 }
