@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { navProps } from './navigation-props';
 import { AiFillHome } from 'react-icons/ai';
+import { BsBookHalf } from 'react-icons/bs';
+import { BsFillCreditCard2BackFill } from 'react-icons/bs';
+import { BsFillPersonFill } from 'react-icons/bs';
 import Link from 'next/link';
 import NavigationMenuItem from './NavigationMenuItem';
 import { useRouter } from 'next/router';
@@ -22,7 +25,9 @@ const NavigationItem = (props: navProps) => {
       {props.menu[0].title !== '' && (
         <>
           <LinkTitle>
-            <AiFillHome />
+            {props.category === '책' && <BsBookHalf />}
+            {props.category === '구매/혜택' && <BsFillCreditCard2BackFill />}
+            {props.category === '개인' && <BsFillPersonFill />}
             {props.category}
           </LinkTitle>
           <MenuList>

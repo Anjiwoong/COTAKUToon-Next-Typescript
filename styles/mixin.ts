@@ -12,63 +12,71 @@ const mixins = {
   `,
 
   flexCenter: () => `
-  display : flex;
-  justify-content: center;
-  align-items: center;
+    display : flex;
+    justify-content: center;
+    align-items: center;
   `,
 
   autoMargin: () => `
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
   `,
 
   centerTranslateY: () => `
-  top: 50%;
-  transform: translateY(-50%);
+    top: 50%;
+    transform: translateY(-50%);
   `,
 
   centerTranslateX: () => `
-  left: 50%;
-  transform: translateX(-50%);
+    left: 50%;
+    transform: translateX(-50%);
   `,
 
   marginX: (marginX: 0) => `
-  margin-left: ${marginX};
-  margin-right: ${marginX};
+    margin-left: ${marginX};
+    margin-right: ${marginX};
   `,
 
   marginY: (marginY: 0) => `
-  margin-top: ${marginY};
-  margin-bottom: ${marginY};
+    margin-top: ${marginY};
+    margin-bottom: ${marginY};
   `,
 
   paddingX: (paddingX: 0) => `
-  padding-left: ${paddingX};
-  padding-right: ${paddingX};
+    padding-left: ${paddingX};
+    padding-right: ${paddingX};
   `,
 
   paddingY: (paddingY: 0) => `
-  padding-top: ${paddingY};
-  padding-bottom: ${paddingY};
+    padding-top: ${paddingY};
+    padding-bottom: ${paddingY};
   `,
 
   a11yHidden: () => `
-  overflow: hidden;
-  position: absolute !important;
-  clip: rect(0, 0, 0, 0);
-  clip-path: inset(50%);
-  width: 1px;
-  height: 1px;
-  margin: -1px;
+    overflow: hidden;
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
   `,
 
   removeBtnStyle: () => `
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  background: transparent;
-  padding: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+  `,
+
+  ellipsisLine: () => `
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   `,
 };
 
