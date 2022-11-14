@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const EmptyRecentView = () => {
+const MyPageHomeEmptyRecent = () => {
   return (
     <EmptyWrapper>
       <p>최근 조회한 작품이 없습니다.</p>
@@ -21,4 +21,4 @@ const EmptyWrapper = styled.div`
   }
 `;
 
-export default EmptyRecentView;
+export default MyPageHomeEmptyRecent;

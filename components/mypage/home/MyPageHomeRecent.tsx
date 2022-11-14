@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import EmptyRecentView from './EmptyRecentView';
-import MyRecentViewHeader from './MyRecentViewHeader';
-import MyRecentViewItem from './MyRecentViewItem';
+import MyPageHomeEmptyRecent from './MyPageHomeEmptyRecent';
+import MyPageHomeRecentHeader from './MyPageHomeRecentHeader';
+import MyPageHomeRecentItem from './MyPageHomeRecentItem';
 
 const dummy_data = [
   {
@@ -11,15 +11,15 @@ const dummy_data = [
   },
 ];
 
-const MyRecentView = () => {
+const MyPageHomeRecent = () => {
   return (
     <RecentViewWrapper>
-      <MyRecentViewHeader />
-      {!dummy_data.length && <EmptyRecentView />}
-      {dummy_data.length && (
+      <MyPageHomeRecentHeader />
+      {!dummy_data.length && <MyPageHomeEmptyRecent />}
+      {dummy_data.length !== 0 && (
         <RecentBookList>
           {dummy_data.map(data => (
-            <MyRecentViewItem
+            <MyPageHomeRecentItem
               key={data.title}
               title={data.title}
               author={data.author}
@@ -45,4 +45,4 @@ const RecentBookList = styled.ul`
   margin-top: 20px;
 `;
 
-export default MyRecentView;
+export default MyPageHomeRecent;

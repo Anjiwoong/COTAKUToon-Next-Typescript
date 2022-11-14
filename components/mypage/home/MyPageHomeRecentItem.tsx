@@ -8,7 +8,7 @@ interface recentProps {
   image: string;
 }
 
-const MyRecentViewItem = (props: recentProps) => {
+const MyPageHomeRecentItem = (props: recentProps) => {
   return (
     <li>
       <Link href="/webtoon">
@@ -67,4 +67,4 @@ const Author = styled.p`
   color: ${({ theme }) => theme.colors.secondaryFont};
 `;
 
-export default MyRecentViewItem;
+export default MyPageHomeRecentItem;

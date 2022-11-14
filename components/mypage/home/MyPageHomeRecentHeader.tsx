@@ -2,7 +2,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { MdDoubleArrow } from 'react-icons/md';
 
-const MyRecentViewHeader = () => {
+const MyPageHomeRecentHeader = () => {
   return (
     <Wrapper>
       <h3>최근 조회한 작품</h3>
@@ -84,4 +84,4 @@ const MoreBtnWrapper = styled.div`
   }
 `;
 
-export default MyRecentViewHeader;
+export default MyPageHomeRecentHeader;
