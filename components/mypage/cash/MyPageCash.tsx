@@ -1,9 +1,13 @@
-import styled from 'styled-components';
-import MyRidiCashNavigation from '../../Layout/MyRidiCashNavigation';
+import MyRidiCashForm from './MyRidiCashForm';
 import MyRidiCashInfo from './MyRidiCashInfo';
 
 const MyPageCash = () => {
-  return <MyRidiCashInfo />;
+  return (
+    <>
+      <MyRidiCashInfo />
+      <MyRidiCashForm />
+    </>
+  );
 };
 
 export default MyPageCash;
