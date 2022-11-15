@@ -54,6 +54,41 @@ const InputWrap = styled.input`
         background-position: 96% center;
       }
     `}
+
+    ${props =>
+    props.radio &&
+    css`
+      display: none;
+
+      &:checked + label,
+      &:checked + label em {
+        background: ${({ theme }) => theme.colors.bgLightBlue};
+        border-radius: 25px;
+        color: ${({ theme }) => theme.colors.blue};
+      }
+
+      &:checked + label::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        width: 18px;
+        height: 18px;
+        border: 1px solid ${({ theme }) => theme.colors.borderBlue1};
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primaryColor};
+      }
+
+      &:checked + label::after {
+        ${({ theme }) => theme.mixins.centerTranslateY()};
+        content: '';
+        position: absolute;
+        left: 21px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.white};
+      }
+    `}
 `;
 
 export default Input;

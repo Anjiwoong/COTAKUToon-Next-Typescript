@@ -1,5 +1,13 @@
+import MyRidiCashForm from './MyRidiCashForm';
+import MyRidiCashInfo from './MyRidiCashInfo';
+
 const MyPageCash = () => {
-  return <div>MyPageCash</div>;
+  return (
+    <>
+      <MyRidiCashInfo />
+      <MyRidiCashForm />
+    </>
+  );
 };
 
 export default MyPageCash;
