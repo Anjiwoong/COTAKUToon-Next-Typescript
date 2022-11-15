@@ -18,6 +18,7 @@ declare module 'styled-components' {
 
       secondaryFont: string;
       myTitle: string;
+      mySecondaryTitle: string;
       gray1: string;
       gray2: string;
       gray3: string;

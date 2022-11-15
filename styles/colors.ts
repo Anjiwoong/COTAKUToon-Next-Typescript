@@ -16,6 +16,7 @@ const colors = {
   // Secondary ( 보조 색상 ) ------------------------------------------------------- /
   secondaryFont: '#666666',
   myTitle: '#212529',
+  mySecondaryTitle: '#40474d',
   gray1: '#f0f0f0',
   gray2: '#d1d5d9',
   gray3: '#f3f4f5',

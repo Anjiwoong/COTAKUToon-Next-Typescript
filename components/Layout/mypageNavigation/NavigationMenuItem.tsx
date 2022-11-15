@@ -6,11 +6,11 @@ import { menuProps } from './navigation-props';
 const NavigationMenuItem = (props: menuProps) => {
   const router = useRouter();
 
-  const isFocused = router.pathname === props.path;
+  const isSelected = props.path.find(path => path === router.pathname);
 
   return (
     <MenuItem>
-      <MenuLink href={props.path} focus={isFocused ? 1 : 0}>
+      <MenuLink href={props.path[0]} selected={isSelected ? 1 : 0}>
         {props.title}
       </MenuLink>
     </MenuItem>
@@ -31,8 +31,8 @@ const MenuLink = styled(Link)`
     color: ${({ theme }) => theme.colors.secondaryFont};
   }
 
-  ${(props: { focus: boolean | number }) =>
-    props.focus &&
+  ${(props: { selected: boolean | number }) =>
+    props.selected &&
     css`
       color: ${({ theme }) => theme.colors.blue};
 

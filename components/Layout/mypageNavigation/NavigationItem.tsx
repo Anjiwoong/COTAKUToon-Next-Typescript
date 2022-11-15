@@ -10,13 +10,13 @@ import { useRouter } from 'next/router';
 
 const NavigationItem = (props: navProps) => {
   const router = useRouter();
-  const isFocused = router.pathname === props.menu[0].path;
+  const isSelected = router.pathname === props.menu[0].path[0];
 
   return (
     <NavItem>
       {props.menu[0].title === '' && (
-        <LinkTitle focus={isFocused}>
-          <Link href={props.menu[0].path}>
+        <LinkTitle selected={isSelected}>
+          <Link href={props.menu[0].path[0]}>
             <AiFillHome />
             {props.category}
           </Link>
@@ -59,8 +59,8 @@ const LinkTitle = styled.h4`
     margin-right: 6px;
   }
 
-  ${(props: { focus?: boolean }) =>
-    props.focus &&
+  ${(props: { selected?: boolean }) =>
+    props.selected &&
     css`
       color: ${({ theme }) => theme.colors.blue};
     `}
