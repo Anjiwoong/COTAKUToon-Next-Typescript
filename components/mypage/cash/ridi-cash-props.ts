@@ -10,7 +10,3 @@ export interface paymentProps {
   image: string;
   content: string;
 }
-
-export interface cautionProps {
-  content: string;
-}

@@ -1,14 +1,10 @@
 import styled from 'styled-components';
-import Button from '../../UI/Button';
-import { FaCoins } from 'react-icons/fa';
+import Button from '../../../UI/Button';
 
-const MyRidiCashChargeButton = () => {
+const MyRidiAutoChargeButton = () => {
   return (
     <ChargeButtonWrapper>
-      <Button>
-        <FaCoins />
-        리디캐시 충전
-      </Button>
+      <Button>자동충전 설정</Button>
     </ChargeButtonWrapper>
   );
 };
@@ -34,4 +30,4 @@ export const ChargeButtonWrapper = styled.div`
   }
 `;
 
-export default MyRidiCashChargeButton;
+export default MyRidiAutoChargeButton;

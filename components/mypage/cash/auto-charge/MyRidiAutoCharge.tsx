@@ -1,5 +1,13 @@
+import MyRidiAutoChargeForm from './MyRidiAutoChargeForm';
+import MyRidiAutoChargeInfo from './MyRidiAutoChargeInfo';
+
 const MyRidiAutoCharge = () => {
-  return <div>MyRidiAutoCharge</div>;
+  return (
+    <>
+      <MyRidiAutoChargeInfo />
+      <MyRidiAutoChargeForm />
+    </>
+  );
 };
 
 export default MyRidiAutoCharge;

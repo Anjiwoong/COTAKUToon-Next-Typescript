@@ -15,7 +15,7 @@ const MyRidiCashAgreement = () => {
   );
 };
 
-const AgreementWrapper = styled.div`
+export const AgreementWrapper = styled.div`
   ${({ theme }) => theme.mixins.autoMargin()};
   ${({ theme }) => theme.mixins.paddingY('20px')};
 

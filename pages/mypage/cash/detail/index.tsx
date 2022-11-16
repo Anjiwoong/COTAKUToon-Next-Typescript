@@ -1,7 +1,8 @@
+import Footer from '../../../../components/footer/Footer';
 import Header from '../../../../components/header/Header';
 import MyPageContainer from '../../../../components/Layout/MyPageContainer';
 import MyRidiCashWrapper from '../../../../components/Layout/MyRidiCashWrapper';
-import MyRidiDetail from '../../../../components/mypage/cash/detail/MyRidiDetail';
+import RidiCashEmpty from '../../../../components/mypage/cash/empty/RidiCashEmpty';
 
 const MyRidiDetailPage = () => {
   return (
@@ -9,9 +10,10 @@ const MyRidiDetailPage = () => {
       <Header sub />
       <MyPageContainer>
         <MyRidiCashWrapper>
-          <MyRidiDetail />
+          <RidiCashEmpty />
         </MyRidiCashWrapper>
       </MyPageContainer>
+      <Footer />
     </>
   );
 };
