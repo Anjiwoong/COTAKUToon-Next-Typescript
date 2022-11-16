@@ -1,31 +1,13 @@
-import { forwardRef, LegacyRef } from 'react';
+import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
+import { InputProps } from './input-props';
 
-interface InputProps {
-  type: string;
-  id?: string;
-  name?: string;
-  placeholder?: string;
-  autoComplete?: string;
-  login?: boolean;
-  password?: boolean;
-  box?: boolean;
-}
-
-interface StyleProps {
-  login?: boolean;
-  password?: boolean;
-  box?: boolean;
-}
-
-const Input = forwardRef(
-  (props: InputProps, ref?: LegacyRef<HTMLInputElement>) => {
-    return <InputWrap {...props} ref={ref} />;
-  }
-);
+const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  return <InputWrap {...props} ref={ref} />;
+});
 
 const InputWrap = styled.input`
-  ${(props: StyleProps) =>
+  ${(props: InputProps) =>
     props.login &&
     css`
       ${({ theme }) => theme.mixins.paddingX('14px')}
@@ -47,14 +29,14 @@ const InputWrap = styled.input`
       }
     `}
 
-  ${(props: StyleProps) =>
+  ${(props: InputProps) =>
     props.password &&
     css`
       border-radius: 0;
       border-top: 0;
     `}
 
-    ${(props: StyleProps) =>
+    ${(props: InputProps) =>
     props.box &&
     css`
       width: 100%;
@@ -70,6 +52,49 @@ const InputWrap = styled.input`
       &[name='birth'] {
         background-size: 12%;
         background-position: 96% center;
+      }
+    `}
+
+    ${props =>
+    props.radio &&
+    css`
+      display: none;
+
+      &:checked + label,
+      &:checked + label em {
+        background: ${({ theme }) => theme.colors.bgLightBlue};
+        border-radius: 25px;
+        color: ${({ theme }) => theme.colors.blue};
+
+        span {
+          span {
+            &:nth-child(-n + 2) {
+              color: ${({ theme }) => theme.colors.lightBlue};
+            }
+          }
+        }
+      }
+
+      &:checked + label::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        width: 18px;
+        height: 18px;
+        border: 1px solid ${({ theme }) => theme.colors.borderBlue1};
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primaryColor};
+      }
+
+      &:checked + label::after {
+        ${({ theme }) => theme.mixins.centerTranslateY()};
+        content: '';
+        position: absolute;
+        left: 21px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.white};
       }
     `}
 `;

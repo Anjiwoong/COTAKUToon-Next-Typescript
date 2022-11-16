@@ -26,7 +26,7 @@ const HeaderDownList = (props: StyleProps) => {
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="/login">
           <AiOutlineUser />
         </Link>
       </li>

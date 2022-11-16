@@ -67,8 +67,7 @@ const Bg = styled.div`
 
 const BgImage = styled(Image)`
   position: relative;
-  width: 100%;
-  height: 100%;
+  height: 100px;
 `;
 
 const MainImage = styled(Image)`

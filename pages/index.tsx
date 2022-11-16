@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import HomeContainer from '../components/home/HomeContainer';

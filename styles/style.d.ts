@@ -18,12 +18,14 @@ declare module 'styled-components' {
 
       secondaryFont: string;
       myTitle: string;
+      mySecondaryTitle: string;
       gray1: string;
       gray2: string;
       gray3: string;
       gray4: string;
       gray5: string;
       gray6: string;
+      gray7: string;
 
       fontGray1: string;
       fontGray2: string;
@@ -63,6 +65,7 @@ declare module 'styled-components' {
       bgCharcoal: string;
       bgBtnGray: string;
       bgLightBlue: string;
+      bgLightBlue2: string;
       bgGreen: string;
       bgBarGray1: string;
       bgBarGray2: string;
@@ -115,6 +118,7 @@ declare module 'styled-components' {
       paddingY: (paddingY: string) => string;
       a11yHidden: () => string;
       removeBtnStyle: () => string;
+      ellipsisLine: () => string;
     };
   }
 }

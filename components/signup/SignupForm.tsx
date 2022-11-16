@@ -1,45 +1,85 @@
+import { useRouter } from 'next/router';
+import { FormEvent, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
+import { createUser } from '../../lib/create-user';
 import Button from '../UI/Button';
-import Input from '../UI/Input';
-import { StyleProps } from './signup-props';
+import { StyleProps, validInputProps } from './signup-props';
 import SignupBirth from './SignupBirth';
+import SignupEmail from './SignupEmail';
+import SignupId from './SignupId';
+import SignupName from './SignupName';
+import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
 
 const SignupForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [allCheck, setAllCheck] = useState(false);
+  const [isChecked, setIsChecked] = useState({
+    id: false,
+    password: false,
+    email: false,
+    name: false,
+    birth: false,
+    tos: false,
+  });
+
+  const idRef = useRef<HTMLInputElement>(null);
+  const passwordRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const birthRef = useRef<HTMLInputElement>(null);
+
+  const router = useRouter();
+
+  const checkHandler = (check: boolean, inputName: string) => {
+    setIsChecked(prev => ({ ...prev, [inputName]: check }));
+  };
+
+  useEffect(() => {
+    const isAllCheck = Object.values(isChecked).every(check => check === true);
+
+    if (isAllCheck) setAllCheck(true);
+    else setAllCheck(false);
+  }, [isChecked]);
+
+  const submitHandler = async (e: FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    const enteredId = idRef.current?.value;
+    const enteredPassword = passwordRef.current?.value;
+    const enteredEmail = emailRef.current?.value;
+    const enteredBirth = birthRef.current?.value;
+
+    try {
+      const result = await createUser(
+        enteredId,
+        enteredPassword,
+        enteredEmail,
+        enteredBirth
+      );
+
+      if (!result.error) {
+        alert('회원가입이 완료되었습니다.');
+        await router.replace('/login');
+        setIsLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <SignupFormWrap>
+    <SignupFormWrap onSubmit={submitHandler}>
       <fieldset>
         <legend>회원가입</legend>
-        <SignupInput>
-          <SignupInputText>아이디</SignupInputText>
-          <Input type="text" name="userId" autoComplete="off" box />
-          <ErrorMessage></ErrorMessage>
-        </SignupInput>
-        <div>
-          <SignupInput pwd>
-            <SignupInputText>비밀번호</SignupInputText>
-            <Input type="password" name="password" box />
-          </SignupInput>
-          <SignupInput check>
-            <SignupInputText>비밀번호 확인</SignupInputText>
-            <Input type="password" name="confirmPassword" box />
-          </SignupInput>
-          <ErrorMessage></ErrorMessage>
-        </div>
-        <SignupInput margin>
-          <SignupInputText>이메일 주소</SignupInputText>
-          <Input type="email" name="userEmail" autoComplete="off" box />
-          <ErrorMessage></ErrorMessage>
-        </SignupInput>
-        <SignupInput>
-          <SignupInputText>이름</SignupInputText>
-          <Input type="text" name="username" autoComplete="off" box />
-          <ErrorMessage></ErrorMessage>
-        </SignupInput>
-        <SignupBirth />
-        <SignupTos />
-        <Button type="button" submit disabled>
-          회원 가입 완료
+        <SignupId checkHandler={checkHandler} inputRef={idRef} />
+        <SignupPassword checkHandler={checkHandler} inputRef={passwordRef} />
+        <SignupEmail checkHandler={checkHandler} inputRef={emailRef} />
+        <SignupName checkHandler={checkHandler} />
+        <SignupBirth checkHandler={checkHandler} inputRef={birthRef} />
+        <SignupTos checkHandler={checkHandler} />
+        <Button submit disabled={!allCheck}>
+          {isLoading ? '회원가입 하는 중...' : '회원 가입 완료'}
         </Button>
       </fieldset>
     </SignupFormWrap>
@@ -56,7 +96,7 @@ const SignupFormWrap = styled.form`
   font-size: 14px;
 `;
 
-const SignupInput = styled.div`
+export const SignupInput = styled.div`
   position: relative;
   width: 340px;
   height: 48px;
@@ -94,6 +134,22 @@ export const SignupInputText = styled.span`
   position: absolute;
   left: 10px;
   color: ${({ theme }) => theme.colors.fontGray2};
+
+  ${(props: validInputProps) =>
+    props.text &&
+    css`
+      color: ${({ theme }) => theme.colors.blue};
+      transform: translateY(-20px);
+      transition: all 0.2s ease;
+      font-size: 11px;
+    `}
+
+  ${(props: validInputProps) =>
+    props.valid &&
+    css`
+      transform: translateY(-20px);
+      font-size: 11px;
+    `}
 `;
 
 export const ErrorMessage = styled.span`

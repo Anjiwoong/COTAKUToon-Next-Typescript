@@ -16,12 +16,14 @@ const colors = {
   // Secondary ( 보조 색상 ) ------------------------------------------------------- /
   secondaryFont: '#666666',
   myTitle: '#212529',
+  mySecondaryTitle: '#40474d',
   gray1: '#f0f0f0',
   gray2: '#d1d5d9',
   gray3: '#f3f4f5',
   gray4: '#f5f5f5',
   gray5: '#f6f6f6',
   gray6: '#525a61',
+  gray7: '#999999',
 
   // Fonts ( 폰트 색상 ) ------------------------------------------------------- /
   fontGray1: '#787878',
@@ -64,6 +66,7 @@ const colors = {
   bgCharcoal: '#7d8d9d',
   bgBtnGray: '#dfeef8',
   bgLightBlue: '#f7fbff',
+  bgLightBlue2: '#dbefff',
   bgGreen: '#f1faeb',
   bgBarGray1: '#e8edf3',
   bgBarGray2: '#9daab5',
