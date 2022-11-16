@@ -65,6 +65,14 @@ const InputWrap = styled.input`
         background: ${({ theme }) => theme.colors.bgLightBlue};
         border-radius: 25px;
         color: ${({ theme }) => theme.colors.blue};
+
+        span {
+          span {
+            &:nth-child(-n + 2) {
+              color: ${({ theme }) => theme.colors.lightBlue};
+            }
+          }
+        }
       }
 
       &:checked + label::before {

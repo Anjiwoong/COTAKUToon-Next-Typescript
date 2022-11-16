@@ -26,7 +26,7 @@ const MyRidiCashSelectItem = (props: selectProps) => {
   );
 };
 
-const SelectList = styled.li`
+export const SelectList = styled.li`
   text-align: right;
   font-size: 15px;
   font-weight: 600;
@@ -37,7 +37,7 @@ const SelectList = styled.li`
   }
 `;
 
-const SelectLabel = styled.label`
+export const SelectLabel = styled.label`
   ${({ theme }) => theme.mixins.paddingY('10px')};
   ${({ theme }) => theme.mixins.flexBox()};
   position: relative;

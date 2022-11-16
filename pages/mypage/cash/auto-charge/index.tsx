@@ -1,3 +1,4 @@
+import Footer from '../../../../components/footer/Footer';
 import Header from '../../../../components/header/Header';
 import MyPageContainer from '../../../../components/Layout/MyPageContainer';
 import MyRidiCashWrapper from '../../../../components/Layout/MyRidiCashWrapper';
@@ -12,6 +13,7 @@ const AutoChargePage = () => {
           <MyRidiAutoCharge />
         </MyRidiCashWrapper>
       </MyPageContainer>
+      <Footer />
     </>
   );
 };
