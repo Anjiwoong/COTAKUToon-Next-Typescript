@@ -1,3 +1,5 @@
+import { NextPageContext } from 'next';
+import { getSession, useSession } from 'next-auth/react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import MyPageContainer from '../../components/Layout/MyPageContainer';
@@ -13,6 +15,23 @@ const Mypage = () => {
       <Footer />
     </>
   );
+};
+
+export const getServerSideProps = async (context: NextPageContext) => {
+  const session = await getSession({ req: context.req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
 };
 
 export default Mypage;

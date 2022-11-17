@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Input from '../UI/Input';
-import { checkProps } from './signup-props';
+import { checkProps } from '../../types/signup-props';
 import SignupTosItem from './SignupTosItem';
 
 const tosItem = [

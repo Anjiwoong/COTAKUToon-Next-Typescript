@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Input from '../UI/Input';
-import { tosItemProps } from './signup-props';
+import { tosItemProps } from '../../types/signup-props';
 
 const SignupTosItem = (props: tosItemProps) => {
   const [isChecked, setIsChecked] = useState(false);

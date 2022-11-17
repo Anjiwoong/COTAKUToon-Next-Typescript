@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Input from '../../../UI/Input';
 import { SelectLabel, SelectList } from '../MyRidiCashSelectItem';
-import { selectProps } from '../ridi-cash-props';
+import { selectProps } from '../../../../types/ridi-cash-props';
 import { BiRightArrowAlt } from 'react-icons/bi';
 
 const MyRidiAutoChargeSelectItem = (props: selectProps) => {

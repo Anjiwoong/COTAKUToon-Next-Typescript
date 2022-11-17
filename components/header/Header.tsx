@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyleProps } from './header-props';
+import { StyleProps } from '../../types/header-props';
 import HeaderDown from './HeaderDown';
 import HeaderTop from './HeaderTop';
 
