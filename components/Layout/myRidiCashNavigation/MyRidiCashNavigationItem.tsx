@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
-import { cashNavProps } from './cash-navigation-props';
+import { cashNavProps } from '../../../types/cash-navigation-props';
 
 const MyRidiCashNavigationItem = (props: cashNavProps) => {
   const router = useRouter();

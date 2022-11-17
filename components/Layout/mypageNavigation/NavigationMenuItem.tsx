@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
-import { menuProps } from './navigation-props';
+import { menuProps } from '../../../types/navigation-props';
 
 const NavigationMenuItem = (props: menuProps) => {
   const router = useRouter();

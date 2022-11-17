@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import useInput from '../../hooks/use-input';
 import Input from '../UI/Input';
-import { checkProps } from './signup-props';
+import { checkProps } from '../../types/signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const idRegex = /^[A-Za-z0-9]{4,15}$/;

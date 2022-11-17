@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { ButtonProps } from './button-props';
+import { ButtonProps } from '../../types/button-props';
 
 const Button = (props: ButtonProps) => {
   return <ButtonWrap {...props}>{props.children}</ButtonWrap>;

@@ -1,3 +1,4 @@
+import { NextPageContext } from 'next';
 import { getSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -24,6 +25,23 @@ const SignupPage = () => {
       <SignupForm />
     </SignupWrap>
   );
+};
+
+export const getServerSideProps = async (context: NextPageContext) => {
+  const session = await getSession({ req: context.req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
 };
 
 const SignupWrap = styled.div`

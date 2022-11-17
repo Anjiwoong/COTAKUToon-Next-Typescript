@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import Button from '../UI/Button';
-import { loadingProps } from './login-props';
+import { loadingProps } from '../../types/login-props';
 
 const LoginButton = (props: loadingProps) => {
   return (

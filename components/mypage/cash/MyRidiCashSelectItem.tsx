@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Input from '../../UI/Input';
-import { selectProps } from './ridi-cash-props';
+import { selectProps } from '../../../types/ridi-cash-props';
 
 const MyRidiCashSelectItem = (props: selectProps) => {
   return (

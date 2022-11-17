@@ -2,23 +2,10 @@ import styled from 'styled-components';
 import LoginForm from '../../components/login/LoginForm';
 import LoginHeader from '../../components/header/LoginHeader';
 import SignupButton from '../../components/login/SignupButton';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { getSession } from 'next-auth/client';
+import { NextPageContext } from 'next';
 
 const LoginPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
-
-  useEffect(() => {
-    getSession().then(async session => {
-      if (session) await router.replace('/');
-      else setIsLoading(false);
-    });
-  }, [router]);
-
-  if (isLoading) return <p>Loading...</p>;
-
   return (
     <Login>
       <LoginHeader />
@@ -26,6 +13,23 @@ const LoginPage = () => {
       <SignupButton />
     </Login>
   );
+};
+
+export const getServerSideProps = async (context: NextPageContext) => {
+  const session = await getSession({ req: context.req });
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
 };
 
 const Login = styled.div`
