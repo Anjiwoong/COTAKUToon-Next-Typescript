@@ -6,18 +6,19 @@ import { CgShoppingCart } from 'react-icons/cg';
 import { BiBookOpen } from 'react-icons/bi';
 import { AiOutlineUser } from 'react-icons/ai';
 import { StyleProps } from '../../types/header-props';
-import { getSession, session } from 'next-auth/client';
+import { getSession, signIn, useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Button from '../UI/Button';
 
 const HeaderDownList = (props: StyleProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { data: session, status } = useSession();
+  const router = useRouter();
 
-  useEffect(() => {
-    getSession().then(async session => {
-      if (session) setIsLoggedIn(true);
-    });
-  }, [session]);
+  const loginHandler = () => {
+    if (session) router.replace('/mypage');
+    else signIn();
+  };
 
   return (
     <Wrapper sub={props.sub}>
@@ -37,9 +38,9 @@ const HeaderDownList = (props: StyleProps) => {
         </Link>
       </li>
       <li>
-        <Link href={isLoggedIn ? '/mypage' : '/login'}>
+        <Button onClick={loginHandler}>
           <AiOutlineUser />
-        </Link>
+        </Button>
       </li>
     </Wrapper>
   );

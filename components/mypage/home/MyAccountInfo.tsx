@@ -1,4 +1,4 @@
-import { signOut } from 'next-auth/client';
+import { signOut } from 'next-auth/react';
 import styled from 'styled-components';
 import Button from '../../UI/Button';
 

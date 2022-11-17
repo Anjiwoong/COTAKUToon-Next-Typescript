@@ -1,5 +1,5 @@
 import { NextPageContext } from 'next';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -7,18 +7,6 @@ import LoginHeader from '../../components/header/LoginHeader';
 import SignupForm from '../../components/signup/SignupForm';
 
 const SignupPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
-
-  useEffect(() => {
-    getSession().then(async session => {
-      if (session) await router.replace('/');
-      else setIsLoading(false);
-    });
-  }, [router]);
-
-  if (isLoading) return <p>Loading...</p>;
-
   return (
     <SignupWrap>
       <LoginHeader />

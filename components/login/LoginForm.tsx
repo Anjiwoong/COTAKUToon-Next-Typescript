@@ -1,4 +1,4 @@
-import { signIn } from 'next-auth/client';
+import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { FormEvent, useRef, useState } from 'react';
 import styled from 'styled-components';
@@ -21,10 +21,10 @@ const LoginForm = () => {
     const enteredId = idRef.current?.value;
     const enteredPassword = passwordRef.current?.value;
 
-    const result = await signIn('credentials', {
-      redirect: false,
+    const result = await signIn('user-credentials', {
       id: enteredId,
       password: enteredPassword,
+      redirect: false,
     });
 
     if (!result?.error) {

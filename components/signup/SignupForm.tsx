@@ -10,6 +10,7 @@ import SignupId from './SignupId';
 import SignupName from './SignupName';
 import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
+import { signIn } from 'next-auth/react';
 
 const SignupForm = () => {
   const [isLoading, setIsLoading] = useState(false);
