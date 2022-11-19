@@ -1,24 +1,22 @@
 import styled from 'styled-components';
+import { dataTypes, WebtoonArrTypes } from '../../../types/webtoon-types';
 import CarouselButton from '../../Layout/CarouselButton';
 import RankingSectionItem from './RankingSectionItem';
 
-const RankingSection = () => {
+const RankingSection = (props: WebtoonArrTypes) => {
   return (
     <RankWrapper>
       <h2>mainTitle</h2>
       <Carousel>
         <div>
           <CarouselList>
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
-            <RankingSectionItem />
+            {props.webtoon?.map((webtoon, i) => (
+              <RankingSectionItem
+                key={webtoon.id}
+                webtoon={webtoon}
+                index={i}
+              />
+            ))}
           </CarouselList>
         </div>
         <CarouselButton />
