@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { AiFillStar } from 'react-icons/ai';
+import { RateTypes } from '../../types/star-rating-types';
 
-const StarRating = () => {
+const StarRating = (props: RateTypes) => {
   return (
     <>
       <Star>
-        <AiFillStar /> 4.9
+        <AiFillStar /> {props.rating}
       </Star>{' '}
-      <Rating>(30,334)</Rating>
+      <Rating>({props.views})</Rating>
     </>
   );
 };

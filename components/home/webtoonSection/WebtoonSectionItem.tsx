@@ -4,30 +4,31 @@ import styled from 'styled-components';
 import { SiUpwork } from 'react-icons/si';
 import { BiTimeFive } from 'react-icons/bi';
 import StarRating from '../../Layout/StarRating';
+import { WebtoonTypes } from '../../../types/webtoon-types';
 
-const WebtoonSectionItem = () => {
+const WebtoonSectionItem = ({ webtoon }: WebtoonTypes) => {
   return (
     <CarouselItem>
-      <Link href="/webtoon">
+      <Link href={`/webtoon/${webtoon.id}`}>
         <Thumbnail>
           <Image
-            src="/images/cover/bookcover03.webp"
+            src={`/images/${webtoon.cover}`}
             alt="book-cover"
             width={175}
             height={256}
             priority
           />
           <CarouselInfo>
-            <SiUpwork />
-            <BiTimeFive />
-            <span>2화무</span>
+            {webtoon.up && <SiUpwork />}
+            {webtoon.holdOn && <BiTimeFive />}
+            <span>{webtoon.freeEpisode}화무</span>
           </CarouselInfo>
         </Thumbnail>
       </Link>
-      <TitleLink href="/webtoon">title</TitleLink>
-      <Author>author</Author>
+      <TitleLink href="/webtoon">{webtoon.title}</TitleLink>
+      <Author>{webtoon.author}</Author>
       <p>
-        <StarRating />
+        <StarRating rating={webtoon.rating} views={webtoon.views} />
       </p>
     </CarouselItem>
   );
