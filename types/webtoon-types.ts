@@ -18,5 +18,8 @@ export interface WebtoonArrTypes {
 
 export interface WebtoonTypes {
   webtoon: dataTypes;
-  index?: number;
+}
+
+export interface indexTypes extends WebtoonTypes {
+  index: number;
 }
