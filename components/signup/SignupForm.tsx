@@ -3,13 +3,14 @@ import { FormEvent, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { createUser } from '../../lib/create-user';
 import Button from '../UI/Button';
-import { StyleProps, validInputProps } from './signup-props';
+import { StyleProps, validInputProps } from '../../types/signup-props';
 import SignupBirth from './SignupBirth';
 import SignupEmail from './SignupEmail';
 import SignupId from './SignupId';
 import SignupName from './SignupName';
 import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
+import { signIn } from 'next-auth/react';
 
 const SignupForm = () => {
   const [isLoading, setIsLoading] = useState(false);

@@ -5,9 +5,21 @@ import { BiBell } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { BiBookOpen } from 'react-icons/bi';
 import { AiOutlineUser } from 'react-icons/ai';
-import { StyleProps } from './header-props';
+import { StyleProps } from '../../types/header-props';
+import { getSession, signIn, useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Button from '../UI/Button';
 
 const HeaderDownList = (props: StyleProps) => {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  const loginHandler = () => {
+    if (session) router.replace('/mypage');
+    else signIn();
+  };
+
   return (
     <Wrapper sub={props.sub}>
       <li>
@@ -26,9 +38,9 @@ const HeaderDownList = (props: StyleProps) => {
         </Link>
       </li>
       <li>
-        <Link href="/login">
+        <Button onClick={loginHandler}>
           <AiOutlineUser />
-        </Link>
+        </Button>
       </li>
     </Wrapper>
   );

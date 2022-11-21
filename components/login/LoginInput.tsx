@@ -1,5 +1,5 @@
 import Input from '../UI/Input';
-import { loginProps } from './login-props';
+import { loginProps } from '../../types/login-props';
 
 const LoginInput = (props: loginProps) => {
   return (

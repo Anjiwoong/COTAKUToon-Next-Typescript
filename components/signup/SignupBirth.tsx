@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import useInput from '../../hooks/use-input';
 import Button from '../UI/Button';
-import { ButtonProps } from '../UI/button-props';
+import { ButtonProps } from '../../types/button-props';
 import Input from '../UI/Input';
-import { checkProps } from './signup-props';
+import { checkProps } from '../../types/signup-props';
 import { ErrorMessage, SignupInputText } from './SignupForm';
 
 const birthRegex = /^[0-9]{4,4}$/;

@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { AiOutlineSearch } from 'react-icons/ai';
 import Input from '../UI/Input';
 import Link from 'next/link';
-import { StyleProps } from './header-props';
+import { StyleProps } from '../../types/header-props';
 
 const HeaderSearchForm = (props: StyleProps) => {
   return (

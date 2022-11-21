@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { mypageHomeProps } from './mypage-home-props';
+import { mypageHomeProps } from '../../../types/mypage-home-props';
 import { SiZcash } from 'react-icons/si';
 import { MdLocalParking } from 'react-icons/md';
 import { MdDoubleArrow } from 'react-icons/md';

@@ -1,7 +1,7 @@
-import { signOut } from 'next-auth/client';
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
-import { StyleProps } from './home-props';
+import { StyleProps } from '../../types/home-props';
 
 const HomeNav = () => {
   const logoutHandler = () => signOut();

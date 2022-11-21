@@ -1,20 +1,27 @@
 import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import { verifyPassword } from '../../../lib/auth';
 
 import { connectToDatabase } from '../../../lib/db';
 
 interface Provider {
   id: string;
+  email: string;
+  adult: boolean;
   password: string;
 }
 
 export default NextAuth({
   session: {
-    jwt: true,
+    strategy: 'jwt',
+    maxAge: 24 * 60 * 60,
+    updateAge: 2 * 24 * 60 * 60,
   },
   providers: [
-    Providers.Credentials({
+    CredentialsProvider({
+      id: 'user-credentials',
+      name: 'Credentials',
+
       async authorize(credentials: Provider) {
         const client = await connectToDatabase();
 
@@ -39,11 +46,21 @@ export default NextAuth({
           throw new Error('Could not log you in!');
         }
 
-        client.close();
+        const userInfo = {
+          name: user.id,
+          email: user.email,
+          image: user.adult,
+        };
 
-        return { id: user.id };
+        client.close();
+        return userInfo;
       },
     }),
   ],
+  pages: {
+    error: '/error',
+    signIn: '/login',
+    signOut: '/',
+  },
   secret: process.env.SECRET,
 });

@@ -1,14 +1,15 @@
+import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/global-style';
 import { theme } from '../styles/theme';
-import { Provider } from 'next-auth/client';
+import { RecoilRoot } from 'recoil';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Provider session={pageProps.session}>
+      <SessionProvider session={pageProps.session}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Head>
@@ -17,9 +18,11 @@ export default function App({ Component, pageProps }: AppProps) {
               content="width=device-width, initial-scale=1"
             />
           </Head>
-          <Component {...pageProps} />
+          <RecoilRoot>
+            <Component {...pageProps} />
+          </RecoilRoot>
         </ThemeProvider>
-      </Provider>
+      </SessionProvider>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { navProps } from './navigation-props';
+import { navProps } from '../../../types/navigation-props';
 import { AiFillHome } from 'react-icons/ai';
 import { BsBookHalf } from 'react-icons/bs';
 import { BsFillCreditCard2BackFill } from 'react-icons/bs';

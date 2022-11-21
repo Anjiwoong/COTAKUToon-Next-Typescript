@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import styled, { css } from 'styled-components';
 import Input from '../../UI/Input';
-import { paymentProps } from './ridi-cash-props';
+import { paymentProps } from '../../../types/ridi-cash-props';
 
 const MyRidiCashPaymentItem = (props: paymentProps) => {
   return (

@@ -1,14 +1,17 @@
+import { signOut } from 'next-auth/react';
 import styled from 'styled-components';
 import Button from '../../UI/Button';
 
 const MyAccountInfo = () => {
+  const logoutHandler = () => signOut();
+
   return (
     <AccountInfoWrap>
       <InfoContainer>
         <h3>userId</h3>
         <p>email</p>
       </InfoContainer>
-      <LogoutButton>로그아웃</LogoutButton>
+      <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
     </AccountInfoWrap>
   );
 };
