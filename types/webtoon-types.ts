@@ -14,6 +14,7 @@ export interface dataTypes {
 
 export interface WebtoonArrTypes {
   webtoon: dataTypes[];
+  title?: IterableIterator<[number, string]>;
 }
 
 export interface WebtoonTypes {

@@ -1,28 +1,30 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { OnlyRidiTypes } from '../../../types/only-ridi-types';
 
-const OnlyRidiSectionItem = () => {
+const OnlyRidiSectionItem = ({
+  title,
+  sub,
+  coverMain,
+  coverBg,
+}: OnlyRidiTypes) => {
   return (
     <Item>
       <Link href="#">
         <Bg>
-          <BgImage
-            src="/images/onlyRidi/devil_bg.webp"
-            alt="only-ridi"
-            width={363}
-            height={100}
-          />
-          <MainImage
-            src="/images/onlyRidi/devil.webp"
-            alt=""
-            width={250}
-            height={140}
-          />
+          {coverBg !== '' && (
+            <BgImage src={coverBg} alt="only-ridi" width={408} height={100} />
+          )}
+          <MainImage src={coverMain} alt="only-ridi" width={250} height={140} />
         </Bg>
         <CarouselInfo>
-          <CarouselTitle>title</CarouselTitle>
-          <CarouselSub>sub</CarouselSub>
+          <CarouselTitle>
+            {title[0]}
+            <br />
+            {title[1]}
+          </CarouselTitle>
+          <CarouselSub>{sub}</CarouselSub>
         </CarouselInfo>
       </Link>
     </Item>
@@ -36,38 +38,45 @@ const Item = styled.li`
 
   ${({ theme }) => theme.media.tablet`
     width: calc(50% - 7px);
-  `}
+  `};
 
   ${({ theme }) => theme.media.mobile`
     width: calc(100% - 7px);
-  `}
+  `};
+
+  &:nth-child(1) {
+    a > div {
+      background: ${({ theme }) => theme.colors.ridiRed};
+    }
+  }
+
+  &:nth-child(2) {
+    a > div {
+      background: ${({ theme }) => theme.colors.ridiPurple};
+    }
+  }
+
+  &:nth-child(3) {
+    a > div {
+      background: ${({ theme }) => theme.colors.ridiYellow1};
+    }
+  }
+
+  &:nth-child(4) {
+    a > div {
+      background: ${({ theme }) => theme.colors.ridiTurquoise};
+    }
+  }
 `;
 
 const Bg = styled.div`
   position: relative;
   height: 100px;
   border-radius: 5px;
-
-  &:nth-child(1) {
-    background: ${({ theme }) => theme.colors.ridiRed};
-  }
-
-  &:nth-child(2) {
-    background: ${({ theme }) => theme.colors.ridiPurple};
-  }
-
-  &:nth-child(3) {
-    background: ${({ theme }) => theme.colors.ridiYellow1};
-  }
-
-  &:last-child {
-    background: ${({ theme }) => theme.colors.ridiTurquoise};
-  }
 `;
 
 const BgImage = styled(Image)`
   position: relative;
-  height: 100px;
 `;
 
 const MainImage = styled(Image)`
@@ -77,19 +86,20 @@ const MainImage = styled(Image)`
   width: 250px;
 `;
 
-const CarouselInfo = styled.div`
+const CarouselInfo = styled.p`
   ${({ theme }) =>
     theme.mixins.flexBox('column', 'flex-start', 'center', 'nowrap')};
   margin-top: 20px;
 `;
 
-const CarouselTitle = styled.p`
+const CarouselTitle = styled.span`
+  display: block;
   font-weight: 600;
   margin-bottom: 10px;
   text-align: center;
 `;
 
-const CarouselSub = styled.p`
+const CarouselSub = styled.span`
   color: ${({ theme }) => theme.colors.secondaryFont};
   font-size: 14px;
 `;
