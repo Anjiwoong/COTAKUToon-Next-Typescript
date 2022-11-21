@@ -1,4 +1,4 @@
-export interface dataTypes {
+export interface DataTypes {
   id?: string;
   title?: string;
   cover?: string;
@@ -13,14 +13,14 @@ export interface dataTypes {
 }
 
 export interface WebtoonArrTypes {
-  webtoon: dataTypes[];
+  webtoon: DataTypes[];
   title?: IterableIterator<[number, string]>;
 }
 
 export interface WebtoonTypes {
-  webtoon: dataTypes;
+  webtoon: DataTypes;
 }
 
-export interface indexTypes extends WebtoonTypes {
+export interface IndexTypes extends WebtoonTypes {
   index: number;
 }
