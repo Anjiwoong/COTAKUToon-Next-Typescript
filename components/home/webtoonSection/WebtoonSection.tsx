@@ -5,10 +5,7 @@ import CarouselButton from '../../Layout/CarouselButton';
 import WebtoonSectionItem from './WebtoonSectionItem';
 
 const WebtoonSection = (props: WebtoonArrTypes) => {
-  const _webtoon = [...props.webtoon].sort(() => Math.random() - 0.5);
   const sectionTitle = props.title?.next();
-
-  console.log(props.webtoon);
 
   return (
     <Wrapper>
@@ -16,7 +13,7 @@ const WebtoonSection = (props: WebtoonArrTypes) => {
       <Carousel>
         <CarouselWrap>
           <CarouselList>
-            {_webtoon.map((webtoon: DataTypes) => (
+            {props.webtoon.map((webtoon: DataTypes) => (
               <WebtoonSectionItem key={webtoon.id} webtoon={webtoon} />
             ))}
           </CarouselList>

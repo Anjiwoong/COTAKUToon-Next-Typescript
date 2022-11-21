@@ -11,19 +11,11 @@ import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import HomeContainer from '../components/home/HomeContainer';
 
-const HomePage = ({
-  webtoon,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const setWebtoonList = useSetRecoilState<DataTypes[]>(webtoonState);
-
-  useEffect(() => {
-    setWebtoonList(webtoon);
-  }, []);
-
+const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Header />
-      <HomeContainer />
+      <HomeContainer webtoon={props.webtoon} />
       <Footer />
     </>
   );
