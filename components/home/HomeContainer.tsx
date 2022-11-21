@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { DataTypes } from '../../types/webtoon-types';
 
 import HomeMain from './HomeMain';
 import HomeNav from './HomeNav';
 
-const HomeContainer = () => {
+const HomeContainer = ({ webtoon }: { webtoon: DataTypes[] }) => {
   return (
     <Wrapper>
       <HomeNav />
-      <HomeMain />
+      <HomeMain webtoon={webtoon} />
     </Wrapper>
   );
 };
