@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 import { dataTypes, WebtoonArrTypes } from '../../../types/webtoon-types';
+
 import CarouselButton from '../../Layout/CarouselButton';
 import WebtoonSectionItem from './WebtoonSectionItem';
 
 const WebtoonSection = (props: WebtoonArrTypes) => {
+  const _webtoon = [...props.webtoon].sort(() => Math.random() - 0.5);
+  const sectionTitle = props.title?.next();
+
   return (
     <Wrapper>
-      <h2>Webtoon</h2>
+      <h2>{sectionTitle?.value[1]}</h2>
       <Carousel>
         <CarouselWrap>
           <CarouselList>
-            {props.webtoon.map((webtoon: dataTypes) => (
+            {_webtoon.map((webtoon: dataTypes) => (
               <WebtoonSectionItem key={webtoon.id} webtoon={webtoon} />
             ))}
           </CarouselList>

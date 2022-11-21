@@ -1,13 +1,14 @@
 import { dataTypes } from './../types/webtoon-types';
 import { atom, selector } from 'recoil';
+import { v1 } from 'uuid';
 
 export const webtoonState = atom<dataTypes[]>({
-  key: 'webtoonState',
+  key: `webtoonState/${v1()}`,
   default: [],
 });
 
 export const rankingWebtoonSelector = selector({
-  key: 'rankingWebtoonSelector',
+  key: `rankingWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -19,7 +20,7 @@ export const rankingWebtoonSelector = selector({
 });
 
 export const freeWebtoonSelector = selector({
-  key: 'freeWebtoonSelector',
+  key: `freeWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -31,7 +32,7 @@ export const freeWebtoonSelector = selector({
 });
 
 export const sundayWebtoonSelector = selector({
-  key: 'sundayWebtoonSelector',
+  key: `sundayWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -43,7 +44,7 @@ export const sundayWebtoonSelector = selector({
 });
 
 export const bestSellerWebtoonSelector = selector({
-  key: 'bestSellerWebtoonSelector',
+  key: `bestSellerWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -55,7 +56,7 @@ export const bestSellerWebtoonSelector = selector({
 });
 
 export const highRatingWebtoonSelector = selector({
-  key: 'highRatingWebtoonSelector',
+  key: `highRatingWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -67,7 +68,7 @@ export const highRatingWebtoonSelector = selector({
 });
 
 export const bestReviewWebtoonSelector = selector({
-  key: 'bestReviewWebtoonSelector',
+  key: `bestReviewWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -79,7 +80,7 @@ export const bestReviewWebtoonSelector = selector({
 });
 
 export const switchOnWebtoonSelector = selector({
-  key: 'switchOnWebtoonSelector',
+  key: `switchOnWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -91,7 +92,7 @@ export const switchOnWebtoonSelector = selector({
 });
 
 export const yummyWebtoonSelector = selector({
-  key: 'yummyWebtoonSelector',
+  key: `yummyWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -103,7 +104,7 @@ export const yummyWebtoonSelector = selector({
 });
 
 export const wantedWebtoonSelector = selector({
-  key: 'wantedWebtoonSelector',
+  key: `wantedWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>
@@ -115,7 +116,7 @@ export const wantedWebtoonSelector = selector({
 });
 
 export const waitWebtoonSelector = selector({
-  key: 'waitWebtoonSelector',
+  key: `waitWebtoonSelector/${v1()}`,
   get: ({ get }) => {
     const webtoonList = get(webtoonState);
     const filtered = webtoonList.filter(data =>

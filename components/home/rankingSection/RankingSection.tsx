@@ -1,12 +1,16 @@
 import styled from 'styled-components';
-import { dataTypes, WebtoonArrTypes } from '../../../types/webtoon-types';
+import { WebtoonArrTypes } from '../../../types/webtoon-types';
 import CarouselButton from '../../Layout/CarouselButton';
 import RankingSectionItem from './RankingSectionItem';
 
 const RankingSection = (props: WebtoonArrTypes) => {
+  const sectionTitle = props.webtoon.every(data =>
+    data.category?.includes('rank')
+  );
+
   return (
     <RankWrapper>
-      <h2>mainTitle</h2>
+      <h2>{sectionTitle ? '실시간 랭킹' : '기다리면 무료로 시작해!'}</h2>
       <Carousel>
         <div>
           <CarouselList>

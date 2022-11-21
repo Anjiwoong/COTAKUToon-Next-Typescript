@@ -1,18 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { EventSectionTypes } from '../../../types/event-section-types';
 
-const EventSectionItem = () => {
+const EventSectionItem = ({ title, cover }: EventSectionTypes) => {
   return (
     <CarouseItem>
       <Link href="#">
-        <p>title</p>
-        <Image
-          src="/images/event/event_switch.webp"
-          alt="event-image"
-          width={200}
-          height={90}
-        />
+        <p>
+          {title[0]}
+          <br />
+          {title[1]}
+        </p>
+        <Image src={cover} alt="event-image" width={200} height={90} />
       </Link>
     </CarouseItem>
   );
