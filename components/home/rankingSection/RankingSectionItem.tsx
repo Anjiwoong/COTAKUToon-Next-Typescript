@@ -1,10 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { IndexTypes } from '../../../types/webtoon-types';
+import { DataTypes } from '../../../types/webtoon-types';
 import StarRating from '../../Layout/StarRating';
 
-const RankingSectionItem = ({ webtoon, index }: IndexTypes) => {
+const RankingSectionItem = ({
+  webtoon,
+  index,
+}: {
+  webtoon: DataTypes;
+  index: number;
+}) => {
   return (
     <li>
       <CarouselLink href={`/webtoon/${webtoon.id}`}>

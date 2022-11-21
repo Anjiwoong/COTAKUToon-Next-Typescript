@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import { SiUpwork } from 'react-icons/si';
 import { BiTimeFive } from 'react-icons/bi';
 import StarRating from '../../Layout/StarRating';
-import { WebtoonTypes } from '../../../types/webtoon-types';
+import { DataTypes } from '../../../types/webtoon-types';
 
-const WebtoonSectionItem = ({ webtoon }: WebtoonTypes) => {
+const WebtoonSectionItem = ({ webtoon }: { webtoon: DataTypes }) => {
   return (
     <CarouselItem>
       <Link href={`/webtoon/${webtoon.id}`}>
