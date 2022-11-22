@@ -14,7 +14,7 @@ const OnlyRidiSectionItem = ({
       <Link href="#">
         <Bg>
           {coverBg !== '' && (
-            <BgImage src={coverBg} alt="only-ridi" width={408} height={100} />
+            <BgImage src={coverBg} alt="only-ridi" width={680} height={112} />
           )}
           <MainImage src={coverMain} alt="only-ridi" width={250} height={140} />
         </Bg>
@@ -32,41 +32,7 @@ const OnlyRidiSectionItem = ({
 };
 
 const Item = styled.li`
-  margin: 0 3.5px;
-  width: calc(33.33% - 7px);
-  flex-shrink: 0;
-
-  ${({ theme }) => theme.media.tablet`
-    width: calc(50% - 7px);
-  `};
-
-  ${({ theme }) => theme.media.mobile`
-    width: calc(100% - 7px);
-  `};
-
-  &:nth-child(1) {
-    a > div {
-      background: ${({ theme }) => theme.colors.ridiRed};
-    }
-  }
-
-  &:nth-child(2) {
-    a > div {
-      background: ${({ theme }) => theme.colors.ridiPurple};
-    }
-  }
-
-  &:nth-child(3) {
-    a > div {
-      background: ${({ theme }) => theme.colors.ridiYellow1};
-    }
-  }
-
-  &:nth-child(4) {
-    a > div {
-      background: ${({ theme }) => theme.colors.ridiTurquoise};
-    }
-  }
+  margin: 0 2px;
 `;
 
 const Bg = styled.div`
@@ -77,6 +43,8 @@ const Bg = styled.div`
 
 const BgImage = styled(Image)`
   position: relative;
+  max-width: 100%;
+  max-height: 100%;
 `;
 
 const MainImage = styled(Image)`

@@ -1,5 +1,9 @@
+import { useMemo } from 'react';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import Slider, { Settings } from 'react-slick';
 import styled from 'styled-components';
-import CarouselButton from '../../Layout/CarouselButton';
+
+import Button from '../../UI/Button';
 import EventSectionItem from './EventSectionItem';
 
 const eventData = [
@@ -22,22 +26,60 @@ const eventData = [
 ];
 
 const EventSection = () => {
+  const settings = useMemo<Settings>(
+    () => ({
+      dots: false,
+      infinite: false,
+      slidesToShow: 3,
+      speed: 600,
+      autoplay: false,
+      draggable: false,
+      slidesToScroll: 1,
+
+      prevArrow: (
+        <Button prev>
+          <IoIosArrowBack />
+        </Button>
+      ),
+      nextArrow: (
+        <Button next>
+          <IoIosArrowForward />
+        </Button>
+      ),
+
+      responsive: [
+        {
+          breakpoint: 1169,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    }),
+    []
+  );
+
   return (
     <Wrapper>
       <h2>이벤트 보러가기</h2>
       <Carousel>
-        <CarouselWrap>
-          <CarouselList>
-            {eventData.map(data => (
-              <EventSectionItem
-                key={data.cover}
-                title={data.title}
-                cover={data.cover}
-              />
-            ))}
-          </CarouselList>
-        </CarouselWrap>
-        <CarouselButton />
+        <StyledSlider {...settings}>
+          {eventData.map(data => (
+            <EventSectionItem
+              key={data.cover}
+              title={data.title}
+              cover={data.cover}
+            />
+          ))}
+        </StyledSlider>
       </Carousel>
     </Wrapper>
   );
@@ -65,13 +107,64 @@ const Carousel = styled.div`
   position: relative;
 `;
 
-const CarouselWrap = styled.div`
-  overflow: hidden;
-`;
+const StyledSlider = styled(Slider)`
+  li {
+    list-style: none;
+  }
 
-const CarouselList = styled.ul`
-  ${({ theme }) =>
-    theme.mixins.flexBox('row', 'space-between', 'stretch', 'nowrap')};
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+
+  .slick-prev,
+  .slick-next {
+    z-index: 1000;
+
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.colors.fontGray1};
+      border: 2px solid ${({ theme }) => theme.colors.borderGray2};
+      background: ${({ theme }) => theme.colors.white};
+    }
+
+    &.slick-disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .slick-slide {
+    &:nth-child(1) {
+      li {
+        background: ${({ theme }) => theme.colors.eventSwitch};
+      }
+    }
+
+    &:nth-child(2) {
+      li {
+        background: ${({ theme }) => theme.colors.eventUp};
+      }
+    }
+
+    &:nth-child(3) {
+      li {
+        background: ${({ theme }) => theme.colors.eventEarly};
+      }
+    }
+
+    &:last-child {
+      li {
+        background: ${({ theme }) => theme.colors.eventCash};
+        margin-right: 0;
+      }
+    }
+  }
+
+  .slick-track {
+    display: flex;
+  }
 `;
 
 export default EventSection;

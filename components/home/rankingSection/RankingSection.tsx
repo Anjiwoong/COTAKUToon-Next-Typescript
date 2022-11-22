@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { DataTypes } from '../../../types/webtoon-types';
-import CarouselButton from '../../Layout/CarouselButton';
+import CarouselButton from '../../Layout/CarouselNextButton';
 import RankingSectionItem from './RankingSectionItem';
 
 const RankingSection = ({ webtoon }: { webtoon: DataTypes[] }) => {

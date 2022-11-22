@@ -1,11 +1,8 @@
 import path from 'path';
 import fs from 'fs/promises';
 
-import { useEffect } from 'react';
-import { useSetRecoilState } from 'recoil';
 import { DataTypes } from '../types/webtoon-types';
 import { InferGetStaticPropsType } from 'next';
-import { webtoonState } from '../states/webtoonState';
 
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';

@@ -104,6 +104,7 @@ const ButtonWrap = styled.button`
       color: ${({ theme }) => theme.colors.fontGray1};
 
       left: -20px;
+      z-index: 1000;
     `}
 
     ${(props: ButtonProps) =>
@@ -121,6 +122,7 @@ const ButtonWrap = styled.button`
       color: ${({ theme }) => theme.colors.fontGray1};
 
       right: -20px;
+      z-index: 1000;
     `}
 `;
 
