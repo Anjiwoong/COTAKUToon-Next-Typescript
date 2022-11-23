@@ -12,13 +12,13 @@ const RankingSectionItem = ({
   index: number;
 }) => {
   return (
-    <li>
+    <CarouselItem>
       <CarouselLink href={`/webtoon/${webtoon.id}`}>
         <Image
           src={`/images/${webtoon.cover}`}
           alt="book-cover"
-          width={80}
-          height={116}
+          width={256}
+          height={368}
         />
       </CarouselLink>
       <CarouselNum>{index + 1}</CarouselNum>
@@ -31,9 +31,13 @@ const RankingSectionItem = ({
           <StarRating rating={webtoon.rating} views={webtoon.views} />
         </p>
       </CarouselDesc>
-    </li>
+    </CarouselItem>
   );
 };
+
+const CarouselItem = styled.div`
+  display: flex;
+`;
 
 const CarouselLink = styled(Link)`
   ${({ theme }) => theme.media.mobile`

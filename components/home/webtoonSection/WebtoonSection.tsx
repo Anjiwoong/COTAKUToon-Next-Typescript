@@ -6,8 +6,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import WebtoonSectionItem from './WebtoonSectionItem';
-import CarouselPrevButton from '../../Layout/CarouselPrevButton';
-import CarouselNextButton from '../../Layout/CarouselNextButton';
 import Button from '../../UI/Button';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 

@@ -12,7 +12,7 @@ const EventSectionItem = ({ title, cover }: EventSectionTypes) => {
           <br />
           {title[1]}
         </p>
-        <Image src={cover} alt="event-image" width={200} height={90} />
+        <Image src={cover} alt="event-image" width={200} height={90} priority />
       </Link>
     </CarouseItem>
   );

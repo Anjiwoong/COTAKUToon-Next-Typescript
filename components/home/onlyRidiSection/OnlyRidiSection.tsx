@@ -175,10 +175,6 @@ const StyledSlider = styled(Slider)`
       }
     }
   }
-
-  .slick-track {
-    display: flex;
-  }
 `;
 
 export default OnlyRidiSection;

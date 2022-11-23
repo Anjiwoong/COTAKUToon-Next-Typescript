@@ -31,7 +31,7 @@ const EventSection = () => {
       dots: false,
       infinite: false,
       slidesToShow: 3,
-      speed: 600,
+      speed: 700,
       autoplay: false,
       draggable: false,
       slidesToScroll: 1,
@@ -52,14 +52,12 @@ const EventSection = () => {
           breakpoint: 1169,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 1,
           },
         },
         {
           breakpoint: 767,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1,
           },
         },
       ],
@@ -160,10 +158,6 @@ const StyledSlider = styled(Slider)`
         margin-right: 0;
       }
     }
-  }
-
-  .slick-track {
-    display: flex;
   }
 `;
 
