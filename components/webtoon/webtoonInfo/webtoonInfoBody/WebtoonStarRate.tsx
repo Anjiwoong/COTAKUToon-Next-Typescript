@@ -1,10 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
 import { DataTypes } from '../../../../types/webtoon-types';
 
 const WebtoonStarRate = (props: DataTypes) => {
+  const starPercentage = props.rating && (props.rating / 5) * 100;
+
   return (
     <Wrapper>
-      <StartBg>
+      <StartBg rate={starPercentage}>
         <span></span>
       </StartBg>
       <span>{props.rating}점</span>
@@ -19,16 +22,18 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.mixins.marginY('20px')};
 
   span {
-    :nth-child(2) {
+    &:nth-child(2) {
       color: ${({ theme }) => theme.colors.accentFont};
       font-size: 14px;
       margin-right: 2px;
       font-weight: 600;
+      transform: translateY(1px);
     }
 
-    :last-child {
+    &:last-child {
       font-size: 12px;
       font-weight: 100;
+      transform: translateY(1px);
     }
   }
 `;
@@ -42,11 +47,18 @@ export const StartBg = styled.span`
   background-size: 100% 100%;
   margin-right: 4px;
 
+  ${(props: { rate?: number }) =>
+    props.rate &&
+    css`
+      span {
+        width: ${props.rate}%;
+      }
+    `}
+
   span {
     position: relative;
     display: block;
     overflow: hidden;
-    width: 20%;
     height: 15px;
 
     &::after {
@@ -56,7 +68,7 @@ export const StartBg = styled.span`
       background: url('/images/books/stars.svg') center center no-repeat;
       background-size: 100% 100%;
       left: 0;
-      top: 0;
+      top: -1px;
       width: 75px;
       height: 15px;
     }

@@ -77,6 +77,7 @@ const colors = {
   bgNavZoom: '#98ade4',
   bgModel1: '#0f1724',
   bgModel2: '#41474c',
+  bgToaster: '#191919',
 
   // Accent ( 강조 색상 ) ---------------------------------------------------------- /
   accentFont: '#fa722e',

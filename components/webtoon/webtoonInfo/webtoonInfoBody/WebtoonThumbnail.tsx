@@ -1,12 +1,57 @@
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import Button from '../../../UI/Button';
-import { AiOutlineHeart } from 'react-icons/ai';
-import { BsPlusLg } from 'react-icons/bs';
 import { DataTypes } from '../../../../types/webtoon-types';
 
+import Button from '../../../UI/Button';
+import { AiOutlineHeart, AiFillHeart, AiOutlineCheck } from 'react-icons/ai';
+import { BsPlusLg } from 'react-icons/bs';
+import Toaster from '../../../Layout/Toaster';
+
 const WebtoonThumbnail = (props: DataTypes) => {
+  const [favorite, setFavorite] = useState<boolean>(false);
+  const [notice, setNotice] = useState<boolean>(false);
+  const [show, setShow] = useState<boolean>(false);
+  const [active, setActive] = useState<boolean>(false);
+  const [toasterText, setToasterText] = useState<string>('');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActive(false);
+      setShow(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [favorite, notice]);
+
+  const favoriteHandler = () => {
+    if (active) return;
+
+    setFavorite(prev => !prev);
+    setShow(true);
+    setActive(true);
+
+    if (favorite) setToasterText('선호작품에서 삭제되었습니다');
+    else setToasterText('선호작품에 등록되었습니다');
+  };
+
+  const noticeHandler = () => {
+    if (active) return;
+
+    setNotice(prev => !prev);
+    setShow(true);
+    setActive(true);
+
+    if (notice) setToasterText('신간알람에서 삭제되었습니다');
+    else setToasterText('신간알람에 등록되었습니다');
+  };
+
+  const closeToasterHandler = () => {
+    setShow(false);
+    setActive(false);
+  };
+
   return (
     <ThumbnailWrap>
       <Image
@@ -16,14 +61,22 @@ const WebtoonThumbnail = (props: DataTypes) => {
         height={290}
         priority
       />
-      <HeartButton>
-        <AiOutlineHeart />
-        <span>0</span>
+      <HeartButton onClick={favoriteHandler}>
+        {!favorite && <AiOutlineHeart />}
+        {favorite && <AiFillHeart />}
       </HeartButton>
-      <NotificationButton>
-        <BsPlusLg />
+      <NotificationButton onClick={noticeHandler} active={notice}>
+        {!notice && <BsPlusLg />}
+        {notice && <AiOutlineCheck />}
         <span>시리즈 신간알림</span>
       </NotificationButton>
+      {show && (
+        <Toaster
+          active={show}
+          text={toasterText}
+          closeHandler={closeToasterHandler}
+        />
+      )}
     </ThumbnailWrap>
   );
 };
@@ -48,12 +101,7 @@ const HeartButton = styled(Button)`
   svg {
     color: ${({ theme }) => theme.colors.red};
     vertical-align: middle;
-    margin-right: 4px;
     font-size: 16px;
-  }
-
-  span {
-    color: ${({ theme }) => theme.colors.fontGray1};
   }
 `;
 
@@ -79,6 +127,18 @@ const NotificationButton = styled(Button)`
   svg {
     transform: translate(-3px, 1px);
   }
+
+  ${(props: { active: boolean }) =>
+    props.active &&
+    css`
+      color: ${({ theme }) => theme.colors.secondaryFont};
+      border: 1px solid ${({ theme }) => theme.colors.secondaryFont};
+
+      &:hover {
+        background: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.black};
+      }
+    `}
 `;
 
 export default WebtoonThumbnail;

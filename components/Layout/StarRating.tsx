@@ -7,7 +7,7 @@ const StarRating = (props: RateTypes) => {
     <>
       <Star>
         <AiFillStar /> {props.rating}
-      </Star>{' '}
+      </Star>
       <Rating>({props.views})</Rating>
     </>
   );
