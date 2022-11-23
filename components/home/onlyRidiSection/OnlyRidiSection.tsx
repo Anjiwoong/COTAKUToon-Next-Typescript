@@ -1,6 +1,10 @@
+import { useMemo } from 'react';
 import styled from 'styled-components';
-import CarouselButton from '../../Layout/CarouselButton';
+import Slider, { Settings } from 'react-slick';
+
 import OnlyRidiSectionItem from './OnlyRidiSectionItem';
+import Button from '../../UI/Button';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const onlyRidiData = [
   {
@@ -30,24 +34,60 @@ const onlyRidiData = [
 ];
 
 const OnlyRidiSection = () => {
+  const settings = useMemo<Settings>(
+    () => ({
+      dots: false,
+      infinite: false,
+      slidesToShow: 3,
+      speed: 700,
+      autoplay: false,
+      draggable: false,
+      slidesToScroll: 1,
+
+      prevArrow: (
+        <Button prev>
+          <IoIosArrowBack />
+        </Button>
+      ),
+      nextArrow: (
+        <Button next>
+          <IoIosArrowForward />
+        </Button>
+      ),
+
+      responsive: [
+        {
+          breakpoint: 1169,
+          settings: {
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+          },
+        },
+      ],
+    }),
+    []
+  );
+
   return (
     <Wrapper>
       <h2>오직 리디에서만!</h2>
       <Carousel>
-        <CarouselWrap>
-          <ul>
-            {onlyRidiData.map(data => (
-              <OnlyRidiSectionItem
-                key={data.sub}
-                title={data.title}
-                sub={data.sub}
-                coverMain={data.coverMain}
-                coverBg={data.coverBg}
-              />
-            ))}
-          </ul>
-        </CarouselWrap>
-        <CarouselButton />
+        <StyledSlider {...settings}>
+          {onlyRidiData.map(data => (
+            <OnlyRidiSectionItem
+              key={data.sub}
+              title={data.title}
+              sub={data.sub}
+              coverMain={data.coverMain}
+              coverBg={data.coverBg}
+            />
+          ))}
+        </StyledSlider>
       </Carousel>
     </Wrapper>
   );
@@ -80,12 +120,60 @@ const Carousel = styled.div`
   }
 `;
 
-const CarouselWrap = styled.div`
-  overflow: hidden;
+const StyledSlider = styled(Slider)`
+  li {
+    list-style: none;
+  }
 
-  ul {
-    ${({ theme }) => theme.mixins.flexBox()};
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+
+  .slick-prev,
+  .slick-next {
+    z-index: 1000;
+
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.colors.fontGray1};
+      border: 2px solid ${({ theme }) => theme.colors.borderGray2};
+      background: ${({ theme }) => theme.colors.white};
+    }
+
+    &.slick-disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .slick-slide {
     padding-top: 40px;
+
+    &:nth-child(1) {
+      a > div {
+        background: ${({ theme }) => theme.colors.ridiRed};
+      }
+    }
+
+    &:nth-child(2) {
+      a > div {
+        background: ${({ theme }) => theme.colors.ridiPurple};
+      }
+    }
+
+    &:nth-child(3) {
+      a > div {
+        background: ${({ theme }) => theme.colors.ridiYellow1};
+      }
+    }
+
+    &:last-child {
+      a > div {
+        background: ${({ theme }) => theme.colors.ridiTurquoise};
+      }
+    }
   }
 `;
 

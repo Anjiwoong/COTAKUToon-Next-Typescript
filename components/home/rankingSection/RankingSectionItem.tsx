@@ -1,18 +1,24 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { indexTypes } from '../../../types/webtoon-types';
+import { DataTypes } from '../../../types/webtoon-types';
 import StarRating from '../../Layout/StarRating';
 
-const RankingSectionItem = ({ webtoon, index }: indexTypes) => {
+const RankingSectionItem = ({
+  webtoon,
+  index,
+}: {
+  webtoon: DataTypes;
+  index: number;
+}) => {
   return (
-    <li>
+    <CarouselItem>
       <CarouselLink href={`/webtoon/${webtoon.id}`}>
         <Image
           src={`/images/${webtoon.cover}`}
           alt="book-cover"
-          width={80}
-          height={116}
+          width={256}
+          height={368}
         />
       </CarouselLink>
       <CarouselNum>{index + 1}</CarouselNum>
@@ -25,9 +31,13 @@ const RankingSectionItem = ({ webtoon, index }: indexTypes) => {
           <StarRating rating={webtoon.rating} views={webtoon.views} />
         </p>
       </CarouselDesc>
-    </li>
+    </CarouselItem>
   );
 };
+
+const CarouselItem = styled.div`
+  display: flex;
+`;
 
 const CarouselLink = styled(Link)`
   ${({ theme }) => theme.media.mobile`

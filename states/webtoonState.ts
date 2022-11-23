@@ -1,8 +1,8 @@
-import { dataTypes } from './../types/webtoon-types';
+import { DataTypes } from './../types/webtoon-types';
 import { atom, selector } from 'recoil';
 import { v1 } from 'uuid';
 
-export const webtoonState = atom<dataTypes[]>({
+export const webtoonState = atom<DataTypes[]>({
   key: `webtoonState/${v1()}`,
   default: [],
 });

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import CarouselButton from '../Layout/CarouselButton';
+import CarouselButton from '../Layout/CarouselNextButton';
 
 const CarouselSection = () => {
   return (

@@ -6,8 +6,7 @@ import { CgShoppingCart } from 'react-icons/cg';
 import { BiBookOpen } from 'react-icons/bi';
 import { AiOutlineUser } from 'react-icons/ai';
 import { StyleProps } from '../../types/header-props';
-import { getSession, signIn, useSession } from 'next-auth/react';
-import { useEffect, useState } from 'react';
+import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Button from '../UI/Button';
 
@@ -70,7 +69,17 @@ const Wrapper = styled.ul`
   }
 
   a {
-    ${({ theme }) => theme.mixins.flexCenter()}
+    ${({ theme }) => theme.mixins.flexCenter()};
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      ${({ theme }) => theme.mixins.flexCenter()};
+      font-size: 26px;
+    }
   }
 
   ${(props: StyleProps) =>
