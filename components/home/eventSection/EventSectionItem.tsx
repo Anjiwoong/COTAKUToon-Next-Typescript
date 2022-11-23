@@ -12,7 +12,7 @@ const EventSectionItem = ({ title, cover }: EventSectionTypes) => {
           <br />
           {title[1]}
         </p>
-        <Image src={cover} alt="event-image" width={200} height={90} />
+        <Image src={cover} alt="event-image" width={200} height={90} priority />
       </Link>
     </CarouseItem>
   );
@@ -20,32 +20,10 @@ const EventSectionItem = ({ title, cover }: EventSectionTypes) => {
 
 const CarouseItem = styled.li`
   border-radius: 5px;
-  width: calc(33.33% - 7px);
-  flex-shrink: 0;
-  margin: 0 3.5px;
-
-  :nth-child(1) {
-    background: ${({ theme }) => theme.colors.eventSwitch};
-  }
-
-  :nth-child(2) {
-    background: ${({ theme }) => theme.colors.eventUp};
-  }
-
-  :nth-child(3) {
-    background: ${({ theme }) => theme.colors.eventEarly};
-  }
-
-  :last-child {
-    background: ${({ theme }) => theme.colors.eventCash};
-  }
-
-  ${({ theme }) => theme.media.tablet`
-    width: calc(50% - 7px);
-  `}
+  margin: 0 2px;
 
   ${({ theme }) => theme.media.mobile`
-    width: calc(100% - 7px);
+    margin: 0 2px;
   `}
 
   a {

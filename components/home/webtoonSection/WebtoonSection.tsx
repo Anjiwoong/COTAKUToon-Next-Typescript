@@ -1,24 +1,50 @@
+import { useMemo } from 'react';
 import styled from 'styled-components';
 import { DataTypes, WebtoonArrTypes } from '../../../types/webtoon-types';
+import Slider, { Settings } from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-import CarouselButton from '../../Layout/CarouselButton';
 import WebtoonSectionItem from './WebtoonSectionItem';
+import Button from '../../UI/Button';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 const WebtoonSection = (props: WebtoonArrTypes) => {
-  const sectionTitle = props.title?.next();
+  const settings = useMemo<Settings>(
+    () => ({
+      variableWidth: true,
+      dots: false,
+      infinite: false,
+      speed: 600,
+      autoplay: false,
+      draggable: false,
+      slidesToScroll: 5,
+
+      prevArrow: (
+        <Button prev>
+          <IoIosArrowBack />
+        </Button>
+      ),
+      nextArrow: (
+        <Button next>
+          <IoIosArrowForward />
+        </Button>
+      ),
+    }),
+    []
+  );
+
+  const sectionTitle = props.title?.next()?.value[1];
 
   return (
     <Wrapper>
-      <h2>{sectionTitle?.value[1]}</h2>
+      <h2>{sectionTitle}</h2>
       <Carousel>
-        <CarouselWrap>
-          <CarouselList>
-            {props.webtoon.map((webtoon: DataTypes) => (
-              <WebtoonSectionItem key={webtoon.id} webtoon={webtoon} />
-            ))}
-          </CarouselList>
-        </CarouselWrap>
-        <CarouselButton />
+        <StyledSlider {...settings}>
+          {props.webtoon.map((webtoon: DataTypes) => (
+            <WebtoonSectionItem key={webtoon.id} webtoon={webtoon} />
+          ))}
+        </StyledSlider>
       </Carousel>
     </Wrapper>
   );
@@ -60,12 +86,43 @@ const Carousel = styled.div`
   }
 `;
 
-const CarouselWrap = styled.div`
-  overflow: hidden;
-`;
+const StyledSlider = styled(Slider)`
+  li {
+    list-style: none;
+  }
 
-const CarouselList = styled.ul`
-  ${({ theme }) => theme.mixins.flexBox()};
+  .slick-prev::before,
+  .slick-next::before {
+    opacity: 0;
+    display: none;
+  }
+
+  .slick-list {
+    ${({ theme }) =>
+      theme.mixins.flexBox('row', 'flex-start', 'stretch', 'wrap')};
+    overflow: hidden;
+  }
+
+  .slick-prev,
+  .slick-next {
+    z-index: 1000;
+
+    &:hover,
+    &:focus {
+      color: ${({ theme }) => theme.colors.fontGray1};
+      border: 2px solid ${({ theme }) => theme.colors.borderGray2};
+      background: ${({ theme }) => theme.colors.white};
+    }
+
+    &.slick-disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  .slick-track {
+    display: flex;
+  }
 `;
 
 export default WebtoonSection;
