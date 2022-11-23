@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+
 import Button from '../../UI/Button';
 import { BiSortAlt2 } from 'react-icons/bi';
-import Input from '../../UI/Input';
 import { FaShoppingCart } from 'react-icons/fa';
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 

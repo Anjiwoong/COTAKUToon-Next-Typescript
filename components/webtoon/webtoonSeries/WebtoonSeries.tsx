@@ -1,17 +1,23 @@
 import styled from 'styled-components';
+
 import WebtoonSeriesList from './WebtoonSeriesList';
 import WebtoonSeriesOption from './WebtoonSeriesOption';
 
-const WebtoonSeries = () => {
+const WebtoonSeries = ({
+  title,
+  cover,
+}: {
+  title?: string;
+  cover?: string;
+}) => {
   return (
     <SeriesWrapper>
       <WebtoonSeriesTabList>
         <li>
           <RentalTitle>대여하기</RentalTitle>
           <WebtoonSeriesOption />
-          <WebtoonSeriesList />
+          <WebtoonSeriesList title={title} cover={cover} />
         </li>
-
         <li>
           <PurchaseTitle>소장하기</PurchaseTitle>
         </li>

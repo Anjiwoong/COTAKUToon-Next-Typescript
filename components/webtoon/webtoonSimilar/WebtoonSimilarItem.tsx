@@ -2,15 +2,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const WebtoonSimilarItem = () => {
+const WebtoonSimilarItem = ({ cover, id }: { cover?: string; id?: string }) => {
   return (
     <li>
-      <Link href="/webtoon">
+      <Link href={`/webtoon/${id}`}>
         <ThumbnailImage
-          src="/images/cover/bookcover43.webp"
+          src={`/images/${cover}`}
           alt="thumbnail"
           width={90}
           height={130}
+          priority
         />
       </Link>
     </li>

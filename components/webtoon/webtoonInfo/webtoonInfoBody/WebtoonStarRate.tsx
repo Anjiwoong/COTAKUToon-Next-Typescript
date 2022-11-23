@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { DataTypes } from '../../../../types/webtoon-types';
 
-const WebtoonStarRate = () => {
+const WebtoonStarRate = (props: DataTypes) => {
   return (
     <Wrapper>
       <StartBg>
         <span></span>
       </StartBg>
-      <span>4.7점</span>
-      <span>(30,334명)</span>
+      <span>{props.rating}점</span>
+      <span>({props.views}명)</span>
     </Wrapper>
   );
 };

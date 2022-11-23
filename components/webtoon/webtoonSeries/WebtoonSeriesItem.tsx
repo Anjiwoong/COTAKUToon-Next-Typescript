@@ -1,11 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 import Button from '../../UI/Button';
-import Input from '../../UI/Input';
 
-const WebtoonSeriesItem = () => {
+const WebtoonSeriesItem = ({
+  title,
+  cover,
+  series,
+}: {
+  title?: string;
+  cover?: string;
+  series: number;
+}) => {
   return (
     <SeriesItem>
       <label>
@@ -13,17 +21,20 @@ const WebtoonSeriesItem = () => {
           <CustomCheckbox />
           <ThumbnailLink href="/webtoon/">
             <Image
-              src="/images/cover/bookcover07.webp"
+              src={`/images/${cover}`}
               alt="웹툰 회차 표지"
               width={40}
               height={58}
+              priority
             />
           </ThumbnailLink>
           <div>
             <Link href="/webtoon">
               <TitleWrap>
                 <Badge>무료</Badge>
-                <Title>마귀 1화</Title>
+                <Title>
+                  {title} {series}화
+                </Title>
               </TitleWrap>
               <DescriptionWrap>
                 <span>2020.07.31</span>

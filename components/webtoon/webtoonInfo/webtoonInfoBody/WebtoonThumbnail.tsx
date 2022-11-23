@@ -1,17 +1,20 @@
 import Image from 'next/image';
 import styled from 'styled-components';
+
 import Button from '../../../UI/Button';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { BsPlusLg } from 'react-icons/bs';
+import { DataTypes } from '../../../../types/webtoon-types';
 
-const WebtoonThumbnail = () => {
+const WebtoonThumbnail = (props: DataTypes) => {
   return (
     <ThumbnailWrap>
       <Image
-        src="/images/cover/bookcover08.webp"
+        src={`/images/${props.cover}`}
         alt="thumbnail"
         width={200}
         height={290}
+        priority
       />
       <HeartButton>
         <AiOutlineHeart />

@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const WebtoonKeywordItem = () => {
+const WebtoonKeywordItem = ({ keyword }: { keyword: string }) => {
   return (
     <KeywordItem>
-      <button>keyword</button>
+      <button>{keyword}</button>
     </KeywordItem>
   );
 };
