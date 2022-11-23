@@ -1,21 +1,29 @@
 import styled from 'styled-components';
+
 import Button from '../../UI/Button';
 import WebtoonSeriesItem from './WebtoonSeriesItem';
 import { GoTriangleDown } from 'react-icons/go';
 
-const WebtoonSeriesList = () => {
+const webtoonSeries = [...Array(15)].map((_, i) => i + 1);
+
+const WebtoonSeriesList = ({
+  title,
+  cover,
+}: {
+  title?: string;
+  cover?: string;
+}) => {
   return (
     <>
       <ul>
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
-        <WebtoonSeriesItem />
+        {webtoonSeries.map(webtoon => (
+          <WebtoonSeriesItem
+            key={webtoon}
+            title={title}
+            cover={cover}
+            series={webtoon}
+          />
+        ))}
       </ul>
       <ViewAllButton>
         더보기

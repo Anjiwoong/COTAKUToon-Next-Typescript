@@ -1,16 +1,18 @@
 import styled from 'styled-components';
+
+import { DataTypes } from '../../../../types/webtoon-types';
 import BenefitsPeriod from './BenefitsPeriod';
 import FirstEpisodeButton from './FirstEpisodeButton';
 import WebtoonMetadata from './WebtoonMetadata';
 import WebtoonNotice from './WebtoonNotice';
 import WebtoonStarRate from './WebtoonStarRate';
 
-const WebtoonDetail = () => {
+const WebtoonDetail = ({ webtoon }: { webtoon: DataTypes }) => {
   return (
     <Wrapper>
-      <h3>마귀</h3>
-      <WebtoonStarRate />
-      <WebtoonMetadata />
+      <h3>{webtoon?.title}</h3>
+      <WebtoonStarRate rating={webtoon.rating} views={webtoon.views} />
+      <WebtoonMetadata author={webtoon.author} />
       <WebtoonNotice />
       <BenefitsPeriod />
       <FirstEpisodeButton />

@@ -1,12 +1,9 @@
-import path from 'path';
-import fs from 'fs/promises';
-
-import { DataTypes } from '../types/webtoon-types';
 import { InferGetStaticPropsType } from 'next';
 
 import Footer from '../components/footer/Footer';
 import Header from '../components/header/Header';
 import HomeContainer from '../components/home/HomeContainer';
+import { getWebtoon } from '../lib/api-util';
 
 const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
@@ -19,9 +16,7 @@ const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticProps = async () => {
-  const filePath = path.join(process.cwd(), 'data', 'webtoon.json');
-  const jsonData = await fs.readFile(filePath, 'utf-8');
-  const data: DataTypes[] = JSON.parse(jsonData);
+  const data = await getWebtoon();
 
   if (!data)
     return {
