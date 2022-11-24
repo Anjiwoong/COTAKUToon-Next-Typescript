@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { ChangeEvent, useCallback } from 'react';
+import { useRecoilState } from 'recoil';
 
-import { rentalAllCheckState } from '../../../states/rentalCheckState';
-import { rentalNumState } from '../../../states/rentalNumState';
 import { RentalSeriesTypes } from '../../../types/rental-series-types';
+import { rentalCheckListState } from '../../../states/rentalCheckListState';
 
 import Button from '../../UI/Button';
 import { BiSortAlt2 } from 'react-icons/bi';
@@ -11,16 +11,35 @@ import { FaShoppingCart } from 'react-icons/fa';
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 
 const WebtoonSeriesOption = ({ rental, series }: RentalSeriesTypes) => {
-  const [allCheck, setAllCheck] = useRecoilState(rentalAllCheckState);
-  const rentalNum = useRecoilValue(rentalNumState);
+  const [checkList, setCheckList] = useRecoilState(rentalCheckListState);
 
-  const allCheckHandler = () => setAllCheck(prev => !prev);
+  const allCheckHandler = useCallback(
+    ({ target }: ChangeEvent<HTMLInputElement>) => {
+      if (target.checked) {
+        const checkedListArray: number[] = [];
+
+        series.forEach(num => checkedListArray.push(num));
+
+        setCheckList(checkedListArray);
+      } else {
+        setCheckList([]);
+      }
+    },
+    [series]
+  );
+
+  const allCheck =
+    checkList.length === 0
+      ? false
+      : checkList.length === series.length
+      ? true
+      : false;
 
   return (
     <ListOption>
       <ListOptionLeft>
         <label>
-          <CustomCheckbox />
+          <CustomCheckbox onChange={allCheckHandler} checked={allCheck} />
           전체 선택
         </label>
         <AlignmentButton>
@@ -30,10 +49,10 @@ const WebtoonSeriesOption = ({ rental, series }: RentalSeriesTypes) => {
       </ListOptionLeft>
       <ListOptionRight>
         <InfoVolume>
-          총 <span>checkSeriesNum</span>화
+          총 <span>{checkList.length}</span>화
         </InfoVolume>
         <PriceInfo>
-          <span>checkSeriesNum</span>원
+          <span>{(checkList.length * 300).toLocaleString()}</span>원
         </PriceInfo>
         <CartButton>
           <FaShoppingCart />

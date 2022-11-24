@@ -1,33 +1,33 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChangeEvent } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { ChangeEvent, useCallback } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import { rentalAllCheckState } from '../../../states/rentalCheckState';
-import {
-  increaseRentalNumState,
-  rentalNumState,
-} from '../../../states/rentalNumState';
-import { WebtoonSeriesTypes } from '../../../types/webtoon-series-types';
+
+import { rentalCheckListState } from '../../../states/rentalCheckListState';
+import { SeriesItemTypes } from '../../../types/webtoon-series-types';
 
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 import Button from '../../UI/Button';
 
-const WebtoonSeriesItem = ({ title, cover, series }: WebtoonSeriesTypes) => {
-  const [allCheck, setAllCheck] = useRecoilState(rentalAllCheckState);
-  const [rentalNum, setRentalNum] = useRecoilState(rentalNumState);
-  const increaseRentalNum = useRecoilValue(increaseRentalNumState);
+const WebtoonSeriesItem = ({ title, cover, series }: SeriesItemTypes) => {
+  const [checkList, setCheckList] = useRecoilState(rentalCheckListState);
 
-  const changeHandler = ({ target }: ChangeEvent<HTMLInputElement>) => {
-    if (target.checked) setRentalNum(prev => prev + 1);
-    else setRentalNum(prev => prev - 1);
-  };
+  const checkHandler = useCallback(
+    ({ target }: ChangeEvent<HTMLInputElement>) => {
+      if (target.checked) setCheckList(prev => [...prev, series]);
+      else setCheckList(prev => prev.filter(num => num !== series));
+    },
+    [checkList]
+  );
+
+  const isChecked = checkList.includes(series);
 
   return (
     <SeriesItem>
       <label>
         <SeriesWrapLeft>
-          <CustomCheckbox onChange={changeHandler} />
+          <CustomCheckbox onChange={checkHandler} checked={isChecked} />
           <ThumbnailLink href="/webtoon/">
             <Image
               src={`/images/${cover}`}

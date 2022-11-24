@@ -1,6 +1,9 @@
-export interface WebtoonSeriesTypes {
+export interface WebtoonSeriesListTypes {
   title?: string;
   cover?: string;
   webtoonSeries?: number[];
-  series?: number;
+}
+
+export interface SeriesItemTypes extends WebtoonSeriesListTypes {
+  series: number;
 }

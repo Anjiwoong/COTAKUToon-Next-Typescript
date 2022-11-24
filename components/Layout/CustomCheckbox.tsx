@@ -6,7 +6,11 @@ import { InputProps } from '../../types/input-props';
 const CustomCheckbox = (props: InputProps) => {
   return (
     <>
-      <CustomInput type="checkbox" onChange={props.onChange} />
+      <CustomInput
+        type="checkbox"
+        onChange={props.onChange}
+        checked={props.checked}
+      />
       <CheckBox></CheckBox>
     </>
   );

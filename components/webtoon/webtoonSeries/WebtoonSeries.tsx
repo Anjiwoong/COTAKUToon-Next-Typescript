@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import { WebtoonSeriesTypes } from '../../../types/webtoon-series-types';
+import { WebtoonSeriesListTypes } from '../../../types/webtoon-series-types';
 
 import WebtoonSeriesList from './WebtoonSeriesList';
 import WebtoonSeriesOption from './WebtoonSeriesOption';
 
-const webtoonSeries = [...Array(20)].map((_, i) => i + 1);
+const webtoonSeries = [...Array(15)].map((_, i) => i + 1);
 
-const WebtoonSeries = ({ title, cover }: WebtoonSeriesTypes) => {
+const WebtoonSeries = ({ title, cover }: WebtoonSeriesListTypes) => {
   const [rental, setRental] = useState<boolean>(true);
 
   const rentalHandler = () => setRental(true);
@@ -21,7 +21,7 @@ const WebtoonSeries = ({ title, cover }: WebtoonSeriesTypes) => {
           <RentalTitle active={rental} onClick={rentalHandler}>
             대여하기
           </RentalTitle>
-          <WebtoonSeriesOption rental={rental} series={webtoonSeries.length} />
+          <WebtoonSeriesOption rental={rental} series={webtoonSeries} />
           <WebtoonSeriesList
             title={title}
             cover={cover}
