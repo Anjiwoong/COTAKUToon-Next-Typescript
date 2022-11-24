@@ -1,24 +1,33 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChangeEvent } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+import { rentalAllCheckState } from '../../../states/rentalCheckState';
+import {
+  increaseRentalNumState,
+  rentalNumState,
+} from '../../../states/rentalNumState';
+import { WebtoonSeriesTypes } from '../../../types/webtoon-series-types';
 
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 import Button from '../../UI/Button';
 
-const WebtoonSeriesItem = ({
-  title,
-  cover,
-  series,
-}: {
-  title?: string;
-  cover?: string;
-  series: number;
-}) => {
+const WebtoonSeriesItem = ({ title, cover, series }: WebtoonSeriesTypes) => {
+  const [allCheck, setAllCheck] = useRecoilState(rentalAllCheckState);
+  const [rentalNum, setRentalNum] = useRecoilState(rentalNumState);
+  const increaseRentalNum = useRecoilValue(increaseRentalNumState);
+
+  const changeHandler = ({ target }: ChangeEvent<HTMLInputElement>) => {
+    if (target.checked) setRentalNum(prev => prev + 1);
+    else setRentalNum(prev => prev - 1);
+  };
+
   return (
     <SeriesItem>
       <label>
         <SeriesWrapLeft>
-          <CustomCheckbox />
+          <CustomCheckbox onChange={changeHandler} />
           <ThumbnailLink href="/webtoon/">
             <Image
               src={`/images/${cover}`}

@@ -1,7 +1,7 @@
 import { ChangeEvent, Ref } from 'react';
 
 export interface InputProps {
-  type: string;
+  type?: string;
   id?: string;
   name?: string;
   placeholder?: string;

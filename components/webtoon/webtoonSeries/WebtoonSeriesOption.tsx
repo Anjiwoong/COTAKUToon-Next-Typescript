@@ -1,11 +1,21 @@
 import styled from 'styled-components';
+import { useRecoilState, useRecoilValue } from 'recoil';
+
+import { rentalAllCheckState } from '../../../states/rentalCheckState';
+import { rentalNumState } from '../../../states/rentalNumState';
+import { RentalSeriesTypes } from '../../../types/rental-series-types';
 
 import Button from '../../UI/Button';
 import { BiSortAlt2 } from 'react-icons/bi';
 import { FaShoppingCart } from 'react-icons/fa';
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 
-const WebtoonSeriesOption = () => {
+const WebtoonSeriesOption = ({ rental, series }: RentalSeriesTypes) => {
+  const [allCheck, setAllCheck] = useRecoilState(rentalAllCheckState);
+  const rentalNum = useRecoilValue(rentalNumState);
+
+  const allCheckHandler = () => setAllCheck(prev => !prev);
+
   return (
     <ListOption>
       <ListOptionLeft>
@@ -20,16 +30,16 @@ const WebtoonSeriesOption = () => {
       </ListOptionLeft>
       <ListOptionRight>
         <InfoVolume>
-          총 <span>0</span>화
+          총 <span>checkSeriesNum</span>화
         </InfoVolume>
         <PriceInfo>
-          <span>0</span>원
+          <span>checkSeriesNum</span>원
         </PriceInfo>
         <CartButton>
           <FaShoppingCart />
           카트
         </CartButton>
-        <RentalButton>선택 대여</RentalButton>
+        <RentalButton>선택 {rental ? '대여' : '소장'}</RentalButton>
       </ListOptionRight>
     </ListOption>
   );
