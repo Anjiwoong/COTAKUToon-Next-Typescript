@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 
-const WebtoonMetadata = () => {
+const WebtoonMetadata = ({ author }: { author?: string }) => {
+  const _author = author?.split(',');
+
   return (
     <Wrapper>
       <WriterInfo>
         <span>
-          <Bold>author</Bold> 글
+          <Bold>{_author !== undefined && _author[0]}</Bold> 글
         </span>
         <span>
-          <Bold>author[1]</Bold> 그림
+          <Bold>
+            {_author !== undefined && _author[1] ? _author[1] : _author}
+          </Bold>
+          그림
         </span>
         <span>
           <Bold>비첸치</Bold> 원작

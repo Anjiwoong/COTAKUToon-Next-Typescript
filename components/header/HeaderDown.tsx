@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
-import { StyleProps } from '../../types/header-props';
-import HeaderDownList from './HeaderDownList';
 
+import { StyleProps } from '../../types/header-props';
+
+import HeaderDownList from './HeaderDownList';
 import HeaderDownLogo from './HeaderDownLogo';
 import HeaderLoginButton from './HeaderLoginButton';
 import HeaderSearchForm from './HeaderSearchForm';

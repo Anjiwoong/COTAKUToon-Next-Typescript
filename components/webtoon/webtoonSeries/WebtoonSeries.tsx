@@ -1,19 +1,37 @@
-import styled from 'styled-components';
+import { useState } from 'react';
+import styled, { css } from 'styled-components';
+
+import { WebtoonSeriesListTypes } from '../../../types/webtoon-series-types';
+
 import WebtoonSeriesList from './WebtoonSeriesList';
 import WebtoonSeriesOption from './WebtoonSeriesOption';
 
-const WebtoonSeries = () => {
+const webtoonSeries = [...Array(15)].map((_, i) => i + 1);
+
+const WebtoonSeries = ({ title, cover }: WebtoonSeriesListTypes) => {
+  const [rental, setRental] = useState<boolean>(true);
+
+  const rentalHandler = () => setRental(true);
+  const purchaseHandler = () => setRental(false);
+
   return (
     <SeriesWrapper>
       <WebtoonSeriesTabList>
         <li>
-          <RentalTitle>대여하기</RentalTitle>
-          <WebtoonSeriesOption />
-          <WebtoonSeriesList />
+          <RentalTitle active={rental} onClick={rentalHandler}>
+            대여하기
+          </RentalTitle>
+          <WebtoonSeriesOption rental={rental} series={webtoonSeries} />
+          <WebtoonSeriesList
+            title={title}
+            cover={cover}
+            webtoonSeries={webtoonSeries}
+          />
         </li>
-
         <li>
-          <PurchaseTitle>소장하기</PurchaseTitle>
+          <RentalTitle active={!rental} onClick={purchaseHandler}>
+            소장하기
+          </RentalTitle>
         </li>
       </WebtoonSeriesTabList>
     </SeriesWrapper>
@@ -34,6 +52,16 @@ const WebtoonSeriesTabList = styled.ul`
     :nth-child(1) {
       background: ${({ theme }) => theme.colors.white};
       border: none;
+
+      h2 {
+        left: 0;
+      }
+    }
+
+    :nth-child(2) {
+      h2 {
+        right: 0;
+      }
     }
   }
 `;
@@ -59,17 +87,18 @@ const TabTitle = styled.h2`
 const RentalTitle = styled(TabTitle)`
   position: absolute;
   top: 0;
-  left: 0;
-  border-right: 1px solid ${({ theme }) => theme.colors.gray1};
-  background: ${({ theme }) => theme.colors.white};
-  border: none;
-`;
+  border-left: 1px solid ${({ theme }) => theme.colors.gray};
+  border-right: 1px solid ${({ theme }) => theme.colors.gray};
 
-const PurchaseTitle = styled(TabTitle)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-left: 1px solid solid ${({ theme }) => theme.colors.gray};
+  ${(props: { active: boolean }) =>
+    props.active &&
+    css`
+      position: absolute;
+      top: 0;
+
+      background: ${({ theme }) => theme.colors.white};
+      border: none;
+    `}
 `;
 
 export default WebtoonSeries;

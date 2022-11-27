@@ -1,13 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const WebtoonStarRate = () => {
+import { DataTypes } from '../../../../types/webtoon-types';
+
+const WebtoonStarRate = (props: DataTypes) => {
   return (
     <Wrapper>
-      <StartBg>
+      <StartBg rate={props.rating}>
         <span></span>
       </StartBg>
-      <span>4.7점</span>
-      <span>(30,334명)</span>
+      <span>{props.rating}점</span>
+      <span>({props.views}명)</span>
     </Wrapper>
   );
 };
@@ -18,14 +20,15 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.mixins.marginY('20px')};
 
   span {
-    :nth-child(2) {
+    &:nth-child(2) {
       color: ${({ theme }) => theme.colors.accentFont};
       font-size: 14px;
       margin-right: 2px;
       font-weight: 600;
+      transform: translateY(1px);
     }
 
-    :last-child {
+    &:last-child {
       font-size: 12px;
       font-weight: 100;
     }
@@ -41,11 +44,18 @@ export const StartBg = styled.span`
   background-size: 100% 100%;
   margin-right: 4px;
 
+  ${(props: { rate?: number }) =>
+    props.rate &&
+    css`
+      span {
+        width: ${(props.rate / 5) * 100}%;
+      }
+    `}
+
   span {
-    position: relative;
+    position: absolute;
     display: block;
     overflow: hidden;
-    width: 20%;
     height: 15px;
 
     &::after {

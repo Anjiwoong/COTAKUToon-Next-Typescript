@@ -1,29 +1,49 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { ChangeEvent, useCallback } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
+
+import { rentalCheckListState } from '../../../states/rentalCheckListState';
+import { SeriesItemTypes } from '../../../types/webtoon-series-types';
+
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 import Button from '../../UI/Button';
-import Input from '../../UI/Input';
 
-const WebtoonSeriesItem = () => {
+const WebtoonSeriesItem = ({ title, cover, series }: SeriesItemTypes) => {
+  const [checkList, setCheckList] = useRecoilState(rentalCheckListState);
+
+  const checkHandler = useCallback(
+    ({ target }: ChangeEvent<HTMLInputElement>) => {
+      if (target.checked) setCheckList(prev => [...prev, series]);
+      else setCheckList(prev => prev.filter(num => num !== series));
+    },
+    [checkList]
+  );
+
+  const isChecked = checkList.includes(series);
+
   return (
     <SeriesItem>
       <label>
         <SeriesWrapLeft>
-          <CustomCheckbox />
+          <CustomCheckbox onChange={checkHandler} checked={isChecked} />
           <ThumbnailLink href="/webtoon/">
             <Image
-              src="/images/cover/bookcover07.webp"
+              src={`/images/${cover}`}
               alt="웹툰 회차 표지"
               width={40}
               height={58}
+              priority
             />
           </ThumbnailLink>
           <div>
             <Link href="/webtoon">
               <TitleWrap>
                 <Badge>무료</Badge>
-                <Title>마귀 1화</Title>
+                <Title>
+                  {title} {series}화
+                </Title>
               </TitleWrap>
               <DescriptionWrap>
                 <span>2020.07.31</span>

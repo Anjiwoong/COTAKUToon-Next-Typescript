@@ -1,14 +1,17 @@
 import styled from 'styled-components';
+
+import { DataTypes } from '../../../types/webtoon-types';
+
 import ArticleMiddleTitle from '../../Layout/ArticleMiddleTitle';
 import WebtoonAllReview from './WebtoonAllReview';
 import WriteReviewSection from './WriteReviewSection';
 
-const WebtoonReview = () => {
+const WebtoonReview = ({ rating }: DataTypes) => {
   return (
     <ReviewWrap>
       <ArticleMiddleTitle>리뷰</ArticleMiddleTitle>
       <div>
-        <WriteReviewSection />
+        <WriteReviewSection rating={rating} />
         <WebtoonAllReview />
       </div>
     </ReviewWrap>

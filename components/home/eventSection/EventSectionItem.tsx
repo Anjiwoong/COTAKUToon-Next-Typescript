@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { EventSectionTypes } from '../../../types/event-section-types';
 
 const EventSectionItem = ({ title, cover }: EventSectionTypes) => {

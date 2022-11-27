@@ -1,12 +1,25 @@
+import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
+
+import { reviewState } from '../../../states/reviewState';
 import WebtoonAllReviewItem from './WebtoonAllReviewItem';
 
 const WebtoonAllReview = () => {
+  const reviewList = useRecoilValue(reviewState);
+
   return (
     <ReviewListWrap>
       <AllReviewTitle>전체리뷰</AllReviewTitle>
       <ul>
-        <WebtoonAllReviewItem />
+        {reviewList.map(review => (
+          <WebtoonAllReviewItem
+            key={review.id}
+            userId={review.userId}
+            date={review.date}
+            comment={review.comment}
+            starRating={review.starRating}
+          />
+        ))}
       </ul>
     </ReviewListWrap>
   );

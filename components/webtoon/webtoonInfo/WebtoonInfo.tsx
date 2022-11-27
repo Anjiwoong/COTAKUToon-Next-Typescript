@@ -1,11 +1,14 @@
 import styled from 'styled-components';
+
+import { DataTypes } from '../../../types/webtoon-types';
+
 import WebtoonInfoBody from './webtoonInfoBody/WebtoonInfoBody';
 import WebtoonInfoFooter from './webtoonInfoFooter/WebtoonInfoFooter';
 
-const WebtoonInfo = () => {
+const WebtoonInfo = ({ webtoon }: { webtoon: DataTypes }) => {
   return (
     <BookInfo>
-      <WebtoonInfoBody />
+      <WebtoonInfoBody webtoon={webtoon} />
       <WebtoonInfoFooter />
     </BookInfo>
   );

@@ -22,6 +22,7 @@ export default NextAuth({
       id: 'user-credentials',
       name: 'Credentials',
 
+      // @ts-ignore
       async authorize(credentials: Provider) {
         const client = await connectToDatabase();
 

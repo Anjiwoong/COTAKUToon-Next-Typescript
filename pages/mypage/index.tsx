@@ -1,5 +1,5 @@
 import { NextPageContext } from 'next';
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import MyPageContainer from '../../components/Layout/MyPageContainer';
