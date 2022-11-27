@@ -23,7 +23,7 @@ const WebtoonContainer = ({
       />
       <WebtoonKeyword />
       <WebtoonIntroduce />
-      <WebtoonReview />
+      <WebtoonReview rating={selectedWebtoon.rating} />
       <WebtoonSimilar webtoon={webtoon} />
     </Wrapper>
   );

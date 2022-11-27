@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { AiTwotoneStar } from 'react-icons/ai';
 
-const ReviewRatingItem = () => {
+const ReviewRatingItem = ({ rate }: { rate: number }) => {
   return (
     <RatingItem>
       <AiTwotoneStar />
-      <span>5</span>
+      <span>{rate}</span>
       <ScoreWrap>
         <span></span>
       </ScoreWrap>
@@ -26,19 +26,19 @@ const RatingItem = styled.li`
 
   &:nth-child(1) {
     span > span {
-      width: 84%;
+      width: 90%;
     }
   }
 
   &:nth-child(2) {
     span > span {
-      width: 50%;
+      width: 80%;
     }
   }
 
   &:nth-child(3) {
     span > span {
-      width: 71%;
+      width: 30%;
     }
   }
 

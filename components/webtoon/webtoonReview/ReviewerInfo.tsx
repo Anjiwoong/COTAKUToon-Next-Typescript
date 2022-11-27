@@ -1,14 +1,18 @@
 import styled from 'styled-components';
+
+import { ReviewTypes } from '../../../types/review-types';
 import { StartBg } from '../webtoonInfo/webtoonInfoBody/WebtoonStarRate';
 
-const ReviewerInfo = () => {
+const ReviewerInfo = ({ userId, date, starRating }: ReviewTypes) => {
+  const reviewer = userId?.slice(0, 3) + '***';
+
   return (
     <ReviewInfo>
-      <StartBg>
+      <StartBg rate={starRating}>
         <span></span>
       </StartBg>
-      <Reviewer>reviewer</Reviewer>
-      <Date>2022.11.07</Date>
+      <Reviewer>{reviewer}</Reviewer>
+      <Date>{date}</Date>
     </ReviewInfo>
   );
 };
@@ -23,7 +27,7 @@ const ReviewInfo = styled.div`
 
 const Reviewer = styled.span`
   font-size: 12px;
-  margin-top: 10px;
+  margin-top: 5px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.myTitle};
 `;

@@ -3,11 +3,9 @@ import styled, { css } from 'styled-components';
 import { DataTypes } from '../../../../types/webtoon-types';
 
 const WebtoonStarRate = (props: DataTypes) => {
-  const starPercentage = props.rating && (props.rating / 5) * 100;
-
   return (
     <Wrapper>
-      <StartBg rate={starPercentage}>
+      <StartBg rate={props.rating}>
         <span></span>
       </StartBg>
       <span>{props.rating}점</span>
@@ -33,7 +31,6 @@ const Wrapper = styled.div`
     &:last-child {
       font-size: 12px;
       font-weight: 100;
-      transform: translateY(1px);
     }
   }
 `;
@@ -51,12 +48,12 @@ export const StartBg = styled.span`
     props.rate &&
     css`
       span {
-        width: ${props.rate}%;
+        width: ${(props.rate / 5) * 100}%;
       }
     `}
 
   span {
-    position: relative;
+    position: absolute;
     display: block;
     overflow: hidden;
     height: 15px;
@@ -68,7 +65,7 @@ export const StartBg = styled.span`
       background: url('/images/books/stars.svg') center center no-repeat;
       background-size: 100% 100%;
       left: 0;
-      top: -1px;
+      top: 0;
       width: 75px;
       height: 15px;
     }

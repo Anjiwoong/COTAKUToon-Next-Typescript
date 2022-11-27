@@ -1,12 +1,15 @@
 import styled from 'styled-components';
+
+import { ReviewTypes } from '../../../types/review-types';
+
 import Button from '../../UI/Button';
 import { AiFillMessage } from 'react-icons/ai';
 import { AiFillLike } from 'react-icons/ai';
 
-const CommentInfo = () => {
+const CommentInfo = ({ comment }: ReviewTypes) => {
   return (
     <Wrapper>
-      <pre>comment</pre>
+      <pre>{comment}</pre>
       <ButtonWrapper>
         <CommentButton>
           <AiFillMessage />

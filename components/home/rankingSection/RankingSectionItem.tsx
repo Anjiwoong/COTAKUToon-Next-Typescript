@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 import { DataTypes } from '../../../types/webtoon-types';
-import StarRating from '../../Layout/StarRating';
+import StarRatingLayout from '../../Layout/StarRatingLayout';
 
 const RankingSectionItem = ({
   webtoon,
@@ -29,7 +29,7 @@ const RankingSectionItem = ({
           {webtoon.author} &#183; {webtoon.freeEpisode}화 무료
         </CarouselInfo>
         <p>
-          <StarRating rating={webtoon.rating} views={webtoon.views} />
+          <StarRatingLayout rating={webtoon.rating} views={webtoon.views} />
         </p>
       </CarouselDesc>
     </CarouselItem>

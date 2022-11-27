@@ -21,9 +21,7 @@ const WebtoonSeriesOption = ({ rental, series }: RentalSeriesTypes) => {
         series.forEach(num => checkedListArray.push(num));
 
         setCheckList(checkedListArray);
-      } else {
-        setCheckList([]);
-      }
+      } else setCheckList([]);
     },
     [series]
   );
