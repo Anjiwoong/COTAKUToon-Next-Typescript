@@ -1,16 +1,43 @@
 import styled from 'styled-components';
+import { ChangeEvent, useCallback } from 'react';
+import { useRecoilState } from 'recoil';
+
+import { RentalSeriesTypes } from '../../../types/rental-series-types';
+import { rentalCheckListState } from '../../../states/rentalCheckListState';
 
 import Button from '../../UI/Button';
 import { BiSortAlt2 } from 'react-icons/bi';
 import { FaShoppingCart } from 'react-icons/fa';
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 
-const WebtoonSeriesOption = () => {
+const WebtoonSeriesOption = ({ rental, series }: RentalSeriesTypes) => {
+  const [checkList, setCheckList] = useRecoilState(rentalCheckListState);
+
+  const allCheckHandler = useCallback(
+    ({ target }: ChangeEvent<HTMLInputElement>) => {
+      if (target.checked) {
+        const checkedListArray: number[] = [];
+
+        series.forEach(num => checkedListArray.push(num));
+
+        setCheckList(checkedListArray);
+      } else setCheckList([]);
+    },
+    [series]
+  );
+
+  const allCheck =
+    checkList.length === 0
+      ? false
+      : checkList.length === series.length
+      ? true
+      : false;
+
   return (
     <ListOption>
       <ListOptionLeft>
         <label>
-          <CustomCheckbox />
+          <CustomCheckbox onChange={allCheckHandler} checked={allCheck} />
           전체 선택
         </label>
         <AlignmentButton>
@@ -20,16 +47,16 @@ const WebtoonSeriesOption = () => {
       </ListOptionLeft>
       <ListOptionRight>
         <InfoVolume>
-          총 <span>0</span>화
+          총 <span>{checkList.length}</span>화
         </InfoVolume>
         <PriceInfo>
-          <span>0</span>원
+          <span>{(checkList.length * 300).toLocaleString()}</span>원
         </PriceInfo>
         <CartButton>
           <FaShoppingCart />
           카트
         </CartButton>
-        <RentalButton>선택 대여</RentalButton>
+        <RentalButton>선택 {rental ? '대여' : '소장'}</RentalButton>
       </ListOptionRight>
     </ListOption>
   );

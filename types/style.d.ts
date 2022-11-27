@@ -76,6 +76,7 @@ declare module 'styled-components' {
       bgNavZoom: string;
       bgModel1: string;
       bgModel2: string;
+      bgToaster: string;
 
       accentFont: string;
 

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { DataTypes } from '../../../../types/webtoon-types';
+
 import WebtoonDetail from './WebtoonDetail';
 import WebtoonThumbnail from './WebtoonThumbnail';
 

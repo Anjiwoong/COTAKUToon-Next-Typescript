@@ -1,13 +1,18 @@
 import styled from 'styled-components';
-import { StartBg } from '../webtoonInfo/webtoonInfoBody/WebtoonStarRate';
+import { ReviewTypes } from '../../../types/review-types';
+
 import CommentInfo from './CommentInfo';
 import ReviewerInfo from './ReviewerInfo';
 
-const WebtoonAllReviewItem = () => {
+const WebtoonAllReviewItem = (props: ReviewTypes) => {
   return (
     <ReviewItem>
-      <ReviewerInfo />
-      <CommentInfo />
+      <ReviewerInfo
+        userId={props.userId}
+        date={props.date}
+        starRating={props.starRating}
+      />
+      <CommentInfo comment={props.comment} />
     </ReviewItem>
   );
 };

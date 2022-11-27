@@ -1,15 +1,42 @@
-import styled from 'styled-components';
+import { MouseEvent } from 'react';
+import styled, { css } from 'styled-components';
 
-const EvaluateRate = () => {
+import { ImStarFull } from 'react-icons/im';
+import { SetStarRateTypes } from '../../../types/add-review-types';
+
+const reviewRating = [...Array(5)].map((_, i) => (i + 1).toString());
+
+const EvaluateRate = (props: SetStarRateTypes) => {
+  const hoverHandler = (e: MouseEvent) => {
+    const target = e.target as Element;
+
+    if (target.id) props.setStarHovered(+target.id);
+  };
+
+  const onMouseLeaveHandler = () => {
+    if (props.starRate === 0) props.setStarHovered(0);
+    else props.setStarHovered(props.starRate);
+  };
+
+  const setRateHandler = (e: MouseEvent) => {
+    props.setStarRateHandler(+e.currentTarget?.id);
+  };
+
   return (
     <StarRate>
       <EvaluateBook>이 책을 평가해주세요!</EvaluateBook>
       <StarWrapper>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
+        {reviewRating.map(star => (
+          <RateStar
+            key={star}
+            size={35}
+            id={star}
+            hover={props.starHovered}
+            onMouseEnter={hoverHandler}
+            onMouseLeave={onMouseLeaveHandler}
+            onClick={setRateHandler}
+          />
+        ))}
       </StarWrapper>
     </StarRate>
   );
@@ -17,7 +44,6 @@ const EvaluateRate = () => {
 
 const StarRate = styled.div`
   position: relative;
-  padding-bottom: 18px;
 `;
 
 const EvaluateBook = styled.span`
@@ -34,26 +60,16 @@ const EvaluateBook = styled.span`
 const StarWrapper = styled.div`
   ${({ theme }) => theme.mixins.flexCenter()};
   margin-top: 5px;
+`;
 
-  span {
-    display: inline-block;
-    width: 50px;
-    height: 48px;
-    background: url('/images/books/star.png') no-repeat;
-    background-position: 50% 0%;
-    background-size: 45px 90px;
-    cursor: pointer;
+const RateStar = styled(ImStarFull)`
+  color: ${({ theme }) => theme.colors.bgBarGray1};
 
-    &:hover {
-      background-position: 0% 110%;
-    }
-
-    /* &selected {
-      background-position: 0% 110%;
-      animation-duration: 0.7s;
-      animation-timing-function: ease;
-    } */
-  }
+  ${(props: { hover: number; id: string }) =>
+    props.hover >= +props.id &&
+    css`
+      color: ${({ theme }) => theme.colors.accentFont};
+    `}
 `;
 
 export default EvaluateRate;

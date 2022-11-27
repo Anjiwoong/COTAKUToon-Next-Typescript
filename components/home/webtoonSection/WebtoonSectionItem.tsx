@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { SiUpwork } from 'react-icons/si';
 import { BiTimeFive } from 'react-icons/bi';
-import StarRating from '../../Layout/StarRating';
+import StarRatingLayout from '../../Layout/StarRatingLayout';
 import { DataTypes } from '../../../types/webtoon-types';
 
 const WebtoonSectionItem = ({ webtoon }: { webtoon: DataTypes }) => {
@@ -28,7 +28,7 @@ const WebtoonSectionItem = ({ webtoon }: { webtoon: DataTypes }) => {
       <TitleLink href="/webtoon">{webtoon.title}</TitleLink>
       <Author>{webtoon.author}</Author>
       <p>
-        <StarRating rating={webtoon.rating} views={webtoon.views} />
+        <StarRatingLayout rating={webtoon.rating} views={webtoon.views} />
       </p>
     </CarouselItem>
   );

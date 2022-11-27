@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { DataTypes } from '../../types/webtoon-types';
+import { WebtoonContainerTypes } from '../../types/webtoon-types';
 
 import WebtoonInfo from './webtoonInfo/WebtoonInfo';
 import WebtoonIntroduce from './webtoonIntroduce/WebtoonIntroduce';
@@ -12,10 +12,7 @@ import WebtoonSimilar from './webtoonSimilar/WebtoonSimilar';
 const WebtoonContainer = ({
   selectedWebtoon,
   webtoon,
-}: {
-  selectedWebtoon: DataTypes;
-  webtoon: DataTypes[];
-}) => {
+}: WebtoonContainerTypes) => {
   return (
     <Wrapper>
       <A11yHidden>상세페이지</A11yHidden>
@@ -26,7 +23,7 @@ const WebtoonContainer = ({
       />
       <WebtoonKeyword />
       <WebtoonIntroduce />
-      <WebtoonReview />
+      <WebtoonReview rating={selectedWebtoon.rating} />
       <WebtoonSimilar webtoon={webtoon} />
     </Wrapper>
   );

@@ -16,3 +16,8 @@ export interface WebtoonArrTypes {
   webtoon: DataTypes[];
   title?: IterableIterator<[number, string]>;
 }
+
+export interface WebtoonContainerTypes {
+  selectedWebtoon: DataTypes;
+  webtoon: DataTypes[];
+}

@@ -1,22 +1,25 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { WebtoonSeriesListTypes } from '../../../types/webtoon-series-types';
 
 import Button from '../../UI/Button';
 import WebtoonSeriesItem from './WebtoonSeriesItem';
 import { GoTriangleDown } from 'react-icons/go';
-
-const webtoonSeries = [...Array(15)].map((_, i) => i + 1);
+import { useState } from 'react';
 
 const WebtoonSeriesList = ({
   title,
   cover,
-}: {
-  title?: string;
-  cover?: string;
-}) => {
+  webtoonSeries,
+}: WebtoonSeriesListTypes) => {
+  const [view, setView] = useState<boolean>(false);
+
+  const viewMoreHandler = () => setView(true);
+
   return (
     <>
-      <ul>
-        {webtoonSeries.map(webtoon => (
+      <SeriesList more={view}>
+        {webtoonSeries?.map(webtoon => (
           <WebtoonSeriesItem
             key={webtoon}
             title={title}
@@ -24,14 +27,28 @@ const WebtoonSeriesList = ({
             series={webtoon}
           />
         ))}
-      </ul>
-      <ViewAllButton>
-        더보기
-        <GoTriangleDown />
-      </ViewAllButton>
+      </SeriesList>
+      {!view && (
+        <ViewAllButton onClick={viewMoreHandler}>
+          더보기
+          <GoTriangleDown />
+        </ViewAllButton>
+      )}
     </>
   );
 };
+
+const SeriesList = styled.ul`
+  height: 790px;
+  overflow: hidden;
+
+  ${(props: { more: boolean }) =>
+    props.more &&
+    css`
+      height: auto;
+      overflow: visible;
+    `}
+`;
 
 const ViewAllButton = styled(Button)`
   width: 100%;

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { AiFillStar } from 'react-icons/ai';
 import { RateTypes } from '../../types/star-rating-types';
 
-const StarRating = (props: RateTypes) => {
+const StarRatingLayout = (props: RateTypes) => {
   return (
     <>
       <Star>
         <AiFillStar /> {props.rating}
-      </Star>{' '}
+      </Star>
       <Rating>({props.views})</Rating>
     </>
   );
@@ -16,6 +16,7 @@ const StarRating = (props: RateTypes) => {
 const Star = styled.span`
   color: ${({ theme }) => theme.colors.red};
   font-size: 14px;
+  margin-right: 5px;
 
   svg {
     transform: translateY(1px);
@@ -27,4 +28,4 @@ const Rating = styled.span`
   font-size: 14px;
 `;
 
-export default StarRating;
+export default StarRatingLayout;

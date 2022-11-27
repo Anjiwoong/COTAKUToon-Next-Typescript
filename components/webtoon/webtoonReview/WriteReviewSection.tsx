@@ -1,11 +1,14 @@
 import styled from 'styled-components';
-import EvaluateWebtoon from './EvaluateWebtoon';
-import ReviewRating from './ReviewRating';
 
-const WriteReviewSection = () => {
+import { DataTypes } from '../../../types/webtoon-types';
+
+import ReviewRating from './ReviewRating';
+import EvaluateWebtoon from './EvaluateWebtoon';
+
+const WriteReviewSection = ({ rating }: DataTypes) => {
   return (
     <Wrapper>
-      <ReviewRating />
+      <ReviewRating rating={rating} />
       <EvaluateWebtoon />
     </Wrapper>
   );
