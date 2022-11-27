@@ -1,28 +1,31 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { isAdultCheck } from '../../../lib/adult-check';
 
-import { DataTypes } from '../../../types/webtoon-types';
+import { AdultCheckTypes } from '../../../types/adult-check-types';
 import StarRatingLayout from '../../Layout/StarRatingLayout';
 
-const RankingSectionItem = ({
-  webtoon,
-  index,
-}: {
-  webtoon: DataTypes;
-  index: number;
-}) => {
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
+const RankingSectionItem = ({ webtoon, index, isAdult }: AdultCheckTypes) => {
   return (
     <CarouselItem>
       <CarouselLink href={`/webtoon/${webtoon.id}`}>
-        <Image
-          src={`/images/${webtoon.cover}`}
-          alt="book-cover"
-          width={256}
-          height={368}
-        />
+        {webtoon.cover && (
+          <Image
+            src={isAdultCheck(isAdult, webtoon)}
+            alt="book-cover"
+            width={256}
+            height={368}
+            priority
+            placeholder="blur"
+            blurDataURL={blurDataURL}
+          />
+        )}
       </CarouselLink>
-      <CarouselNum>{index + 1}</CarouselNum>
+      <CarouselNum>{index}</CarouselNum>
       <CarouselDesc>
         <Link href="/webtoon">{webtoon.title}</Link>
         <CarouselInfo>

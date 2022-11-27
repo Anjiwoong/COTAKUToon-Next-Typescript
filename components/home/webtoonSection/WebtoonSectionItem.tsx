@@ -1,22 +1,30 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+
+import { AdultCheckTypes } from '../../../types/adult-check-types';
+
 import { SiUpwork } from 'react-icons/si';
 import { BiTimeFive } from 'react-icons/bi';
 import StarRatingLayout from '../../Layout/StarRatingLayout';
-import { DataTypes } from '../../../types/webtoon-types';
+import { isAdultCheck } from '../../../lib/adult-check';
 
-const WebtoonSectionItem = ({ webtoon }: { webtoon: DataTypes }) => {
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
+const WebtoonSectionItem = ({ webtoon, isAdult }: AdultCheckTypes) => {
   return (
     <CarouselItem>
       <Link href={`/webtoon/${webtoon.id}`}>
         <Thumbnail>
           <Image
-            src={`/images/${webtoon.cover}`}
+            src={isAdultCheck(isAdult, webtoon)}
             alt="book-cover"
             width={175}
             height={256}
             priority
+            placeholder="blur"
+            blurDataURL={blurDataURL}
           />
           <CarouselInfo>
             {webtoon.up && <SiUpwork />}
