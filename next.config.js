@@ -5,10 +5,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  experimental: {
-    // Enables the styled-components SWC transform
-    styledComponents: true,
-  },
 };
 
 const withImages = require('next-images');

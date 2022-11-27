@@ -2,12 +2,13 @@ import { useMemo } from 'react';
 import styled from 'styled-components';
 import Slider, { Settings } from 'react-slick';
 
-import { DataTypes } from '../../../types/webtoon-types';
+import { WebtoonArrTypes } from '../../../types/webtoon-types';
+
 import RankingSectionItem from './RankingSectionItem';
 import Button from '../../UI/Button';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const RankingSection = ({ webtoon }: { webtoon: DataTypes[] }) => {
+const RankingSection = ({ webtoon, isAdult }: WebtoonArrTypes) => {
   const sectionTitle = webtoon.every(data => data.category?.includes('rank'));
 
   const settings = useMemo<Settings>(
@@ -40,7 +41,12 @@ const RankingSection = ({ webtoon }: { webtoon: DataTypes[] }) => {
       <Carousel>
         <StyledSlider {...settings}>
           {webtoon?.map((webtoon, i) => (
-            <RankingSectionItem key={webtoon.id} webtoon={webtoon} index={i} />
+            <RankingSectionItem
+              key={webtoon.id}
+              webtoon={webtoon}
+              index={i + 1}
+              isAdult={isAdult}
+            />
           ))}
         </StyledSlider>
       </Carousel>
