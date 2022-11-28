@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
-import { StyleProps } from '../../types/header-props';
+import { HeaderTypes } from '../../types/header-types';
 
-const HeaderLoginButton = (props: StyleProps) => {
+const HeaderLoginButton = (props: HeaderTypes) => {
   return (
     <Login sub={props.sub}>
       <Link href="/login">
@@ -31,7 +31,7 @@ const Login = styled.div`
     border-radius: 16px;
   }
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.sub &&
     css`
       ${({ theme }) => theme.media.mobile`

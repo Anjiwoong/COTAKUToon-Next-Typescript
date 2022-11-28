@@ -1,16 +1,17 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
+import { useRouter } from 'next/router';
+import { signIn, useSession } from 'next-auth/react';
+
+import { HeaderTypes } from '../../types/header-types';
 
 import { BiBell } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { BiBookOpen } from 'react-icons/bi';
 import { AiOutlineUser } from 'react-icons/ai';
-import { StyleProps } from '../../types/header-props';
-import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import Button from '../UI/Button';
 
-const HeaderDownList = (props: StyleProps) => {
+const HeaderDownList = (props: HeaderTypes) => {
   const { data: session, status } = useSession();
   const router = useRouter();
 
@@ -82,7 +83,7 @@ const Wrapper = styled.ul`
     }
   }
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.sub &&
     css`
       ${({ theme }) => theme.media.mobile`

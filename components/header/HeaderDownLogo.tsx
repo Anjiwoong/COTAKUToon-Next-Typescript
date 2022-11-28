@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
-import { StyleProps } from '../../types/header-props';
+import { HeaderTypes } from '../../types/header-types';
 
-const HeaderDownLogo = (props: StyleProps) => {
+const HeaderDownLogo = (props: HeaderTypes) => {
   return (
     <LogoWrapper sub={props.sub}>
       <Link href="/">
@@ -59,7 +59,7 @@ const LogoWrapper = styled.h1`
     }
   }
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.sub &&
     css`
       margin-right: auto;
