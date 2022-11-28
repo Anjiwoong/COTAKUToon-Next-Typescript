@@ -1,30 +1,52 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { MouseEvent } from 'react';
 import styled from 'styled-components';
+import { isAdultCheck } from '../../../lib/adult-check';
 
-import { DataTypes } from '../../../types/webtoon-types';
+import { AdultCheckTypes } from '../../../types/adult-check-types';
 import StarRatingLayout from '../../Layout/StarRatingLayout';
 
-const RankingSectionItem = ({
-  webtoon,
-  index,
-}: {
-  webtoon: DataTypes;
-  index: number;
-}) => {
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
+const RankingSectionItem = ({ webtoon, index, isAdult }: AdultCheckTypes) => {
+  const adultCheckHandler = (e: MouseEvent<HTMLInputElement>) => {
+    if (isAdult !== undefined) {
+      if (!isAdult && webtoon.adult) {
+        e.preventDefault();
+        alert('미성년자는 볼 수 없는 컨텐츠입니다.');
+      }
+    }
+
+    if (isAdult === undefined) {
+      if (webtoon.adult) {
+        e.preventDefault();
+        alert('로그인 후, 볼 수 있는 컨텐츠입니다.');
+      }
+    }
+  };
+
   return (
     <CarouselItem>
-      <CarouselLink href={`/webtoon/${webtoon.id}`}>
-        <Image
-          src={`/images/${webtoon.cover}`}
-          alt="book-cover"
-          width={256}
-          height={368}
-        />
+      <CarouselLink href={`/webtoon/${webtoon.id}`} onClick={adultCheckHandler}>
+        {webtoon.cover && (
+          <Image
+            src={isAdultCheck(isAdult, webtoon)}
+            alt="book-cover"
+            width={256}
+            height={368}
+            priority
+            placeholder="blur"
+            blurDataURL={blurDataURL}
+          />
+        )}
       </CarouselLink>
-      <CarouselNum>{index + 1}</CarouselNum>
+      <CarouselNum>{index}</CarouselNum>
       <CarouselDesc>
-        <Link href="/webtoon">{webtoon.title}</Link>
+        <Link href={`/webtoon/${webtoon.id}`} onClick={adultCheckHandler}>
+          {webtoon.title}
+        </Link>
         <CarouselInfo>
           {webtoon.author} &#183; {webtoon.freeEpisode}화 무료
         </CarouselInfo>

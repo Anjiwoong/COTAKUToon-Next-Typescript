@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { IoIosArrowForward } from 'react-icons/io';
-import { StyleProps } from '../../types/header-props';
+import { HeaderTypes } from '../../types/header-types';
 
-const HeaderTop = (props: StyleProps) => {
+const HeaderTop = (props: HeaderTypes) => {
   return (
     <HeaderWrap sub={props.sub}>
       <Container>
@@ -41,7 +41,7 @@ const HeaderWrap = styled.div`
     border-bottom: 0;
   `}
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.sub &&
     css`
       ${({ theme }) => theme.media.mobile`
@@ -82,7 +82,7 @@ const Item = styled.li`
     padding-left: 0;
   }
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.dot &&
     css`
       &::after {
@@ -127,7 +127,7 @@ const HeaderLink = styled(Link)`
     margin-bottom: 2px;
   }
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.selected &&
     css`
       color: ${({ theme }) => theme.colors.black};

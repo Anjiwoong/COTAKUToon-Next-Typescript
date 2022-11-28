@@ -14,8 +14,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
         });
       const initialProps = await Document.getInitialProps(ctx);
 
@@ -38,6 +37,8 @@ export default class MyDocument extends Document {
       <Html lang="ko">
         <Head></Head>
         <body>
+          <div id="overlay-root"></div>
+          <div id="backdrop-root"></div>
           <Main />
           <NextScript />
         </body>

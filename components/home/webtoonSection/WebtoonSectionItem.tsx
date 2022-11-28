@@ -1,22 +1,47 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+
+import { AdultCheckTypes } from '../../../types/adult-check-types';
+
 import { SiUpwork } from 'react-icons/si';
 import { BiTimeFive } from 'react-icons/bi';
 import StarRatingLayout from '../../Layout/StarRatingLayout';
-import { DataTypes } from '../../../types/webtoon-types';
+import { isAdultCheck } from '../../../lib/adult-check';
+import { MouseEvent } from 'react';
 
-const WebtoonSectionItem = ({ webtoon }: { webtoon: DataTypes }) => {
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
+const WebtoonSectionItem = ({ webtoon, isAdult }: AdultCheckTypes) => {
+  const adultCheckHandler = (e: MouseEvent<HTMLInputElement>) => {
+    if (isAdult !== undefined) {
+      if (!isAdult && webtoon.adult) {
+        e.preventDefault();
+        alert('미성년자는 볼 수 없는 컨텐츠입니다.');
+      }
+    }
+
+    if (isAdult === undefined) {
+      if (webtoon.adult) {
+        e.preventDefault();
+        alert('로그인 후, 볼 수 있는 컨텐츠입니다.');
+      }
+    }
+  };
+
   return (
     <CarouselItem>
-      <Link href={`/webtoon/${webtoon.id}`}>
+      <Link href={`/webtoon/${webtoon.id}`} onClick={adultCheckHandler}>
         <Thumbnail>
           <Image
-            src={`/images/${webtoon.cover}`}
+            src={isAdultCheck(isAdult, webtoon)}
             alt="book-cover"
             width={175}
             height={256}
             priority
+            placeholder="blur"
+            blurDataURL={blurDataURL}
           />
           <CarouselInfo>
             {webtoon.up && <SiUpwork />}
@@ -25,7 +50,9 @@ const WebtoonSectionItem = ({ webtoon }: { webtoon: DataTypes }) => {
           </CarouselInfo>
         </Thumbnail>
       </Link>
-      <TitleLink href="/webtoon">{webtoon.title}</TitleLink>
+      <TitleLink href={`/webtoon/${webtoon.id}`} onClick={adultCheckHandler}>
+        {webtoon.title}
+      </TitleLink>
       <Author>{webtoon.author}</Author>
       <p>
         <StarRatingLayout rating={webtoon.rating} views={webtoon.views} />

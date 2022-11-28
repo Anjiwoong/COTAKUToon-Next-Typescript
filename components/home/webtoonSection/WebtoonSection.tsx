@@ -11,9 +11,9 @@ import WebtoonSectionItem from './WebtoonSectionItem';
 import Button from '../../UI/Button';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const WebtoonSection = (props: WebtoonArrTypes) => {
+const WebtoonSection = ({ webtoon, isAdult }: WebtoonArrTypes) => {
   const [randomWebtoon, setRandomWebtoon] = useState<DataTypes[]>([]);
-  const randomData = props.webtoon.sort(() => Math.random() - 0.5);
+  const randomData = webtoon.sort(() => Math.random() - 0.5);
 
   useEffect(() => {
     setRandomWebtoon(prev => [...prev, ...randomData]);
@@ -48,8 +48,12 @@ const WebtoonSection = (props: WebtoonArrTypes) => {
       <h2>sectionTitle</h2>
       <Carousel>
         <StyledSlider {...settings}>
-          {randomWebtoon.map((webtoon: DataTypes) => (
-            <WebtoonSectionItem key={webtoon.id} webtoon={webtoon} />
+          {randomWebtoon.map(webtoon => (
+            <WebtoonSectionItem
+              key={webtoon.id}
+              webtoon={webtoon}
+              isAdult={isAdult}
+            />
           ))}
         </StyledSlider>
       </Carousel>
