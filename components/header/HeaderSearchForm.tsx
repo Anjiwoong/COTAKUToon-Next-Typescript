@@ -1,56 +1,69 @@
+import { ChangeEvent, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
+import _ from 'lodash';
+
+import { HeaderTypes } from '../../types/header-types';
+import { DataTypes } from '../../types/webtoon-types';
 
 import { AiOutlineSearch } from 'react-icons/ai';
 import Input from '../UI/Input';
-import Link from 'next/link';
-import { StyleProps } from '../../types/header-props';
+import Backdrop from '../UI/Backdrop';
+import SearchModal from '../UI/SearchModal';
 
-const HeaderSearchForm = (props: StyleProps) => {
+const HeaderSearchForm = ({
+  sub,
+  webtoon,
+}: {
+  sub?: boolean;
+  webtoon: DataTypes[];
+}) => {
+  const [show, setShow] = useState<boolean>(false);
+  const [enteredValue, setEnteredValue] = useState<string>('');
+  const [filteredWebtoon, setFilteredWebtoon] = useState<DataTypes[]>([]);
+
+  const onFocusHandler = () => setShow(true);
+
+  const onCloseHandler = () => setShow(false);
+
+  const throttleHandler = useMemo(
+    () =>
+      _.throttle((webtoon: DataTypes[]) => setFilteredWebtoon(webtoon), 500),
+    []
+  );
+
+  const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const regExp = new RegExp(e.target.value, 'i');
+
+    const matchedWebtoon = webtoon.filter(data => data.title?.match(regExp));
+
+    throttleHandler(matchedWebtoon);
+    setEnteredValue(e.target.value);
+  };
+
   return (
-    <Wrapper role="search" sub={props.sub}>
+    <Wrapper role="search" sub={sub}>
       <Container>
         <label>
           <AiOutlineSearch />
-          <Input type="text" />
+          <Input
+            type="text"
+            onFocus={onFocusHandler}
+            value={enteredValue}
+            onChange={searchHandler}
+          />
         </label>
+        {show && (
+          <>
+            <Backdrop onClose={onCloseHandler} />
+            <SearchModal webtoon={filteredWebtoon} value={enteredValue} />
+          </>
+        )}
       </Container>
-      <SearchContainer>
-        <SearchBooks>
-          <span>작품 이름을 검색해주세요.</span>
-        </SearchBooks>
-        <ul>
-          <SearchItem>
-            <Link href="/webtoon">
-              <SearchTitle>
-                <MatchTitle>regExp</MatchTitle>
-              </SearchTitle>
-              <SearchAuthor>author</SearchAuthor>
-            </Link>
-          </SearchItem>
-          <SearchItem>
-            <Link href="/webtoon">
-              <SearchTitle>
-                <MatchTitle>regExp</MatchTitle>
-              </SearchTitle>
-              <SearchAuthor>author</SearchAuthor>
-            </Link>
-          </SearchItem>
-          <SearchItem>
-            <Link href="/webtoon">
-              <SearchTitle>
-                <MatchTitle>regExp</MatchTitle>
-              </SearchTitle>
-              <SearchAuthor>author</SearchAuthor>
-            </Link>
-          </SearchItem>
-        </ul>
-      </SearchContainer>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.form`
-  position: relative;
   margin-right: 8px;
 
   ${({ theme }) => theme.media.mobile`
@@ -58,80 +71,19 @@ const Wrapper = styled.form`
     width: 100%;
   `}
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.sub &&
     css`
       display: none;
     `}
 `;
 
-const SearchContainer = styled.div`
-  display: none;
-
-  ${({ theme }) => theme.media.mobile`
-    width: 100%;
-  `}
-
-  ${(props: StyleProps) =>
-    props.focused &&
-    css`
-      display: block;
-      position: absolute;
-      width: 464px;
-      margin-top: 10px;
-      padding-top: 6px;
-      border: 1px solid ${({ theme }) => theme.colors.gray1};
-      border-radius: 8px;
-      background: ${({ theme }) => theme.colors.white};
-      overflow: hidden;
-      opacity: 1;
-      transition: opacity 0.2s ease-in-out 0s;
-      box-shadow: rgb(0 0 0 / 8%) 5px 5px 10px;
-      z-index: 8000;
-
-      ${({ theme }) => theme.media.mobile`
-        width: 95%;
-      `}
-    `}
-`;
-
-const SearchBooks = styled.div`
-  text-align: center;
-  line-height: 18px;
-  padding-top: 60px;
-  padding-bottom: 60px;
-  color: ${({ theme }) => theme.colors.fontGray4};
-  font-size: 14px;
-  font-weight: 400;
-`;
-
-const SearchItem = styled.li`
-  padding: 8px 12px;
-`;
-
-const SearchTitle = styled.span`
-  display: inline-block;
-  margin: 0px 5px 3px;
-  line-height: 22px;
-  font-size: 14px;
-`;
-
-const MatchTitle = styled.span`
-  color: ${({ theme }) => theme.colors.primaryColor};
-`;
-
-const SearchAuthor = styled.span`
-  display: inline-block;
-  margin: 0px 5px 3px;
-  line-height: 22px;
-  font-size: 12px;
-  color: ${({ theme }) => theme.colors.fontGray1};
-`;
-
 const Container = styled.div`
   width: 259px;
   background: ${({ theme }) => theme.colors.gray1};
   border-radius: 8px;
+  position: relative;
+  z-index: 10000;
 
   ${({ theme }) => theme.media.mobile`
       width: 100%;

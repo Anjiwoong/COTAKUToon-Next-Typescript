@@ -8,7 +8,7 @@ import { getWebtoon } from '../lib/api-util';
 const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
-      <Header />
+      <Header webtoon={props.webtoon} />
       <HomeContainer webtoon={props.webtoon} />
       <Footer />
     </>

@@ -1,6 +1,5 @@
-export interface StyleProps {
+export interface HeaderTypes {
   sub?: boolean;
-  focused?: boolean;
   dot?: boolean;
   selected?: boolean;
 }

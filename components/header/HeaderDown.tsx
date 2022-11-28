@@ -1,20 +1,27 @@
 import styled, { css } from 'styled-components';
 
-import { StyleProps } from '../../types/header-props';
+import { HeaderTypes } from '../../types/header-types';
+import { DataTypes } from '../../types/webtoon-types';
 
 import HeaderDownList from './HeaderDownList';
 import HeaderDownLogo from './HeaderDownLogo';
 import HeaderLoginButton from './HeaderLoginButton';
 import HeaderSearchForm from './HeaderSearchForm';
 
-const HeaderDown = (props: StyleProps) => {
+const HeaderDown = ({
+  sub,
+  webtoon,
+}: {
+  sub?: boolean;
+  webtoon: DataTypes[];
+}) => {
   return (
-    <HeaderDownWrap sub={props.sub}>
+    <HeaderDownWrap sub={sub}>
       <nav>
-        <HeaderDownLogo sub={props.sub} />
-        <HeaderSearchForm sub={props.sub} />
-        <HeaderDownList sub={props.sub} />
-        <HeaderLoginButton sub={props.sub} />
+        <HeaderDownLogo sub={sub} />
+        <HeaderSearchForm sub={sub} webtoon={webtoon} />
+        <HeaderDownList sub={sub} />
+        <HeaderLoginButton sub={sub} />
       </nav>
     </HeaderDownWrap>
   );
@@ -42,7 +49,7 @@ const HeaderDownWrap = styled.header`
     `}
   }
 
-  ${(props: StyleProps) =>
+  ${(props: HeaderTypes) =>
     props.sub &&
     css`
       ${({ theme }) => theme.media.mobile`
