@@ -2,15 +2,16 @@ import { useRouter } from 'next/router';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { createUser } from '../../lib/create-user';
-import Button from '../UI/Button';
+
 import { StyleProps, validInputProps } from '../../types/signup-props';
+
+import Button from '../UI/Button';
 import SignupBirth from './SignupBirth';
 import SignupEmail from './SignupEmail';
 import SignupId from './SignupId';
 import SignupName from './SignupName';
 import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
-import { signIn } from 'next-auth/react';
 
 const SignupForm = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -50,13 +51,15 @@ const SignupForm = () => {
     const enteredPassword = passwordRef.current?.value;
     const enteredEmail = emailRef.current?.value;
     const enteredBirth = birthRef.current?.value;
+    const recentWebtoon: [] = [];
 
     try {
       const result = await createUser(
         enteredId,
         enteredPassword,
         enteredEmail,
-        enteredBirth
+        enteredBirth,
+        recentWebtoon
       );
 
       if (!result.error) {

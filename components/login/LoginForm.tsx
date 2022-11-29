@@ -27,6 +27,11 @@ const LoginForm = () => {
       redirect: false,
     });
 
+    if (result?.error) {
+      alert('로그인 정보를 확인해주세요');
+      setIsLoading(false);
+    }
+
     if (!result?.error) {
       await router.replace('/');
       setIsLoading(false);

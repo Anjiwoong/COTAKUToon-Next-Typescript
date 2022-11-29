@@ -1,17 +1,33 @@
 import Image from 'next/image';
+import { MouseEvent } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-const WebtoonSimilarItem = ({ cover, id }: { cover?: string; id?: string }) => {
+import { AdultCheckTypes } from '../../../types/adult-check-types';
+
+import {
+  addRecentWebtoonHandler,
+  isAdultCheck,
+} from '../../../lib/adult-check';
+
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
+const WebtoonSimilarItem = ({ webtoon, isAdult, id }: AdultCheckTypes) => {
   return (
     <li>
-      <Link href={`/webtoon/${id}`}>
+      <Link
+        href={`/webtoon/${webtoon.id}`}
+        onClick={e => addRecentWebtoonHandler(e, webtoon, isAdult, id)}
+      >
         <ThumbnailImage
-          src={`/images/${cover}`}
+          src={isAdultCheck(isAdult, webtoon)}
           alt="thumbnail"
           width={90}
           height={130}
           priority
+          placeholder="blur"
+          blurDataURL={blurDataURL}
         />
       </Link>
     </li>

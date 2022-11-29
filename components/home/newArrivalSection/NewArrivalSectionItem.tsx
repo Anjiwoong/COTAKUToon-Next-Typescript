@@ -8,11 +8,12 @@ import { BiTimeFive } from 'react-icons/bi';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { MdOutlineEventNote } from 'react-icons/md';
 import { FiBox } from 'react-icons/fi';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const NewArrivalSectionItem = ({ title }: ArrivalTypes) => {
   return (
     <li>
-      <Link href="#">
+      <Link href="#" onClick={notImplementedHandler}>
         <IconWrapper>
           {title === '신간' && <BiBookOpen />}
           {title === '이달의 신작' && <MdOutlineEventNote />}

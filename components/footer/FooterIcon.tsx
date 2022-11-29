@@ -1,27 +1,25 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { FaFacebookF } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
 import { BsYoutube } from 'react-icons/bs';
+import { notImplementedHandler } from '../../lib/not-implemented';
+
+const iconList = ['facebook', 'instagram', 'youtube'];
 
 const FooterIcon = () => {
   return (
     <IconList>
-      <li>
-        <Link href="#">
-          <FaFacebookF />
-        </Link>
-      </li>
-      <li>
-        <Link href="#">
-          <BsInstagram />
-        </Link>
-      </li>
-      <li>
-        <Link href="#">
-          <BsYoutube />
-        </Link>
-      </li>
+      {iconList.map(icon => (
+        <li key={icon}>
+          <Link href="#" onClick={notImplementedHandler}>
+            {icon === 'facebook' && <FaFacebookF />}
+            {icon === 'instagram' && <BsInstagram />}
+            {icon === 'youtube' && <BsYoutube />}
+          </Link>
+        </li>
+      ))}
     </IconList>
   );
 };

@@ -7,7 +7,7 @@ const MyPageHomeRecentHeader = () => {
     <Wrapper>
       <h3>최근 조회한 작품</h3>
       <MoreBtnWrapper>
-        <Link href="/recent">
+        <Link href="/mypage/recent">
           <span>전체 보기</span>
           <MdDoubleArrow />
         </Link>
@@ -76,10 +76,10 @@ const MoreBtnWrapper = styled.div`
   }
 
   svg {
+    ${({ theme }) => theme.mixins.centerTranslateY()};
     position: absolute;
     display: inline-block;
     font-size: 12px;
-    top: calc(50% - 6px);
     right: 4px;
   }
 `;

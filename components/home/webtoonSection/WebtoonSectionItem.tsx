@@ -7,32 +7,21 @@ import { AdultCheckTypes } from '../../../types/adult-check-types';
 import { SiUpwork } from 'react-icons/si';
 import { BiTimeFive } from 'react-icons/bi';
 import StarRatingLayout from '../../Layout/StarRatingLayout';
-import { isAdultCheck } from '../../../lib/adult-check';
-import { MouseEvent } from 'react';
+import {
+  addRecentWebtoonHandler,
+  isAdultCheck,
+} from '../../../lib/adult-check';
 
 const blurDataURL =
   'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
 
-const WebtoonSectionItem = ({ webtoon, isAdult }: AdultCheckTypes) => {
-  const adultCheckHandler = (e: MouseEvent<HTMLInputElement>) => {
-    if (isAdult !== undefined) {
-      if (!isAdult && webtoon.adult) {
-        e.preventDefault();
-        alert('미성년자는 볼 수 없는 컨텐츠입니다.');
-      }
-    }
-
-    if (isAdult === undefined) {
-      if (webtoon.adult) {
-        e.preventDefault();
-        alert('로그인 후, 볼 수 있는 컨텐츠입니다.');
-      }
-    }
-  };
-
+const WebtoonSectionItem = ({ webtoon, isAdult, id }: AdultCheckTypes) => {
   return (
     <CarouselItem>
-      <Link href={`/webtoon/${webtoon.id}`} onClick={adultCheckHandler}>
+      <Link
+        href={`/webtoon/${webtoon.id}`}
+        onClick={e => addRecentWebtoonHandler(e, webtoon, isAdult, id)}
+      >
         <Thumbnail>
           <Image
             src={isAdultCheck(isAdult, webtoon)}
@@ -50,7 +39,10 @@ const WebtoonSectionItem = ({ webtoon, isAdult }: AdultCheckTypes) => {
           </CarouselInfo>
         </Thumbnail>
       </Link>
-      <TitleLink href={`/webtoon/${webtoon.id}`} onClick={adultCheckHandler}>
+      <TitleLink
+        href={`/webtoon/${webtoon.id}`}
+        onClick={e => addRecentWebtoonHandler(e, webtoon, isAdult, id)}
+      >
         {webtoon.title}
       </TitleLink>
       <Author>{webtoon.author}</Author>

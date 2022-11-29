@@ -10,13 +10,7 @@ import Input from '../UI/Input';
 import Backdrop from '../UI/Backdrop';
 import SearchModal from '../UI/SearchModal';
 
-const HeaderSearchForm = ({
-  sub,
-  webtoon,
-}: {
-  sub?: boolean;
-  webtoon: DataTypes[];
-}) => {
+const HeaderSearchForm = ({ sub, webtoon }: HeaderTypes) => {
   const [show, setShow] = useState<boolean>(false);
   const [enteredValue, setEnteredValue] = useState<string>('');
   const [filteredWebtoon, setFilteredWebtoon] = useState<DataTypes[]>([]);
@@ -26,15 +20,14 @@ const HeaderSearchForm = ({
   const onCloseHandler = () => setShow(false);
 
   const throttleHandler = useMemo(
-    () =>
-      _.throttle((webtoon: DataTypes[]) => setFilteredWebtoon(webtoon), 500),
+    () => _.throttle(webtoon => setFilteredWebtoon(webtoon), 500),
     []
   );
 
   const searchHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const regExp = new RegExp(e.target.value, 'i');
 
-    const matchedWebtoon = webtoon.filter(data => data.title?.match(regExp));
+    const matchedWebtoon = webtoon?.filter(data => data.title?.match(regExp));
 
     throttleHandler(matchedWebtoon);
     setEnteredValue(e.target.value);

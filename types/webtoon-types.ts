@@ -15,6 +15,7 @@ export interface DataTypes {
 export interface WebtoonArrTypes {
   webtoon: DataTypes[];
   isAdult?: boolean | null;
+  id?: string | null;
 }
 
 export interface WebtoonContainerTypes {

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-
-import { DataTypes } from '../../types/webtoon-types';
+import { HeaderTypes } from '../../types/header-types';
 
 import HeaderDown from './HeaderDown';
 import HeaderTop from './HeaderTop';
 
-const Header = ({ sub, webtoon }: { sub?: boolean; webtoon: DataTypes[] }) => {
+const Header = ({ sub, webtoon }: HeaderTypes) => {
   return (
     <HeaderWrap>
       <HeaderTop sub={sub} />

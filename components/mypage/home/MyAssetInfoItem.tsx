@@ -9,6 +9,7 @@ import { BiCart } from 'react-icons/bi';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { RiCoupon3Fill } from 'react-icons/ri';
 import Button from '../../UI/Button';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const MyAssetInfoItem = (props: mypageHomeProps) => {
   return (
@@ -33,7 +34,9 @@ const MyAssetInfoItem = (props: mypageHomeProps) => {
             ? '권'
             : '원'}
         </Amount>
-        <Link href="/#">link</Link>
+        <Link href="/#" onClick={notImplementedHandler}>
+          link
+        </Link>
       </Container>
       {props.title === '리디캐시' && (
         <ExtraInfo>

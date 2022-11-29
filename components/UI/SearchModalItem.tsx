@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { WebtoonSearchTypes } from '../../types/webtoon-search-types';
 
 const SearchModalItem = (props: WebtoonSearchTypes) => {
-  const adultCheckHandler = (e: MouseEvent<HTMLInputElement>) => {
+  const adultCheckHandler = (e: MouseEvent<HTMLAnchorElement>) => {
     if (props.isAdult !== undefined) {
       if (!props.isAdult && props.webtoon.adult) {
         e.preventDefault();

@@ -1,5 +1,5 @@
 import { hashPassword } from '../../../lib/auth';
-import { connectToDatabase } from '../../../lib/db';
+import { connectToDatabase } from '../../../lib/db-utils';
 
 interface Request {
   method: string;
@@ -8,6 +8,7 @@ interface Request {
     password: string;
     email: string;
     adult: boolean;
+    recentWebtoon: [];
   };
 }
 
@@ -20,7 +21,7 @@ const handler = async (req: Request, res: Response) => {
 
   const data = req.body;
 
-  const { id, password, email, adult } = data;
+  const { id, password, email, adult, recentWebtoon } = data;
 
   if (!id || !password || password.trim().length < 7) {
     res.status(422).json({
@@ -50,6 +51,7 @@ const handler = async (req: Request, res: Response) => {
     password: hashedPassword,
     email: email,
     adult: isAdult,
+    recentWebtoon: recentWebtoon,
   });
 
   res.status(201).json({ message: 'Created user!' });
