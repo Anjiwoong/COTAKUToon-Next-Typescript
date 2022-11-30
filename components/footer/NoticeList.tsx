@@ -1,19 +1,24 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { RiCustomerService2Fill } from 'react-icons/ri';
 import { AiOutlineNotification } from 'react-icons/ai';
+import { notImplementedHandler } from '../../lib/not-implemented';
+
+const infoList = ['고객센터', '공지사항'];
 
 const NoticeList = () => {
   return (
     <Wrapper>
-      <li>
-        <RiCustomerService2Fill />
-        <Link href="#"> 고객센터</Link>
-      </li>
-      <li>
-        <AiOutlineNotification />
-        <Link href="#">공지사항</Link>
-      </li>
+      {infoList.map(info => (
+        <li key={info}>
+          {info === '고객센터' && <RiCustomerService2Fill />}
+          {info === '공지사항' && <AiOutlineNotification />}
+          <Link href="#" onClick={notImplementedHandler}>
+            {info}
+          </Link>
+        </li>
+      ))}
     </Wrapper>
   );
 };

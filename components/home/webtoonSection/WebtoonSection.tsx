@@ -11,7 +11,7 @@ import WebtoonSectionItem from './WebtoonSectionItem';
 import Button from '../../UI/Button';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const WebtoonSection = ({ webtoon, isAdult }: WebtoonArrTypes) => {
+const WebtoonSection = ({ webtoon, isAdult, id }: WebtoonArrTypes) => {
   const [randomWebtoon, setRandomWebtoon] = useState<DataTypes[]>([]);
   const randomData = webtoon.sort(() => Math.random() - 0.5);
 
@@ -53,6 +53,7 @@ const WebtoonSection = ({ webtoon, isAdult }: WebtoonArrTypes) => {
               key={webtoon.id}
               webtoon={webtoon}
               isAdult={isAdult}
+              id={id}
             />
           ))}
         </StyledSlider>

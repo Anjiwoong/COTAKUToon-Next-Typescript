@@ -1,15 +1,16 @@
-import { signOut } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import styled from 'styled-components';
 import Button from '../../UI/Button';
 
 const MyAccountInfo = () => {
+  const { data: session } = useSession();
   const logoutHandler = () => signOut();
 
   return (
     <AccountInfoWrap>
       <InfoContainer>
-        <h3>userId</h3>
-        <p>email</p>
+        <h3>{session?.user?.name}</h3>
+        <p>{session?.user?.email}</p>
       </InfoContainer>
       <LogoutButton onClick={logoutHandler}>로그아웃</LogoutButton>
     </AccountInfoWrap>

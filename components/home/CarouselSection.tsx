@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { notImplementedHandler } from '../../lib/not-implemented';
 import CarouselButton from '../Layout/CarouselNextButton';
 
 const CarouselSection = () => {
@@ -9,7 +10,7 @@ const CarouselSection = () => {
       <Inner>
         <ul>
           <CarouselItem>
-            <Link href="#">
+            <Link href="#" onClick={notImplementedHandler}>
               <Image
                 src="/images/mainCarousel/Carousel01.webp"
                 alt="carousel"
