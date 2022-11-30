@@ -1,5 +1,8 @@
+import { DataTypes } from './webtoon-types';
+
 export interface RecentWebtoonTypes {
-  id: string | null | undefined;
+  userId: string | null | undefined;
+  id: string;
   title: string;
   cover: string;
   author: string;
@@ -7,4 +10,13 @@ export interface RecentWebtoonTypes {
   rating: number;
   views: string;
   category: string[];
+}
+
+export interface RecentTypes {
+  recent?: DataTypes[];
+  id?: string | null;
+}
+
+export interface RemoveRecentTypes extends RecentTypes {
+  removeHandler: ([]) => void;
 }

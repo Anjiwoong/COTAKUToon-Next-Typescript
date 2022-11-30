@@ -1,32 +1,28 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { DataTypes } from '../../../types/webtoon-types';
 import MyPageRecentViewImage from './MyPageRecentViewImage';
 import MyRecentViewInfo from './MyRecentViewInfo';
 
-interface dummyProps {
-  title: string;
-  author: string;
-  image: string;
-  episode: number;
-  free: boolean;
-  rating: number;
-  view: string;
-}
-
-const MyPageRecentViewItem = (props: dummyProps) => {
+const MyPageRecentViewItem = ({
+  id,
+  title,
+  author,
+  cover,
+  freeEpisode,
+  category,
+  rating,
+  views,
+}: DataTypes) => {
   return (
     <ViewItem>
       <MyPageRecentViewImage
-        image={props.image}
-        free={props.free}
-        episode={props.episode}
+        cover={cover}
+        category={category}
+        freeEpisode={freeEpisode}
       />
-      <TitleLink href="/webtoon">{props.title}</TitleLink>
-      <MyRecentViewInfo
-        author={props.author}
-        rating={props.rating}
-        view={props.view}
-      />
+      <TitleLink href={`/webtoon/${id}`}>{title}</TitleLink>
+      <MyRecentViewInfo author={author} rating={rating} views={views} />
     </ViewItem>
   );
 };

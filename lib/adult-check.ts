@@ -34,6 +34,7 @@ export const addRecentWebtoonHandler = async (
     try {
       const result = await addRecentWebtoon(
         id,
+        webtoon.id,
         webtoon.title,
         webtoon.cover,
         webtoon.author,

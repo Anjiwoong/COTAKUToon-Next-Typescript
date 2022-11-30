@@ -1,5 +1,6 @@
 export const addRecentWebtoon = async (
-  id?: string | null,
+  userId?: string | null,
+  id?: string,
   title?: string,
   cover?: string,
   author?: string,
@@ -11,6 +12,7 @@ export const addRecentWebtoon = async (
   const response = await fetch('/api/recent-webtoon', {
     method: 'POST',
     body: JSON.stringify({
+      userId,
       id,
       title,
       cover,

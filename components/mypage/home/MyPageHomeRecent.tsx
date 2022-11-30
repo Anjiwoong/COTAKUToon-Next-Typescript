@@ -1,29 +1,25 @@
 import styled from 'styled-components';
+
+import { DataTypes } from '../../../types/webtoon-types';
+
 import MyPageHomeEmptyRecent from './MyPageHomeEmptyRecent';
 import MyPageHomeRecentHeader from './MyPageHomeRecentHeader';
 import MyPageHomeRecentItem from './MyPageHomeRecentItem';
 
-const dummy_data = [
-  {
-    title: '상수리나무 아래',
-    author: '서말, 다우',
-    image: '/images/cover/bookcover05.webp',
-  },
-];
-
-const MyPageHomeRecent = () => {
+const MyPageHomeRecent = ({ recent }: { recent?: DataTypes[] }) => {
   return (
     <RecentViewWrapper>
       <MyPageHomeRecentHeader />
-      {!dummy_data.length && <MyPageHomeEmptyRecent />}
-      {dummy_data.length !== 0 && (
+      {!recent?.length && <MyPageHomeEmptyRecent />}
+      {recent?.length !== 0 && (
         <RecentBookList>
-          {dummy_data.map(data => (
+          {recent?.map(data => (
             <MyPageHomeRecentItem
               key={data.title}
+              id={data.id}
               title={data.title}
               author={data.author}
-              image={data.image}
+              cover={data.cover}
             />
           ))}
         </RecentBookList>

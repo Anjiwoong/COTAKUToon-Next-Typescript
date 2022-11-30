@@ -9,20 +9,43 @@ interface Request {
 }
 
 const handler = async (req: Request, res: NextApiResponse) => {
+  if (req.method === 'GET') {
+    try {
+      const client = await connectToDatabase();
+
+      const db = client.db();
+
+      const document = await db.collection('users').find({}).toArray();
+
+      res.json({ status: 200, data: document });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   if (req.method === 'POST') {
     const data = req.body;
 
-    const { id, title, cover, author, freeEpisode, rating, views, category } =
-      data;
+    const {
+      userId,
+      id,
+      title,
+      cover,
+      author,
+      freeEpisode,
+      rating,
+      views,
+      category,
+    } = data;
 
     const client = await connectToDatabase();
 
     const db = client.db();
 
-    const existingUser = await db.collection('users').findOne({ id: id });
+    const existingUser = await db.collection('users').findOne({ id: userId });
 
     const existingWebtoon = existingUser?.recentWebtoon
-      .map((data: RecentWebtoonTypes) => data.title)
+      ?.map((data: RecentWebtoonTypes) => data.title)
       .find((data: string) => data === title);
 
     if (existingWebtoon === undefined) {
@@ -31,6 +54,7 @@ const handler = async (req: Request, res: NextApiResponse) => {
         {
           $push: {
             recentWebtoon: {
+              id,
               title,
               cover,
               author,

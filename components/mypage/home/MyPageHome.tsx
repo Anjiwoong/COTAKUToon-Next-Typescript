@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import MyPageInfo from './MyPageInfo';
 import MyPageHomeRecent from './MyPageHomeRecent';
+import { DataTypes } from '../../../types/webtoon-types';
 
-const MyPageHome = () => {
+const MyPageHome = ({ recent }: { recent?: DataTypes[] }) => {
   return (
     <section>
       <A11yHiddenTitle>마이리디 홈</A11yHiddenTitle>
       <MyPageInfo />
-      <MyPageHomeRecent />
+      <MyPageHomeRecent recent={recent} />
     </section>
   );
 };
