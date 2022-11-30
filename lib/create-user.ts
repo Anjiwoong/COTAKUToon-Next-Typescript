@@ -2,11 +2,12 @@ export const createUser = async (
   id?: string,
   password?: string,
   email?: string,
-  adult?: boolean | string
+  adult?: boolean | string,
+  recentWebtoon?: []
 ) => {
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
-    body: JSON.stringify({ id, password, email, adult }),
+    body: JSON.stringify({ id, password, email, adult, recentWebtoon }),
     headers: {
       'Content-Type': 'application/json',
     },

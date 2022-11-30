@@ -1,6 +1,7 @@
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
+import { notImplementedHandler } from '../../lib/not-implemented';
 import { StyleProps } from '../../types/home-props';
 
 const HomeNav = () => {
@@ -10,7 +11,9 @@ const HomeNav = () => {
     <nav>
       <NavList>
         <NavItem selected>
-          <Link href="#">웹툰</Link>
+          <Link href="#" onClick={notImplementedHandler}>
+            웹툰
+          </Link>
         </NavItem>
         <NavItem onClick={logoutHandler}>
           <Link href="/login">만화</Link>
@@ -18,10 +21,14 @@ const HomeNav = () => {
       </NavList>
       <GenreList>
         <GenreItem selected>
-          <Link href="">추천</Link>
+          <Link href="#" onClick={notImplementedHandler}>
+            추천
+          </Link>
         </GenreItem>
         <GenreItem>
-          <Link href="">로맨스</Link>
+          <Link href="#" onClick={notImplementedHandler}>
+            로맨스
+          </Link>
         </GenreItem>
       </GenreList>
     </nav>

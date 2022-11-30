@@ -32,44 +32,54 @@ const HomeMain = ({ webtoon }: { webtoon: DataTypes[] }) => {
       <RankingSection
         webtoon={filterWebtoon(webtoon, 'rank')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'free')}
+        id={data?.user?.name}
         isAdult={data?.user?.image}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'sunday')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <RankingSection
         webtoon={filterWebtoon(webtoon, 'bestSeller')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <EventSection />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'highRating')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'bestReview')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'switchOn')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'yummy')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'wanted')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
       <OnlyRidiSection />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'wait')}
         isAdult={data?.user?.image}
+        id={data?.user?.name}
       />
     </MainWrapper>
   );

@@ -1,19 +1,22 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { AiFillTrademarkCircle } from 'react-icons/ai';
+import { notImplementedHandler } from '../../lib/not-implemented';
+
+const infoList = ['회사 소개', '인재채용'];
 
 const CompanyInfoList = () => {
   return (
     <List>
-      <li>
-        <Link href="#">회사 소개</Link>
-      </li>
-      <li>
-        <Link href="#">
-          인재채용
-          <AiFillTrademarkCircle />
-        </Link>
-      </li>
+      {infoList.map(info => (
+        <li key={info}>
+          <Link href="#" onClick={notImplementedHandler}>
+            {info}
+            {info === '인재채용' && <AiFillTrademarkCircle />}
+          </Link>
+        </li>
+      ))}
     </List>
   );
 };

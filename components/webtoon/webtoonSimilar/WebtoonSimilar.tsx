@@ -1,3 +1,4 @@
+import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -8,6 +9,9 @@ import WebtoonSimilarItem from './WebtoonSimilarItem';
 
 const WebtoonSimilar = ({ webtoon }: { webtoon: DataTypes[] }) => {
   const [randomWebtoon, setRandomWebtoon] = useState<DataTypes[]>([]);
+
+  const { data: session } = useSession();
+
   const randomData = webtoon.sort(() => Math.random() - 0.5).slice(0, 7);
 
   useEffect(() => {
@@ -19,7 +23,12 @@ const WebtoonSimilar = ({ webtoon }: { webtoon: DataTypes[] }) => {
       <ArticleMiddleTitle>이 작품과 함께 둘러본 작품</ArticleMiddleTitle>
       <ul>
         {randomWebtoon.map((data: DataTypes) => (
-          <WebtoonSimilarItem key={data.id} cover={data.cover} id={data.id} />
+          <WebtoonSimilarItem
+            key={data.id}
+            webtoon={data}
+            id={session?.user?.name}
+            isAdult={session?.user?.image}
+          />
         ))}
       </ul>
     </SimilarWrapper>

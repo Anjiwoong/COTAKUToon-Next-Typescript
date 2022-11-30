@@ -1,15 +1,20 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { notImplementedHandler } from '../../lib/not-implemented';
+
+const infoList = ['콘텐츠 제공 문의', '사업 제휴 문의'];
+
 const EtcList = () => {
   return (
     <List>
-      <li>
-        <Link href="#">콘텐츠 제공 문의</Link>
-      </li>
-      <li>
-        <Link href="#">사업 제휴 문의</Link>
-      </li>
+      {infoList.map(info => (
+        <li key={info}>
+          <Link href="#" onClick={notImplementedHandler}>
+            {info}
+          </Link>
+        </li>
+      ))}
     </List>
   );
 };

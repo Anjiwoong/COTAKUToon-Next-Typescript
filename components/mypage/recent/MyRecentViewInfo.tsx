@@ -1,22 +1,18 @@
 import styled from 'styled-components';
 import { AiFillStar } from 'react-icons/ai';
 
-interface dummyProps {
-  author: string;
-  rating: number;
-  view: string;
-}
+import { DataTypes } from '../../../types/webtoon-types';
 
-const MyRecentViewInfo = (props: dummyProps) => {
+const MyRecentViewInfo = ({ author, rating, views }: DataTypes) => {
   return (
     <>
-      <Author>{props.author}</Author>
+      <Author>{author}</Author>
       <p>
         <RatingSection>
           <AiFillStar />
-          {props.rating}
+          {rating}
         </RatingSection>
-        <ViewSection>{props.view}명</ViewSection>
+        <ViewSection>{views}명</ViewSection>
       </p>
     </>
   );
@@ -33,6 +29,10 @@ const Author = styled.p`
 const RatingSection = styled.span`
   font-size: 12px;
   color: ${({ theme }) => theme.colors.red};
+
+  svg {
+    transform: translateY(2px);
+  }
 `;
 
 const ViewSection = styled.span`

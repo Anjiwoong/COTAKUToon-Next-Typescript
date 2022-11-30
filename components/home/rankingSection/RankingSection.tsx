@@ -8,7 +8,7 @@ import RankingSectionItem from './RankingSectionItem';
 import Button from '../../UI/Button';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-const RankingSection = ({ webtoon, isAdult }: WebtoonArrTypes) => {
+const RankingSection = ({ webtoon, isAdult, id }: WebtoonArrTypes) => {
   const sectionTitle = webtoon.every(data => data.category?.includes('rank'));
 
   const settings = useMemo<Settings>(
@@ -46,6 +46,7 @@ const RankingSection = ({ webtoon, isAdult }: WebtoonArrTypes) => {
               webtoon={webtoon}
               index={i + 1}
               isAdult={isAdult}
+              id={id}
             />
           ))}
         </StyledSlider>

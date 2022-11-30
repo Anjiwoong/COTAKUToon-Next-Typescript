@@ -1,36 +1,38 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import { removeRecentWebtoon } from '../../../lib/remove-recent-webtoon';
+
+import { RemoveRecentTypes } from '../../../types/recent-webtoon-types';
+
 import Button from '../../UI/Button';
 import MyPageRecentViewItem from './MyPageRecentViewItem';
 
-interface dummyProps {
-  data: {
-    title: string;
-    author: string;
-    image: string;
-    episode: number;
-    free: boolean;
-    rating: number;
-    view: string;
-  }[];
-}
-
-const MyPageRecentView = (props: dummyProps) => {
+const MyPageRecentView = ({ recent, id, removeHandler }: RemoveRecentTypes) => {
+  const removeRecentHandler = async () => {
+    try {
+      const result = await removeRecentWebtoon(id);
+      removeHandler([]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <ClearButtonWrap>
-        <ClearButton>전체 삭제</ClearButton>
+        <ClearButton onClick={removeRecentHandler}>전체 삭제</ClearButton>
       </ClearButtonWrap>
       <RecentViewList>
-        {props.data.map(webtoon => (
+        {recent?.map(webtoon => (
           <MyPageRecentViewItem
             key={webtoon.title}
+            id={webtoon.id}
             title={webtoon.title}
             author={webtoon.author}
-            image={webtoon.image}
-            episode={webtoon.episode}
-            free={webtoon.free}
+            cover={webtoon.cover}
+            freeEpisode={webtoon.freeEpisode}
+            category={webtoon.category}
             rating={webtoon.rating}
-            view={webtoon.view}
+            views={webtoon.views}
           />
         ))}
       </RecentViewList>

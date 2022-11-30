@@ -1,22 +1,26 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { notImplementedHandler } from '../../lib/not-implemented';
+
+const infoList = [
+  '이용약관',
+  '개인정보 처리방침',
+  '청소년보호정책',
+  '사업자정보확인',
+];
+
 const BusinessInfo = () => {
   return (
     <>
       <List>
-        <li>
-          <Link href="#">이용약관</Link>
-        </li>
-        <li>
-          <Link href="#">개인정보 처리방침</Link>
-        </li>
-        <li>
-          <Link href="#">청소년보호정책</Link>
-        </li>
-        <li>
-          <Link href="#">사업자정보확인</Link>
-        </li>
+        {infoList.map(info => (
+          <li key={info}>
+            <Link href="#" onClick={notImplementedHandler}>
+              {info}
+            </Link>
+          </li>
+        ))}
       </List>
       <Copyright>
         <span>©</span>RIDI Corp.

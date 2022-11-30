@@ -1,24 +1,25 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+import { notImplementedHandler } from '../../lib/not-implemented';
+
+const infoList = [
+  '리디페이퍼',
+  '제휴카드',
+  '뷰어 다운로드',
+  'CP사이트',
+  '리디셀렉트 B2B',
+];
 
 const ServiceList = () => {
   return (
     <List>
-      <li>
-        <Link href="#">리디페이퍼</Link>
-      </li>
-      <li>
-        <Link href="#">제휴카드</Link>
-      </li>
-      <li>
-        <Link href="#">뷰어 다운로드</Link>
-      </li>
-      <li>
-        <Link href="#">CP사이트</Link>
-      </li>
-      <li>
-        <Link href="#">리디셀렉트 B2B</Link>
-      </li>
+      {infoList.map(info => (
+        <li key={info}>
+          <Link href="#" onClick={notImplementedHandler}>
+            {info}
+          </Link>
+        </li>
+      ))}
     </List>
   );
 };

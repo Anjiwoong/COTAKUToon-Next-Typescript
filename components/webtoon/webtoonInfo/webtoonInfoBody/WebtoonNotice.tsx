@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { notImplementedHandler } from '../../../../lib/not-implemented';
+
 const WebtoonNotice = () => {
   return (
     <ul>
@@ -11,7 +13,7 @@ const WebtoonNotice = () => {
       <NoticeItem>
         <BenefitsTitle>혜택</BenefitsTitle>
         <BenefitsInfo>
-          <Link href="#">
+          <Link href="#" onClick={notImplementedHandler}>
             <InfoTitle>대여 할인권 5장 증정</InfoTitle>
             <InfoText>1인 1회 발급 가능, 3일 대여</InfoText>
           </Link>
@@ -21,11 +23,15 @@ const WebtoonNotice = () => {
         <EventTitle>이벤트</EventTitle>
         <EventInfo>
           <InfoTitle>
-            <Link href="#">#시즌3 런칭! 전원 1,000포인트 증정♥</Link>
+            <Link href="#" onClick={notImplementedHandler}>
+              #시즌3 런칭! 전원 1,000포인트 증정♥
+            </Link>
           </InfoTitle>
           <InfoTitle>요일 웹툰 한번에 모아보기☆</InfoTitle>
           <InfoText>
-            <Link href="#">이벤트 더보기</Link>
+            <Link href="#" onClick={notImplementedHandler}>
+              이벤트 더보기
+            </Link>
           </InfoText>
         </EventInfo>
       </NoticeItem>

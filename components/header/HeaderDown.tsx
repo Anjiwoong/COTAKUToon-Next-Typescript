@@ -8,13 +8,7 @@ import HeaderDownLogo from './HeaderDownLogo';
 import HeaderLoginButton from './HeaderLoginButton';
 import HeaderSearchForm from './HeaderSearchForm';
 
-const HeaderDown = ({
-  sub,
-  webtoon,
-}: {
-  sub?: boolean;
-  webtoon: DataTypes[];
-}) => {
+const HeaderDown = ({ sub, webtoon }: HeaderTypes) => {
   return (
     <HeaderDownWrap sub={sub}>
       <nav>

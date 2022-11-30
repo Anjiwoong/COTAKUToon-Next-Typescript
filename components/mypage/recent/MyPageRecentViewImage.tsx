@@ -1,31 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import { BiTimer } from 'react-icons/bi';
+import { DataTypes } from '../../../types/webtoon-types';
 
-interface dummyProps {
-  image: string;
-  episode: number;
-  free: boolean;
-}
+const MyPageRecentViewImage = ({ cover, category, freeEpisode }: DataTypes) => {
+  const free = category?.includes('free');
 
-const MyPageRecentViewImage = (props: dummyProps) => {
   return (
     <WebtoonLink href="/webtoon">
       <div>
         <Image
-          src={props.image}
+          src={`/images/${cover}`}
           alt="image"
           width={110}
           height={160}
           priority
         />
-        {props.free && (
+        {free && (
           <WaitFree>
             <BiTimer />
           </WaitFree>
         )}
-        <FreeCount>{props.episode}화 무료</FreeCount>
+        <FreeCount>{freeEpisode}화 무료</FreeCount>
       </div>
     </WebtoonLink>
   );

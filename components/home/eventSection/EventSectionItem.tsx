@@ -1,13 +1,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 import { EventSectionTypes } from '../../../types/event-section-types';
 
 const EventSectionItem = ({ title, cover }: EventSectionTypes) => {
   return (
     <CarouseItem>
-      <Link href="#">
+      <Link href="#" onClick={notImplementedHandler}>
         <p>
           {title[0]}
           <br />

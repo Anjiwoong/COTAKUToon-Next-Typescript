@@ -2,21 +2,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-interface recentProps {
-  title: string;
-  author: string;
-  image: string;
-}
+import { DataTypes } from '../../../types/webtoon-types';
 
-const MyPageHomeRecentItem = (props: recentProps) => {
+const MyPageHomeRecentItem = ({ id, cover, title, author }: DataTypes) => {
   return (
     <li>
-      <Link href="/webtoon">
+      <Link href={`/webtoon/${id}`}>
         <ThumbnailWrapper>
           <div>
             <Image
-              src={props.image}
-              alt="상수리나무 아래 1화"
+              src={`/images/${cover}`}
+              alt="최근 조회 웹툰"
               width={108}
               height={155}
               priority
@@ -24,8 +20,8 @@ const MyPageHomeRecentItem = (props: recentProps) => {
           </div>
         </ThumbnailWrapper>
         <MetadataWrapper>
-          <Title>{props.title}</Title>
-          <Author>{props.author}</Author>
+          <Title>{title}</Title>
+          <Author>{author}</Author>
         </MetadataWrapper>
       </Link>
     </li>

@@ -2,7 +2,7 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { verifyPassword } from '../../../lib/auth';
 
-import { connectToDatabase } from '../../../lib/db';
+import { connectToDatabase } from '../../../lib/db-utils';
 
 interface Provider {
   id: string;
