@@ -1,15 +1,23 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { BsArrowLeft } from 'react-icons/bs';
 
-const ViewerHeaderTitle = () => {
+import { DataTypes } from '../../types/webtoon-types';
+
+import { BsArrowLeft } from 'react-icons/bs';
+import { useRouter } from 'next/router';
+
+const ViewerHeaderTitle = ({ title }: DataTypes) => {
+  const router = useRouter();
+
   return (
     <TitleWrapper>
       <h1>
-        <Link href="/webtoon">
+        <Link href={`/webtoon/${router.query.webtoonId}`}>
           <BsArrowLeft />
           <SrOnly>돌아가기</SrOnly>
-          <Title>상수리나무 아래</Title>
+          <Title>
+            {title} {router.query.webtoonView?.slice(2)}화
+          </Title>
         </Link>
       </h1>
     </TitleWrapper>

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { notImplementedHandler } from '../../lib/not-implemented';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const infoList = [
   '이용약관',

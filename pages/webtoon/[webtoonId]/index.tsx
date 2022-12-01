@@ -4,11 +4,11 @@ import {
   InferGetStaticPropsType,
 } from 'next';
 
-import { getWebtoon, getWebtoonById } from '../../lib/api-util';
+import { getWebtoon, getWebtoonById } from '../../../lib/api-util';
 
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/header/Header';
-import WebtoonContainer from '../../components/webtoon/WebtoonContainer';
+import Footer from '../../../components/Layout/footer/Footer';
+import Header from '../../../components/Layout/header/Header';
+import WebtoonContainer from '../../../components/webtoon/WebtoonContainer';
 
 const WebtoonDetailPage = (
   props: InferGetStaticPropsType<typeof getStaticProps>

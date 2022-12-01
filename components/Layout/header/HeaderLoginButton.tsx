@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
-import { HeaderTypes } from '../../types/header-types';
+import { HeaderTypes } from '../../../types/header-types';
 
 const HeaderLoginButton = (props: HeaderTypes) => {
   return (

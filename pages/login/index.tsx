@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import LoginForm from '../../components/login/LoginForm';
-import LoginHeader from '../../components/header/LoginHeader';
+import LoginHeader from '../../components/Layout/header/LoginHeader';
 import SignupButton from '../../components/login/SignupButton';
 import { getSession } from 'next-auth/react';
 import { NextPageContext } from 'next';

@@ -1,7 +1,7 @@
 import { InferGetStaticPropsType } from 'next';
 
-import Footer from '../components/footer/Footer';
-import Header from '../components/header/Header';
+import Footer from '../components/Layout/footer/Footer';
+import Header from '../components/Layout/header/Header';
 import HomeContainer from '../components/home/HomeContainer';
 import { getWebtoon } from '../lib/api-util';
 

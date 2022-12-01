@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import { RiCustomerService2Fill } from 'react-icons/ri';
 import { AiOutlineNotification } from 'react-icons/ai';
-import { notImplementedHandler } from '../../lib/not-implemented';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const infoList = ['고객센터', '공지사항'];
 

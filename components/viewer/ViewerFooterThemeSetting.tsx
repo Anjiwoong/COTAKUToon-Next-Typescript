@@ -1,9 +1,17 @@
 import styled from 'styled-components';
+
 import { FaPaintRoller } from 'react-icons/fa';
-import Button from '../UI/Button';
+import ViewerFooterThemeSettingItem from './ViewerFooterThemeSettingItem';
+import { useRecoilState } from 'recoil';
+import { viewerThemeState } from '../../states/viewerThemeState';
+
+const themeList = ['white', 'sepia', 'black'];
 
 const ViewerFooterThemeSetting = () => {
-  // li 컴포넌트
+  const [viewerTheme, setViewerTheme] = useRecoilState(viewerThemeState);
+
+  const changeThemeHandler = (color: string) => setViewerTheme(color);
+
   return (
     <>
       <IconItem>
@@ -11,21 +19,14 @@ const ViewerFooterThemeSetting = () => {
       </IconItem>
       <li>
         <ColorSetting>
-          <li>
-            <Button>
-              <SrOnly>theme</SrOnly>
-            </Button>
-          </li>
-          <li>
-            <Button>
-              <SrOnly>theme</SrOnly>
-            </Button>
-          </li>
-          <li>
-            <SelectedButton>
-              <SrOnly>theme</SrOnly>
-            </SelectedButton>
-          </li>
+          {themeList.map(color => (
+            <ViewerFooterThemeSettingItem
+              key={color}
+              color={color}
+              viewerTheme={viewerTheme}
+              changeThemeHandler={changeThemeHandler}
+            />
+          ))}
         </ColorSetting>
       </li>
     </>
@@ -79,14 +80,6 @@ const ColorSetting = styled.ul`
       border-radius: 32px;
     }
   }
-`;
-
-const SrOnly = styled.span`
-  ${({ theme }) => theme.mixins.a11yHidden()};
-`;
-
-const SelectedButton = styled(Button)`
-  border: 2px solid ${({ theme }) => theme.colors.borderBtnMode};
 `;
 
 export default ViewerFooterThemeSetting;

@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 import ViewerFooterNavBarItem from './ViewerFooterNavBarItem';
 
+const viewerFooterItem = ['연재 홈', '선호작품 목록', '댓글', '보기 설정'];
+
 const ViewerFooterNavBar = () => {
   return (
     <Wrapper>
       <ul>
-        <ViewerFooterNavBarItem />
-        <ViewerFooterNavBarItem />
-        <ViewerFooterNavBarItem />
-        <ViewerFooterNavBarItem />
+        {viewerFooterItem.map(item => (
+          <ViewerFooterNavBarItem key={item} title={item} />
+        ))}
       </ul>
     </Wrapper>
   );

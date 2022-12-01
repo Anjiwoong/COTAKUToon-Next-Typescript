@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { FaFacebookF } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
 import { BsYoutube } from 'react-icons/bs';
-import { notImplementedHandler } from '../../lib/not-implemented';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const iconList = ['facebook', 'instagram', 'youtube'];
 
