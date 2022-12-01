@@ -18,6 +18,7 @@ const WebtoonContainer = ({
       <A11yHidden>상세페이지</A11yHidden>
       <WebtoonInfo webtoon={selectedWebtoon} />
       <WebtoonSeries
+        id={selectedWebtoon.id}
         cover={selectedWebtoon.cover}
         title={selectedWebtoon.title}
       />

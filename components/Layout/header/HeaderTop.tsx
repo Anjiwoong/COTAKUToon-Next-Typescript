@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { IoIosArrowForward } from 'react-icons/io';
-import { HeaderTypes } from '../../types/header-types';
+import { HeaderTypes } from '../../../types/header-types';
 
 const HeaderTop = (props: HeaderTypes) => {
   return (

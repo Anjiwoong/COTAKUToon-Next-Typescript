@@ -3,8 +3,8 @@ import { getSession } from 'next-auth/react';
 
 import { DataTypes } from '../../types/webtoon-types';
 
-import Footer from '../../components/footer/Footer';
-import Header from '../../components/header/Header';
+import Footer from '../../components/Layout/footer/Footer';
+import Header from '../../components/Layout/header/Header';
 import MyPageContainer from '../../components/Layout/MyPageContainer';
 import MyPageHome from '../../components/mypage/home/MyPageHome';
 import { fetchRecentWebtoon } from '../../lib/fetch-recent-webtoon';

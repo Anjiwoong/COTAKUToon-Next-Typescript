@@ -8,7 +8,7 @@ import WebtoonSeriesOption from './WebtoonSeriesOption';
 
 const webtoonSeries = [...Array(15)].map((_, i) => i + 1);
 
-const WebtoonSeries = ({ title, cover }: WebtoonSeriesListTypes) => {
+const WebtoonSeries = ({ id, title, cover }: WebtoonSeriesListTypes) => {
   const [rental, setRental] = useState<boolean>(true);
 
   const rentalHandler = () => setRental(true);
@@ -23,6 +23,7 @@ const WebtoonSeries = ({ title, cover }: WebtoonSeriesListTypes) => {
           </RentalTitle>
           <WebtoonSeriesOption rental={rental} series={webtoonSeries} />
           <WebtoonSeriesList
+            id={id}
             title={title}
             cover={cover}
             webtoonSeries={webtoonSeries}

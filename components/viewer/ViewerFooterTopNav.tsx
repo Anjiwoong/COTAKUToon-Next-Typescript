@@ -1,46 +1,85 @@
-import Link from 'next/link';
-import styled from 'styled-components';
+import { useRouter } from 'next/router';
+import styled, { css } from 'styled-components';
+import { useRecoilValue } from 'recoil';
+
+import { ViewerTypes } from '../../types/viewer-types';
+import { viewerSettingState } from '../../states/viewerSettingState';
+
 import Button from '../UI/Button';
 import { IoChevronBack } from 'react-icons/io5';
 import { IoChevronForward } from 'react-icons/io5';
 
-const ViewerFooterTopNav = () => {
+const ViewerFooterTopNav = ({ title }: ViewerTypes) => {
+  const router = useRouter();
+  const isVisibleSetting = useRecoilValue(viewerSettingState);
+
+  const prevEpisodeHandler = () => {
+    if (router.query.webtoonView && +router.query.webtoonView.slice(2) > 1)
+      router.push(
+        `/webtoon/${router.query.webtoonId}/ep${
+          +router.query.webtoonView?.slice(2) - 1
+        }`
+      );
+    else alert('첫 화 입니다.');
+  };
+
+  const nextEpisodeHandler = () => {
+    if (router.query.webtoonView && +router.query.webtoonView.slice(2) < 15)
+      router.push(
+        `/webtoon/${router.query.webtoonId}/ep${
+          +router.query.webtoonView?.slice(2) + 1
+        }`
+      );
+    else alert('마지막 화 입니다.');
+  };
+
   return (
-    <div>
-      <Inner>
+    <Wrapper isVisible={isVisibleSetting}>
+      <FooterWrapper>
         <div>
-          <p>상수리나무 아래 1화</p>
+          <p>
+            {title} {router.query.webtoonView?.slice(2)}화
+          </p>
         </div>
         <ControlWrapper>
-          <Link href="/webtoon/">
-            <ControlButton>
-              <Prev>
-                <IoChevronBack />
-              </Prev>
-              <span>이전화</span>
-            </ControlButton>
-          </Link>
-          <Link href="/webtoon">
-            <ControlButton>
-              <span>다음화</span>
-              <Next>
-                <IoChevronForward />
-              </Next>
-            </ControlButton>
-          </Link>
+          <ControlButton onClick={prevEpisodeHandler}>
+            <Prev>
+              <IoChevronBack />
+            </Prev>
+            <span>이전화</span>
+          </ControlButton>
+          <ControlButton onClick={nextEpisodeHandler}>
+            <span>다음화</span>
+            <Next>
+              <IoChevronForward />
+            </Next>
+          </ControlButton>
         </ControlWrapper>
-      </Inner>
-    </div>
+      </FooterWrapper>
+    </Wrapper>
   );
 };
 
-const Inner = styled.div`
+const Wrapper = styled.div`
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s ease;
+
+  ${(props: { isVisible: boolean }) =>
+    props.isVisible &&
+    css`
+      transform: translate3d(0, 100%, 0);
+    `}
+`;
+
+const FooterWrapper = styled.div`
   ${({ theme }) => theme.mixins.autoMargin()};
   ${({ theme }) =>
     theme.mixins.flexBox('row', 'space-between', 'center', 'nowrap')};
   ${({ theme }) => theme.mixins.paddingX('15px')};
   max-width: 700px;
   height: 37px;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.5s ease;
 `;
 
 const ControlWrapper = styled.div`

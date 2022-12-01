@@ -3,13 +3,13 @@ import styled, { css } from 'styled-components';
 import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 
-import { HeaderTypes } from '../../types/header-types';
+import { HeaderTypes } from '../../../types/header-types';
 
 import { BiBell } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { BiBookOpen } from 'react-icons/bi';
 import { AiOutlineUser } from 'react-icons/ai';
-import Button from '../UI/Button';
+import Button from '../../UI/Button';
 
 const HeaderDownList = (props: HeaderTypes) => {
   const { data: session, status } = useSession();

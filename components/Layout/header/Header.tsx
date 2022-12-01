@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { HeaderTypes } from '../../types/header-types';
+import { HeaderTypes } from '../../../types/header-types';
 
 import HeaderDown from './HeaderDown';
 import HeaderTop from './HeaderTop';

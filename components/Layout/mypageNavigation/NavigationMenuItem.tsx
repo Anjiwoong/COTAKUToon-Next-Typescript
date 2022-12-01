@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { MouseEvent } from 'react';
 import styled, { css } from 'styled-components';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 import { menuProps } from '../../../types/navigation-props';
 
 const NavigationMenuItem = (props: menuProps) => {
@@ -8,9 +10,18 @@ const NavigationMenuItem = (props: menuProps) => {
 
   const isSelected = props.path.find(path => path === router.pathname);
 
+  const notImplemented = (e: MouseEvent<HTMLAnchorElement>) => {
+    if (props.title === '1 : 1 문의' || props.title === '정보 변경')
+      notImplementedHandler(e);
+  };
+
   return (
     <MenuItem>
-      <MenuLink href={props.path[0]} selected={isSelected ? 1 : 0}>
+      <MenuLink
+        href={props.path[0]}
+        selected={isSelected ? 1 : 0}
+        onClick={notImplemented}
+      >
         {props.title}
       </MenuLink>
     </MenuItem>

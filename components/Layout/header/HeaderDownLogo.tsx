@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
-import { HeaderTypes } from '../../types/header-types';
+import { HeaderTypes } from '../../../types/header-types';
 
 const HeaderDownLogo = (props: HeaderTypes) => {
   return (

@@ -10,7 +10,7 @@ import { SeriesItemTypes } from '../../../types/webtoon-series-types';
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 import Button from '../../UI/Button';
 
-const WebtoonSeriesItem = ({ title, cover, series }: SeriesItemTypes) => {
+const WebtoonSeriesItem = ({ id, title, cover, series }: SeriesItemTypes) => {
   const [checkList, setCheckList] = useRecoilState(rentalCheckListState);
 
   const checkHandler = useCallback(
@@ -28,7 +28,7 @@ const WebtoonSeriesItem = ({ title, cover, series }: SeriesItemTypes) => {
       <label>
         <SeriesWrapLeft>
           <CustomCheckbox onChange={checkHandler} checked={isChecked} />
-          <ThumbnailLink href="/webtoon/">
+          <ThumbnailLink href={`/webtoon/${id}/ep${series}`}>
             <Image
               src={`/images/${cover}`}
               alt="웹툰 회차 표지"
@@ -38,7 +38,7 @@ const WebtoonSeriesItem = ({ title, cover, series }: SeriesItemTypes) => {
             />
           </ThumbnailLink>
           <div>
-            <Link href="/webtoon">
+            <Link href={`/webtoon/${id}/ep${series}`}>
               <TitleWrap>
                 <Badge>무료</Badge>
                 <Title>
@@ -46,13 +46,13 @@ const WebtoonSeriesItem = ({ title, cover, series }: SeriesItemTypes) => {
                 </Title>
               </TitleWrap>
               <DescriptionWrap>
-                <span>2020.07.31</span>
+                <span>2022.12.01</span>
                 <span>14MB</span>
               </DescriptionWrap>
             </Link>
           </div>
         </SeriesWrapLeft>
-        <Link href="/webtoon">
+        <Link href={`/webtoon/${id}/ep${series}`}>
           <ViewButton>보기</ViewButton>
         </Link>
       </label>

@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { notImplementedHandler } from '../../../../lib/not-implemented';
 import Button from '../../../UI/Button';
 
 const MyRidiAutoChargeButton = () => {
   return (
     <ChargeButtonWrapper>
-      <Button>자동충전 설정</Button>
+      <Button onClick={notImplementedHandler}>자동충전 설정</Button>
     </ChargeButtonWrapper>
   );
 };

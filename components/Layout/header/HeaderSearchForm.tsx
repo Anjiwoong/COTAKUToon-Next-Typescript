@@ -2,13 +2,13 @@ import { ChangeEvent, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
 import _ from 'lodash';
 
-import { HeaderTypes } from '../../types/header-types';
-import { DataTypes } from '../../types/webtoon-types';
+import { HeaderTypes } from '../../../types/header-types';
+import { DataTypes } from '../../../types/webtoon-types';
 
 import { AiOutlineSearch } from 'react-icons/ai';
-import Input from '../UI/Input';
-import Backdrop from '../UI/Backdrop';
-import SearchModal from '../UI/SearchModal';
+import Input from '../../UI/Input';
+import Backdrop from '../../UI/Backdrop';
+import SearchModal from '../../UI/SearchModal';
 
 const HeaderSearchForm = ({ sub, webtoon }: HeaderTypes) => {
   const [show, setShow] = useState<boolean>(false);
