@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { removeRecentWebtoon } from '../../../lib/remove-recent-webtoon';
 
@@ -11,7 +10,7 @@ const MyPageRecentView = ({ recent, id, removeHandler }: RemoveRecentTypes) => {
   const removeRecentHandler = async () => {
     try {
       const result = await removeRecentWebtoon(id);
-      removeHandler([]);
+      removeHandler();
     } catch (error) {
       console.log(error);
     }

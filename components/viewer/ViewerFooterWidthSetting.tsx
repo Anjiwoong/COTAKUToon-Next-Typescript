@@ -1,23 +1,37 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { useRecoilState } from 'recoil';
+
+import { viewerZoomState } from '../../states/viewerZoomState';
+
 import { BsLaptop } from 'react-icons/bs';
 import { AiOutlineMinus } from 'react-icons/ai';
 import { AiOutlinePlus } from 'react-icons/ai';
 
-const ViewerFooterWidthSetting = () => {
+const ViewerFooterWidthSetting = ({ colorTheme }: { colorTheme: string }) => {
+  const [zoom, setZoom] = useRecoilState(viewerZoomState);
+
+  const increaseZoom = () => {
+    if (zoom < 150) setZoom(prev => prev + 10);
+  };
+
+  const decreaseZoom = () => {
+    if (zoom > 50) setZoom(prev => prev - 10);
+  };
+
   return (
     <>
       <IconItem>
         <BsLaptop />
       </IconItem>
-      <Desc>
-        콘텐츠 너비 <span>100%</span>
+      <Desc colorTheme={colorTheme}>
+        콘텐츠 너비 <span>{zoom}%</span>
       </Desc>
       <ButtonList>
         <ButtonWrapper>
-          <div>
+          <div onClick={decreaseZoom}>
             <AiOutlineMinus />
           </div>
-          <div>
+          <div onClick={increaseZoom}>
             <AiOutlinePlus />
           </div>
         </ButtonWrapper>
@@ -41,6 +55,7 @@ const Desc = styled.li`
   font-size: 15px;
   line-height: 48px;
   color: ${({ theme }) => theme.colors.navDarkGray};
+  transition: all 0.5s ease;
 
   span {
     font-weight: 400;
@@ -48,6 +63,12 @@ const Desc = styled.li`
     color: ${({ theme }) => theme.colors.fontGray2};
     padding-left: 3px;
   }
+
+  ${(props: { colorTheme: string }) =>
+    props.colorTheme !== 'black' &&
+    css`
+      color: ${({ theme }) => theme.colors.black};
+    `}
 `;
 
 const ButtonList = styled.li`

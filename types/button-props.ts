@@ -1,3 +1,5 @@
+import { MouseEvent } from 'react';
+
 export interface ButtonProps {
   children: string | any;
   type?: 'button' | 'submit';
@@ -9,5 +11,5 @@ export interface ButtonProps {
   prev?: boolean;
   next?: boolean;
   selected?: boolean;
-  onClick?: () => void;
+  onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }

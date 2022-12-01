@@ -9,16 +9,18 @@ import MyPageRecentView from './MyPageRecentView';
 const MyPageRecent = ({ recent, id }: RecentTypes) => {
   const [recentWebtoon, setRecentWebtoon] = useState(recent);
 
+  const removeHandler = () => setRecentWebtoon(undefined);
+
   return (
     <RecentSection>
       <article>
         <Title>최근 조회한 작품</Title>
-        {!recentWebtoon?.length && <MyPageRecentEmptyView />}
-        {recentWebtoon?.length !== 0 && (
+        {!recentWebtoon && <MyPageRecentEmptyView />}
+        {recentWebtoon && (
           <MyPageRecentView
             recent={recentWebtoon}
             id={id}
-            removeHandler={setRecentWebtoon}
+            removeHandler={removeHandler}
           />
         )}
       </article>

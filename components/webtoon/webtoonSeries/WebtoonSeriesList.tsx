@@ -8,6 +8,7 @@ import { GoTriangleDown } from 'react-icons/go';
 import { useState } from 'react';
 
 const WebtoonSeriesList = ({
+  id,
   title,
   cover,
   webtoonSeries,
@@ -22,6 +23,7 @@ const WebtoonSeriesList = ({
         {webtoonSeries?.map(webtoon => (
           <WebtoonSeriesItem
             key={webtoon}
+            id={id}
             title={title}
             cover={cover}
             series={webtoon}

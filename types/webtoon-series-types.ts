@@ -1,4 +1,5 @@
 export interface WebtoonSeriesListTypes {
+  id?: string;
   title?: string;
   cover?: string;
   webtoonSeries?: number[];

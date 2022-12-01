@@ -1,22 +1,19 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { notImplementedHandler } from '../../lib/not-implemented';
 
-const infoList = [
-  '리디페이퍼',
-  '제휴카드',
-  '뷰어 다운로드',
-  'CP사이트',
-  '리디셀렉트 B2B',
-];
+import { AiFillTrademarkCircle } from 'react-icons/ai';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
-const ServiceList = () => {
+const infoList = ['회사 소개', '인재채용'];
+
+const CompanyInfoList = () => {
   return (
     <List>
       {infoList.map(info => (
         <li key={info}>
           <Link href="#" onClick={notImplementedHandler}>
             {info}
+            {info === '인재채용' && <AiFillTrademarkCircle />}
           </Link>
         </li>
       ))}
@@ -25,15 +22,12 @@ const ServiceList = () => {
 };
 
 const List = styled.ul`
-  ${({ theme }) =>
-    theme.mixins.flexBox('column', 'flex-start', 'stretch', 'nowrap')};
-
   li {
+    ${({ theme }) => theme.mixins.paddingY('6px')};
     color: ${({ theme }) => theme.colors.fontGray1};
     font-size: 13px;
     line-height: 16px;
     letter-spacing: -0.01em;
-    padding: 6px 0;
 
     &:nth-child(1) {
       padding-top: 0;
@@ -47,8 +41,15 @@ const List = styled.ul`
       padding: 7px 0;
       font-size: 12px;
       line-height: 14px;
-    `}
+    `};
+
+    svg {
+      color: ${({ theme }) => theme.colors.primaryColor};
+      margin-left: 4px;
+      font-size: 14px;
+      transform: translate3d(0, 2px, 0);
+    }
   }
 `;
 
-export default ServiceList;
+export default CompanyInfoList;

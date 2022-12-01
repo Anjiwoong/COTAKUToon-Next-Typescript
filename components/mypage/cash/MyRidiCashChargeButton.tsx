@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import Button from '../../UI/Button';
 import { FaCoins } from 'react-icons/fa';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const MyRidiCashChargeButton = () => {
   return (
     <ChargeButtonWrapper>
-      <Button>
+      <Button onClick={notImplementedHandler}>
         <FaCoins />
         리디캐시 충전
       </Button>

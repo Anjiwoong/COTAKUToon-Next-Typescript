@@ -18,5 +18,5 @@ export interface RecentTypes {
 }
 
 export interface RemoveRecentTypes extends RecentTypes {
-  removeHandler: ([]) => void;
+  removeHandler: () => void;
 }
