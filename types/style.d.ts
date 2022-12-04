@@ -104,10 +104,10 @@ declare module 'styled-components' {
 
     mixins: {
       flexBox: (
-        direction?: 'row' | string,
-        justify?: 'flex-start' | string,
-        align?: 'stretch' | string,
-        wrap?: 'nowrap' | string
+        direction?: string,
+        justify?: string,
+        align?: string,
+        wrap?: string
       ) => string;
       flexCenter: () => string;
       autoMargin: () => string;

@@ -6,5 +6,7 @@ import mixins from './mixin';
 export const theme: DefaultTheme = {
   colors,
   media,
+
+  // @ts-ignore
   mixins,
 };
