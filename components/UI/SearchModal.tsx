@@ -32,6 +32,7 @@ const SearchModal = ({
             <SearchModalItem
               key={data.id}
               webtoon={data}
+              // @ts-ignore
               isAdult={session?.user?.image}
             />
           ))}
