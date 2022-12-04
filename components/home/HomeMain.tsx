@@ -4,7 +4,7 @@ import { filterWebtoon } from '../../lib/filter-webtoon';
 
 import { DataTypes } from '../../types/webtoon-types';
 
-import CarouselSection from './CarouselSection';
+import CarouselSection from './carouselSection/CarouselSection';
 import EventSection from './eventSection/EventSection';
 import NewArrivalSection from './newArrivalSection/NewArrivalSection';
 import OnlyRidiSection from './onlyRidiSection/OnlyRidiSection';
