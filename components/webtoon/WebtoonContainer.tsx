@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { WebtoonContainerTypes } from '../../types/webtoon-types';
+import { WebtoonContainerTypes } from '../../types/common/webtoon-types';
 
 import WebtoonInfo from './webtoonInfo/WebtoonInfo';
 import WebtoonIntroduce from './webtoonIntroduce/WebtoonIntroduce';

@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { NextPageContext } from 'next';
+import { getSession } from 'next-auth/react';
+
 import LoginForm from '../../components/login/LoginForm';
 import LoginHeader from '../../components/Layout/header/LoginHeader';
 import SignupButton from '../../components/login/SignupButton';
-import { getSession } from 'next-auth/react';
-import { NextPageContext } from 'next';
 
 const LoginPage = () => {
   return (

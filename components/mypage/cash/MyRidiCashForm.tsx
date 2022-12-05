@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import MyRidiCashAgreement from './MyRidiCashAgreement';
 import MyRidiCashCaution from './MyRidiCashCaution';
 import MyRidiCashChargeButton from './MyRidiCashChargeButton';

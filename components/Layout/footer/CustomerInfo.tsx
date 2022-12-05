@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import CompanyInfo from './CompanyInfo';
 import Etc from './Etc';
 import Service from './Service';

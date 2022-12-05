@@ -1,3 +1,4 @@
+import { NextApiResponse } from 'next';
 import { hashPassword } from '../../../lib/auth';
 import { connectToDatabase } from '../../../lib/db-utils';
 
@@ -12,11 +13,7 @@ interface Request {
   };
 }
 
-interface Response {
-  status: (num: number) => any;
-}
-
-const handler = async (req: Request, res: Response) => {
+const handler = async (req: Request, res: NextApiResponse) => {
   if (req.method !== 'POST') return;
 
   const data = req.body;
@@ -33,20 +30,20 @@ const handler = async (req: Request, res: Response) => {
 
   const client = await connectToDatabase();
 
-  const db = client.db();
+  const db = client?.db();
 
-  const existingUser = await db.collection('users').findOne({ id: id });
+  const existingUser = await db?.collection('users').findOne({ id: id });
 
   if (existingUser) {
     res.status(422).json({ message: 'User exists already!' });
-    client.close();
+    client?.close();
     return;
   }
 
   const hashedPassword = await hashPassword(password);
-  const isAdult = new Date().getFullYear() - +adult >= 19;
+  const isAdult = new Date().getFullYear() - +adult >= 19 ? 'adult' : 'kids';
 
-  const result = await db.collection('users').insertOne({
+  const result = await db?.collection('users').insertOne({
     id: id,
     password: hashedPassword,
     email: email,
@@ -55,7 +52,7 @@ const handler = async (req: Request, res: Response) => {
   });
 
   res.status(201).json({ message: 'Created user!' });
-  client.close();
+  client?.close();
 };
 
 export default handler;

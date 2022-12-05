@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { DataTypes } from '../../../../types/webtoon-types';
+import { DataTypes } from '../../../../types/common/webtoon-types';
 
 import BenefitsPeriod from './BenefitsPeriod';
 import FirstEpisodeButton from './FirstEpisodeButton';

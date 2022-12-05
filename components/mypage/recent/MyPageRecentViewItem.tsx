@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { DataTypes } from '../../../types/webtoon-types';
+
+import { DataTypes } from '../../../types/common/webtoon-types';
+
 import MyPageRecentViewImage from './MyPageRecentViewImage';
 import MyRecentViewInfo from './MyRecentViewInfo';
 

@@ -1,4 +1,4 @@
-import { DbUserTypes } from './../types/db-user-types';
+import { DbUserTypes } from '../types/lib/db-user-types';
 
 export const fetchRecentWebtoon = async (name?: string | null) => {
   const response = await fetch('http://localhost:3000/api/recent-webtoon', {

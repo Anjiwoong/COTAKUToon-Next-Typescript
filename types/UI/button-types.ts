@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 
-export interface ButtonProps {
+export interface ButtonTypes {
   children: string | any;
   type?: 'button' | 'submit';
   login?: boolean;

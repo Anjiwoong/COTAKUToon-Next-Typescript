@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Input from '../../UI/Input';
 
 const MyRidiCashAgreement = () => {

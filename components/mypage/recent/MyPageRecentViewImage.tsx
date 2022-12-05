@@ -2,8 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { DataTypes } from '../../../types/common/webtoon-types';
+
 import { BiTimer } from 'react-icons/bi';
-import { DataTypes } from '../../../types/webtoon-types';
 
 const MyPageRecentViewImage = ({ cover, category, freeEpisode }: DataTypes) => {
   const free = category?.includes('free');

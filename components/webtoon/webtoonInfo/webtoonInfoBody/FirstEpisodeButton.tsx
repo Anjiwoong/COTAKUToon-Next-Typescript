@@ -1,10 +1,16 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
+
 import Button from '../../../UI/Button';
 
 const FirstEpisodeButton = () => {
+  const router = useRouter();
+
+  const webtoonId = router.query.webtoonId;
+
   return (
-    <Link href="/webtoon/1">
+    <Link href={`/webtoon/${webtoonId}/ep1`}>
       <EpisodeButton type="button">첫회보기</EpisodeButton>
     </Link>
   );

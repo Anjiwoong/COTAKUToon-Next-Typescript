@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import WebtoonFooterMetadata from './WebtoonFooterMetadata';
 import WebtoonFooterSupport from './WebtoonFooterSupport';
 

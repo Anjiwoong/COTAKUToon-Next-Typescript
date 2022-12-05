@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import MyAssetInfoItem from './MyAssetInfoItem';
 
 const assetInfo = [

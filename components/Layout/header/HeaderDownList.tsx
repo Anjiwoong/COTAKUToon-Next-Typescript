@@ -1,18 +1,20 @@
+import { MouseEvent } from 'react';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 
-import { HeaderTypes } from '../../../types/header-types';
+import { HeaderTypes } from '../../../types/layout/header-types';
 
 import { BiBell } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';
 import { BiBookOpen } from 'react-icons/bi';
 import { AiOutlineUser } from 'react-icons/ai';
 import Button from '../../UI/Button';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const HeaderDownList = (props: HeaderTypes) => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
 
   const loginHandler = () => {
@@ -20,20 +22,26 @@ const HeaderDownList = (props: HeaderTypes) => {
     else signIn();
   };
 
+  const recentWebtoonHandler = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (session) router.replace('/mypage/recent');
+    else alert('로그인이 필요한 서비스입니다.');
+  };
+
   return (
     <Wrapper sub={props.sub}>
       <li>
-        <Link href="/">
+        <Link href="#" onClick={notImplementedHandler}>
           <BiBell />
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="#" onClick={notImplementedHandler}>
           <CgShoppingCart />
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="#" onClick={recentWebtoonHandler}>
           <BiBookOpen />
         </Link>
       </li>

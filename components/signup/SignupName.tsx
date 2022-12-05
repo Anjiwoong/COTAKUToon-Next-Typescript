@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
+
 import useInput from '../../hooks/use-input';
+import { CheckTypes } from '../../types/signup/signup-types';
+
 import Input from '../UI/Input';
-import { checkProps } from '../../types/signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const nameRegex = /^[가-힣]{2,5}$/;
 
-const SignupName = (props: checkProps) => {
+const SignupName = (props: CheckTypes) => {
   const {
     value: nameValue,
     isValid: nameIsValid,

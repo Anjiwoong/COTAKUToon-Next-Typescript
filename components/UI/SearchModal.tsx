@@ -1,8 +1,8 @@
 import { useSession } from 'next-auth/react';
-import Link from 'next/link';
 import styled from 'styled-components';
 
-import { DataTypes } from '../../types/webtoon-types';
+import { DataTypes } from '../../types/common/webtoon-types';
+
 import SearchModalItem from './SearchModalItem';
 
 const SearchModal = ({
@@ -32,7 +32,6 @@ const SearchModal = ({
             <SearchModalItem
               key={data.id}
               webtoon={data}
-              // @ts-ignore
               isAdult={session?.user?.image}
             />
           ))}

@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import { MouseEvent } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { AdultCheckTypes } from '../../../types/adult-check-types';
+import { AdultCheckTypes } from '../../../types/common/adult-check-types';
 
 import {
   addRecentWebtoonHandler,
@@ -21,7 +20,7 @@ const WebtoonSimilarItem = ({ webtoon, isAdult, id }: AdultCheckTypes) => {
         onClick={e => addRecentWebtoonHandler(e, webtoon, isAdult, id)}
       >
         <ThumbnailImage
-          src={isAdultCheck(isAdult, webtoon)}
+          src={isAdultCheck(isAdult, webtoon)!}
           alt="thumbnail"
           width={90}
           height={130}

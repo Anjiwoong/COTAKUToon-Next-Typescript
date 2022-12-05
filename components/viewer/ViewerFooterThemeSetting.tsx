@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
+
+import ViewerFooterThemeSettingItem from './ViewerFooterThemeSettingItem';
+import { viewerThemeState } from '../../states/viewerThemeState';
 
 import { FaPaintRoller } from 'react-icons/fa';
-import ViewerFooterThemeSettingItem from './ViewerFooterThemeSettingItem';
-import { useRecoilState } from 'recoil';
-import { viewerThemeState } from '../../states/viewerThemeState';
 
 const themeList = ['white', 'sepia', 'black'];
 

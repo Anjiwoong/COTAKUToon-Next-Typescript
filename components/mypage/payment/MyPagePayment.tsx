@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { BiUndo } from 'react-icons/bi';
 
 const MyPagePayment = () => {

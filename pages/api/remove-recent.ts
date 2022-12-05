@@ -1,5 +1,5 @@
 import { NextApiResponse } from 'next';
-import { RecentWebtoonTypes } from '../../types/recent-webtoon-types';
+import { RecentWebtoonTypes } from '../../types/mypage/recent-webtoon-types';
 
 import { connectToDatabase } from '../../lib/db-utils';
 
@@ -16,19 +16,19 @@ const handler = async (req: Request, res: NextApiResponse) => {
 
     const client = await connectToDatabase();
 
-    const db = client.db();
+    const db = client?.db();
 
-    const existingUser = await db.collection('users').findOne({ id: userId });
+    const existingUser = await db?.collection('users').findOne({ id: userId });
 
     const removeWebtoon = await db
-      .collection('users')
+      ?.collection('users')
       .updateOne(
         { _id: existingUser?._id },
         { $unset: { recentWebtoon: true } }
       );
 
     res.status(201).json({ message: 'remove recent webtoon!' });
-    client.close();
+    client?.close();
   }
 };
 

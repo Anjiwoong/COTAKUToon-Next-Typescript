@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import Input from '../../../UI/Input';
+
 import MyRidiAutoChargeSelectItem from './MyRidiAutoChargeSelectItem';
 
+// prettier-ignore
 const selectList = [
   { id: 'list1', price: 2000, savingRate: 3, savingPoint: 60 },
   { id: 'list2', price: 5000, savingRate: 3, savingPoint: 150 },
@@ -11,18 +12,8 @@ const selectList = [
   { id: 'list6', price: 50000, savingRate: 4, savingPoint: 2000 },
   { id: 'list7', price: 70000, savingRate: 4, savingPoint: 2800 },
   { id: 'list8', price: 100000, savingRate: 5, savingPoint: 5000 },
-  {
-    id: 'list9',
-    price: 200000,
-    savingRate: 5,
-    savingPoint: 10000,
-  },
-  {
-    id: 'list10',
-    price: 300000,
-    savingRate: 5,
-    savingPoint: 15000,
-  },
+  { id: 'list9', price: 200000, savingRate: 5, savingPoint: 10000 },
+  { id: 'list10', price: 300000, savingRate: 5, savingPoint: 15000 },
 ];
 
 const MyRidiAutoChargeSelect = () => {

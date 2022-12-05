@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
-import { BiCoinStack } from 'react-icons/bi';
 import styled from 'styled-components';
+
+import { BiCoinStack } from 'react-icons/bi';
 
 const RidiCashEmpty = () => {
   const router = useRouter();

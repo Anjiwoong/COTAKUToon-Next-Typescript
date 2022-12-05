@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
+
 import { MdOutlineDoubleArrow } from 'react-icons/md';
 
 const MyRidiCashInfoText = () => {

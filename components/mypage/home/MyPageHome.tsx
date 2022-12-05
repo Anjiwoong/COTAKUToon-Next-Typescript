@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+
+import { DataTypes } from '../../../types/common/webtoon-types';
+
 import MyPageInfo from './MyPageInfo';
 import MyPageHomeRecent from './MyPageHomeRecent';
-import { DataTypes } from '../../../types/webtoon-types';
 
 const MyPageHome = ({ recent }: { recent?: DataTypes[] }) => {
   return (

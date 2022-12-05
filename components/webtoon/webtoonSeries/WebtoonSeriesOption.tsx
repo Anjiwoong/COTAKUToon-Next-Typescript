@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { ChangeEvent, useCallback } from 'react';
 import { useRecoilState } from 'recoil';
 
-import { RentalSeriesTypes } from '../../../types/rental-series-types';
+import { RentalSeriesTypes } from '../../../types/webtoon/rental-series-types';
 import { rentalCheckListState } from '../../../states/rentalCheckListState';
 
 import Button from '../../UI/Button';

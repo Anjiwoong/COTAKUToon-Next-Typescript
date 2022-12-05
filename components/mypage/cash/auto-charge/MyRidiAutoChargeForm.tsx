@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import MyRidiAutoChargeButton from './MyRidiAutoChargeButton';
 import MyRidiAutoChargeAgreement from './MyRidiAutoChargeAgreement';
 import MyRidiAutoChargeNotice from './MyRidiAutoChargeNotice';

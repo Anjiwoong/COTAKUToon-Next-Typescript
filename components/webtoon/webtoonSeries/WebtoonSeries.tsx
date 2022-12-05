@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import { WebtoonSeriesListTypes } from '../../../types/webtoon-series-types';
+import { WebtoonSeriesListTypes } from '../../../types/webtoon/webtoon-series-types';
 
 import WebtoonSeriesList from './WebtoonSeriesList';
 import WebtoonSeriesOption from './WebtoonSeriesOption';

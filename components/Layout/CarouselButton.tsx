@@ -1,7 +1,7 @@
 import Button from '../UI/Button';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
-import { CarouselButtonTypes } from '../../types/carousel-button-types';
+import { CarouselButtonTypes } from '../../types/layout/carousel-button-types';
 
 const CarouselNextButton = ({
   prevHandler,

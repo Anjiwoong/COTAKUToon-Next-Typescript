@@ -2,7 +2,7 @@ import { DataTypes } from './webtoon-types';
 
 export interface AdultCheckTypes {
   webtoon: DataTypes;
-  index?: number;
-  isAdult?: boolean | null;
+  rank?: number;
+  isAdult?: string | null;
   id?: string | null;
 }

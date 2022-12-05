@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styled, { css } from 'styled-components';
 
-import { DataTypes } from '../../../../types/webtoon-types';
+import { DataTypes } from '../../../../types/common/webtoon-types';
 
 import Button from '../../../UI/Button';
 import { AiOutlineHeart, AiFillHeart, AiOutlineCheck } from 'react-icons/ai';

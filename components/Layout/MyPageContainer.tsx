@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import MyPageNavigation from './MypageNavigation';
 
 const MyPageContainer = ({ children }: { children: React.ReactNode }) => {

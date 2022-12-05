@@ -2,10 +2,12 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MouseEvent } from 'react';
 import styled, { css } from 'styled-components';
-import { notImplementedHandler } from '../../../lib/not-implemented';
-import { menuProps } from '../../../types/navigation-props';
 
-const NavigationMenuItem = (props: menuProps) => {
+import { MenuTypes } from '../../../types/layout/navigation-types';
+
+import { notImplementedHandler } from '../../../lib/not-implemented';
+
+const NavigationMenuItem = (props: MenuTypes) => {
   const router = useRouter();
 
   const isSelected = props.path.find(path => path === router.pathname);

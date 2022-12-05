@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import styled, { css } from 'styled-components';
 
-import { DataTypes } from '../../types/webtoon-types';
+import { DataTypes } from '../../types/common/webtoon-types';
 import { viewerNavigationState } from '../../states/viewerNavigationState';
 import { viewerSettingState } from '../../states/viewerSettingState';
 import { viewerThemeState } from '../../states/viewerThemeState';

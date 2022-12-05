@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/react';
 import styled from 'styled-components';
 import { filterWebtoon } from '../../lib/filter-webtoon';
 
-import { DataTypes } from '../../types/webtoon-types';
+import { DataTypes } from '../../types/common/webtoon-types';
 
 import CarouselSection from './carouselSection/CarouselSection';
 import EventSection from './eventSection/EventSection';
@@ -31,63 +31,53 @@ const HomeMain = ({ webtoon }: { webtoon: DataTypes[] }) => {
       <NewArrivalSection />
       <RankingSection
         webtoon={filterWebtoon(webtoon, 'rank')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'free')}
         id={data?.user?.name}
-        // @ts-ignore
         isAdult={data?.user?.image}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'sunday')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <RankingSection
         webtoon={filterWebtoon(webtoon, 'bestSeller')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <EventSection />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'highRating')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'bestReview')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'switchOn')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'yummy')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'wanted')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />
       <OnlyRidiSection />
       <WebtoonSection
         webtoon={filterWebtoon(webtoon, 'wait')}
-        // @ts-ignore
         isAdult={data?.user?.image}
         id={data?.user?.name}
       />

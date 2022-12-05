@@ -1,8 +1,9 @@
 import { MouseEvent } from 'react';
 import styled, { css } from 'styled-components';
 
+import { SetStarRateTypes } from '../../../types/webtoon/add-review-types';
+
 import { ImStarFull } from 'react-icons/im';
-import { SetStarRateTypes } from '../../../types/add-review-types';
 
 const reviewRating = [...Array(5)].map((_, i) => (i + 1).toString());
 

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { DataTypes } from '../../types/webtoon-types';
+import { DataTypes } from '../../types/common/webtoon-types';
 
 import { BsArrowLeft } from 'react-icons/bs';
 import { useRouter } from 'next/router';

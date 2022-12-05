@@ -1,7 +1,10 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
+
+import { HeaderTypes } from '../../../types/layout/header-types';
+
 import { IoIosArrowForward } from 'react-icons/io';
-import { HeaderTypes } from '../../../types/header-types';
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const HeaderTop = (props: HeaderTypes) => {
   return (
@@ -9,18 +12,22 @@ const HeaderTop = (props: HeaderTypes) => {
       <Container>
         <ul>
           <Item dot>
-            <HeaderLink href="/" selected>
+            <HeaderLink href="/" selected onClick={notImplementedHandler}>
               웹툰/만화
             </HeaderLink>
           </Item>
           <Item dot>
-            <HeaderLink href="/">웹소설</HeaderLink>
+            <HeaderLink href="/" onClick={notImplementedHandler}>
+              웹소설
+            </HeaderLink>
           </Item>
           <Item dot>
-            <HeaderLink href="/">도서</HeaderLink>
+            <HeaderLink href="/" onClick={notImplementedHandler}>
+              도서
+            </HeaderLink>
           </Item>
           <Item>
-            <HeaderLink href="/">
+            <HeaderLink href="/" onClick={notImplementedHandler}>
               셀렉트
               <IoIosArrowForward />
             </HeaderLink>

@@ -1,6 +1,8 @@
 import { useRecoilValue } from 'recoil';
 import styled, { css } from 'styled-components';
+
 import { viewerThemeState } from '../../states/viewerThemeState';
+
 import ViewerFooterNavBar from './ViewerFooterNavBar';
 import ViewerFooterSetting from './ViewerFooterSetting';
 

@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
+
 import useInput from '../../hooks/use-input';
+import { CheckTypes } from '../../types/signup/signup-types';
+
 import Input from '../UI/Input';
-import { checkProps } from '../../types/signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const passwordRegex = /^[A-Za-z0-9]{7,12}$/;
 
-const SignupPassword = (props: checkProps) => {
+const SignupPassword = (props: CheckTypes) => {
   const {
     value: passwordValue,
     isValid: passwordIsValid,
