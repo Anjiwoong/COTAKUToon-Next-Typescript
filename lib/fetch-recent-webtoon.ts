@@ -1,7 +1,11 @@
 import { DbUserTypes } from '../types/lib/db-user-types';
 
 export const fetchRecentWebtoon = async (name?: string | null) => {
-  const response = await fetch('http://localhost:3000/api/recent-webtoon', {
+  const URL =
+    'http://localhost:3000/api/recent-webtoon' ||
+    'https://cotaku-toon-next.vercel.app/api/recent-webtoon';
+
+  const response = await fetch(URL, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

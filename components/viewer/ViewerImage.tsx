@@ -8,6 +8,9 @@ import { viewerSettingState } from '../../states/viewerSettingState';
 import { viewerThemeState } from '../../states/viewerThemeState';
 import { viewerZoomState } from '../../states/viewerZoomState';
 
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
 const ViewerImage = ({ cover }: { cover: DataTypes }) => {
   const setIsVisible = useSetRecoilState(viewerNavigationState);
   const [isVisibleSetting, setIsVisibleSetting] =
@@ -28,6 +31,8 @@ const ViewerImage = ({ cover }: { cover: DataTypes }) => {
         width={740}
         height={1064}
         priority
+        placeholder="blur"
+        blurDataURL={blurDataURL}
       />
       <Image
         src={`/images/${cover}`}
@@ -35,6 +40,8 @@ const ViewerImage = ({ cover }: { cover: DataTypes }) => {
         width={740}
         height={1064}
         priority
+        placeholder="blur"
+        blurDataURL={blurDataURL}
       />
     </ImageWrapper>
   );
