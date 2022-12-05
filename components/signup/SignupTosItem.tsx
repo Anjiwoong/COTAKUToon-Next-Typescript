@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Input from '../UI/Input';
-import { tosItemProps } from '../../types/signup-props';
 
-const SignupTosItem = (props: tosItemProps) => {
+import { TosItemTypes } from '../../types/signup/signup-types';
+
+import Input from '../UI/Input';
+
+const SignupTosItem = (props: TosItemTypes) => {
   const [isChecked, setIsChecked] = useState(false);
   const { allCheck, essential, essentialCheckHandler } = props;
 

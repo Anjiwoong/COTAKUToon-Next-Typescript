@@ -1,14 +1,16 @@
 import styled, { css } from 'styled-components';
-import { navProps } from '../../../types/navigation-props';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import { NavigationTypes } from '../../../types/layout/navigation-types';
+
 import { AiFillHome } from 'react-icons/ai';
 import { BsBookHalf } from 'react-icons/bs';
 import { BsFillCreditCard2BackFill } from 'react-icons/bs';
 import { BsFillPersonFill } from 'react-icons/bs';
-import Link from 'next/link';
 import NavigationMenuItem from './NavigationMenuItem';
-import { useRouter } from 'next/router';
 
-const NavigationItem = (props: navProps) => {
+const NavigationItem = (props: NavigationTypes) => {
   const router = useRouter();
   const isSelected = router.pathname === props.menu[0].path[0];
 

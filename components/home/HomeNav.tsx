@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
+
+import { NavItemTypes } from '../../types/home/home-nav-item-types';
+
 import { notImplementedHandler } from '../../lib/not-implemented';
-import { StyleProps } from '../../types/home-props';
 
 const HomeNav = () => {
   return (
@@ -13,7 +15,7 @@ const HomeNav = () => {
           </Link>
         </NavItem>
         <NavItem>
-          <Link href="/login" onClick={notImplementedHandler}>
+          <Link href="#" onClick={notImplementedHandler}>
             만화
           </Link>
         </NavItem>
@@ -53,7 +55,7 @@ const NavItem = styled.li`
     color: ${({ theme }) => theme.colors.secondaryFont};
   }
 
-  ${(props: StyleProps) =>
+  ${(props: NavItemTypes) =>
     props.selected &&
     css`
       color: ${({ theme }) => theme.colors.primaryColor};
@@ -97,7 +99,7 @@ const GenreItem = styled.li`
     color: ${({ theme }) => theme.colors.secondaryFont};
   }
 
-  ${(props: StyleProps) =>
+  ${(props: NavItemTypes) =>
     props.selected &&
     css`
       color: ${({ theme }) => theme.colors.white};

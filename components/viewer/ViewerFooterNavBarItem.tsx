@@ -3,15 +3,15 @@ import { MouseEvent } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { useRouter } from 'next/router';
 
-import { ViewerTypes } from '../../types/viewer-types';
+import { ViewerTypes } from '../../types/viewer/viewer-types';
 import { viewerSettingState } from '../../states/viewerSettingState';
+import { viewerThemeState } from '../../states/viewerThemeState';
 
 import Button from '../UI/Button';
 import { AiOutlineHeart, AiOutlineHome } from 'react-icons/ai';
 import { BiMessageDetail } from 'react-icons/bi';
 import { BsPalette } from 'react-icons/bs';
 import { notImplementedHandler } from '../../lib/not-implemented';
-import { viewerThemeState } from '../../states/viewerThemeState';
 
 const ViewerFooterNavBarItem = ({ title }: ViewerTypes) => {
   const setIsVisibleSetting = useSetRecoilState(viewerSettingState);

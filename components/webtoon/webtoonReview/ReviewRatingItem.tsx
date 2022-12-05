@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { AiTwotoneStar } from 'react-icons/ai';
 
 const ReviewRatingItem = ({ rate }: { rate: number }) => {

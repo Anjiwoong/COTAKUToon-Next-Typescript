@@ -3,19 +3,12 @@ import styled from 'styled-components';
 import ArticleMiddleTitle from '../../Layout/ArticleMiddleTitle';
 import WebtoonKeywordItem from './WebtoonKeywordItem';
 
+// prettier-ignore
 const keywords = [
-  '#로맨스',
-  '#로맨스판타지',
-  '#판타지/SF',
-  '#시대/역사물',
-  '#서양배경',
-  '#금지된사랑',
-  '#왕족/귀족',
-  '#다정남주',
-  '#순정남주',
-  '#진지함',
-  '#원작소설有',
-  '#연재',
+  '#로맨스', '#로맨스판타지', '#판타지/SF',
+  '#시대/역사물', '#서양배경', '#금지된사랑',
+  '#왕족/귀족', '#다정남주', '#순정남주',
+  '#진지함', '#원작소설有', '#연재',
 ];
 
 const WebtoonKeyword = () => {

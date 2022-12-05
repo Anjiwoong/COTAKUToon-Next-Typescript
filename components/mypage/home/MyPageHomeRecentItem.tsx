@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { DataTypes } from '../../../types/webtoon-types';
+import { DataTypes } from '../../../types/common/webtoon-types';
 
 const MyPageHomeRecentItem = ({ id, cover, title, author }: DataTypes) => {
   return (

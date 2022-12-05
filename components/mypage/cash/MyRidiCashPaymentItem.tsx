@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import styled, { css } from 'styled-components';
-import Input from '../../UI/Input';
-import { paymentProps } from '../../../types/ridi-cash-props';
 
-const MyRidiCashPaymentItem = (props: paymentProps) => {
+import { PaymentTypes } from '../../../types/mypage/ridi-cash-types';
+
+import Input from '../../UI/Input';
+
+const MyRidiCashPaymentItem = (props: PaymentTypes) => {
   return (
     <PaymentList center={props.id === 'item3'}>
       <Input type="radio" name="pay-type" id={props.id} radio />

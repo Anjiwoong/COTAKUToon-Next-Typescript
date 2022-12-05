@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Input from '../../UI/Input';
-import { selectProps } from '../../../types/ridi-cash-props';
+import { SelectTypes } from '../../../types/mypage/ridi-cash-types';
 
-const MyRidiCashSelectItem = (props: selectProps) => {
+const MyRidiCashSelectItem = (props: SelectTypes) => {
   return (
     <>
       <SelectList>

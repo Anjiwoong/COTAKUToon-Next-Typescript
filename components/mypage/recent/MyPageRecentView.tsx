@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { removeRecentWebtoon } from '../../../lib/remove-recent-webtoon';
 
-import { RemoveRecentTypes } from '../../../types/recent-webtoon-types';
+import { removeRecentWebtoon } from '../../../lib/remove-recent-webtoon';
+import { RemoveRecentTypes } from '../../../types/mypage/recent-webtoon-types';
 
 import Button from '../../UI/Button';
 import MyPageRecentViewItem from './MyPageRecentViewItem';

@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
-
 import Slider, { Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { DataTypes, WebtoonArrTypes } from '../../../types/webtoon-types';
+import {
+  DataTypes,
+  WebtoonArrTypes,
+} from '../../../types/common/webtoon-types';
 
 import WebtoonSectionItem from './WebtoonSectionItem';
 import Button from '../../UI/Button';

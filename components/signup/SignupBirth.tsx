@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
+
 import useInput from '../../hooks/use-input';
+import { ButtonTypes } from '../../types/UI/button-types';
+import { CheckTypes } from '../../types/signup/signup-types';
+
 import Button from '../UI/Button';
-import { ButtonProps } from '../../types/button-props';
 import Input from '../UI/Input';
-import { checkProps } from '../../types/signup-props';
 import { ErrorMessage, SignupInputText } from './SignupForm';
 
 const birthRegex = /^[0-9]{4,4}$/;
 
-const SignupBirth = (props: checkProps) => {
+const SignupBirth = (props: CheckTypes) => {
   const [isSelected, setIsSelected] = useState(true);
 
   const {
@@ -105,7 +107,7 @@ const Gender = styled.div`
 `;
 
 const SelectedButton = styled(Button)`
-  ${(props: ButtonProps) =>
+  ${(props: ButtonTypes) =>
     props.selected &&
     css`
       border: 1px solid ${({ theme }) => theme.colors.fontSkyBlue};

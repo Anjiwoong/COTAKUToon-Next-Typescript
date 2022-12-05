@@ -1,7 +1,7 @@
 import { NextPageContext } from 'next';
 import { getSession } from 'next-auth/react';
 
-import { RecentTypes } from '../../../types/recent-webtoon-types';
+import { RecentTypes } from '../../../types/mypage/recent-webtoon-types';
 
 import Footer from '../../../components/Layout/footer/Footer';
 import Header from '../../../components/Layout/header/Header';

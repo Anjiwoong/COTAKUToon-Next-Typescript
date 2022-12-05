@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+
+import { notImplementedHandler } from '../../lib/not-implemented';
 import Input from '../UI/Input';
 
 const LoginInfo = () => {
@@ -12,8 +14,12 @@ const LoginInfo = () => {
         </label>
       </div>
       <LoginInfoRight>
-        <SearchId role="button">아이디 찾기</SearchId>
-        <span role="button">비밀번호 재설정</span>
+        <SearchId role="button" onClick={notImplementedHandler}>
+          아이디 찾기
+        </SearchId>
+        <span role="button" onClick={notImplementedHandler}>
+          비밀번호 재설정
+        </span>
       </LoginInfoRight>
     </LoginInfoWrap>
   );

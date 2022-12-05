@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
+
 import useInput from '../../hooks/use-input';
+import { CheckTypes } from '../../types/signup/signup-types';
+
 import Input from '../UI/Input';
-import { checkProps } from '../../types/signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const emailRegex =
   /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 
-const SignupEmail = (props: checkProps) => {
+const SignupEmail = (props: CheckTypes) => {
   const {
     value: emailValue,
     isValid: emailIsValid,

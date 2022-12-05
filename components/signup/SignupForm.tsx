@@ -3,7 +3,11 @@ import { FormEvent, useEffect, useRef, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { createUser } from '../../lib/create-user';
 
-import { StyleProps, validInputProps } from '../../types/signup-props';
+import {
+  CheckStateTypes,
+  SignupInputTypes,
+  ValidInputTypes,
+} from '../../types/signup/signup-types';
 
 import Button from '../UI/Button';
 import SignupBirth from './SignupBirth';
@@ -14,9 +18,9 @@ import SignupPassword from './SignupPassword';
 import SignupTos from './SignupTos';
 
 const SignupForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [allCheck, setAllCheck] = useState(false);
-  const [isChecked, setIsChecked] = useState({
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [allCheck, setAllCheck] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState<CheckStateTypes>({
     id: false,
     password: false,
     email: false,
@@ -106,13 +110,13 @@ export const SignupInput = styled.div`
   height: 48px;
   margin-top: 25px;
 
-  ${(props: StyleProps) =>
+  ${(props: SignupInputTypes) =>
     props.margin &&
     css`
       margin-top: 0;
     `}
 
-  ${(props: StyleProps) =>
+  ${(props: SignupInputTypes) =>
     props.pwd &&
     css`
       input {
@@ -120,7 +124,7 @@ export const SignupInput = styled.div`
       }
     `}
 
-  ${(props: StyleProps) =>
+  ${(props: SignupInputTypes) =>
     props.check &&
     css`
       margin-top: 0;
@@ -139,7 +143,7 @@ export const SignupInputText = styled.span`
   left: 10px;
   color: ${({ theme }) => theme.colors.fontGray2};
 
-  ${(props: validInputProps) =>
+  ${(props: ValidInputTypes) =>
     props.text &&
     css`
       color: ${({ theme }) => theme.colors.blue};
@@ -148,7 +152,7 @@ export const SignupInputText = styled.span`
       font-size: 11px;
     `}
 
-  ${(props: validInputProps) =>
+  ${(props: ValidInputTypes) =>
     props.valid &&
     css`
       transform: translateY(-20px);

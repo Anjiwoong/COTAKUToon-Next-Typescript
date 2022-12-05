@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { AiFillStar } from 'react-icons/ai';
 
-import { DataTypes } from '../../../types/webtoon-types';
+import { DataTypes } from '../../../types/common/webtoon-types';
 
 const MyRecentViewInfo = ({ author, rating, views }: DataTypes) => {
   return (

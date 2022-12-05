@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { verifyPassword } from '../../../lib/auth';
 
+import { verifyPassword } from '../../../lib/auth';
 import { connectToDatabase } from '../../../lib/db-utils';
 
 interface Provider {
@@ -26,14 +26,16 @@ export default NextAuth({
       async authorize(credentials: Provider) {
         const client = await connectToDatabase();
 
-        const usersCollection = client.db().collection('users');
+        const usersCollection = client?.db().collection('users');
+
+        if (usersCollection === undefined) return;
 
         const user = await usersCollection.findOne({
           id: credentials.id,
         });
 
         if (!user) {
-          client.close();
+          client?.close();
           throw new Error('No user found!');
         }
 
@@ -43,7 +45,7 @@ export default NextAuth({
         );
 
         if (!isValid) {
-          client.close();
+          client?.close();
           throw new Error('Could not log you in!');
         }
 
@@ -53,7 +55,7 @@ export default NextAuth({
           image: user.adult,
         };
 
-        client.close();
+        client?.close();
         return userInfo;
       },
     }),

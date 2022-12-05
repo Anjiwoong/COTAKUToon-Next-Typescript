@@ -1,9 +1,9 @@
 import { ChangeEvent, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
-import _ from 'lodash';
+import throttle from 'lodash/throttle';
 
-import { HeaderTypes } from '../../../types/header-types';
-import { DataTypes } from '../../../types/webtoon-types';
+import { HeaderTypes } from '../../../types/layout/header-types';
+import { DataTypes } from '../../../types/common/webtoon-types';
 
 import { AiOutlineSearch } from 'react-icons/ai';
 import Input from '../../UI/Input';
@@ -20,7 +20,7 @@ const HeaderSearchForm = ({ sub, webtoon }: HeaderTypes) => {
   const onCloseHandler = () => setShow(false);
 
   const throttleHandler = useMemo(
-    () => _.throttle(webtoon => setFilteredWebtoon(webtoon), 500),
+    () => throttle(webtoon => setFilteredWebtoon(webtoon), 500),
     []
   );
 

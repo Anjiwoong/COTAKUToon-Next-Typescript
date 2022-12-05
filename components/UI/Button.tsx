@@ -1,20 +1,21 @@
 import styled, { css } from 'styled-components';
-import { ButtonProps } from '../../types/button-props';
 
-const Button = (props: ButtonProps) => {
+import { ButtonTypes } from '../../types/UI/button-types';
+
+const Button = (props: ButtonTypes) => {
   return <ButtonWrap {...props}>{props.children}</ButtonWrap>;
 };
 
 const ButtonWrap = styled.button`
   ${({ theme }) => theme.mixins.removeBtnStyle()}
 
-  ${(props: ButtonProps) =>
+  ${(props: ButtonTypes) =>
     props.disabled &&
     css`
       cursor: not-allowed;
     `}
 
-  ${(props: ButtonProps) =>
+  ${(props: ButtonTypes) =>
     props.login &&
     css`
       ${({ theme }) => theme.mixins.paddingY('16px')}
@@ -30,7 +31,7 @@ const ButtonWrap = styled.button`
       border: 1px solid ${({ theme }) => theme.colors.borderBlue1};
     `}
 
-  ${(props: ButtonProps) =>
+  ${(props: ButtonTypes) =>
     props.signup &&
     css`
       ${({ theme }) => theme.mixins.paddingY('16px')}
@@ -46,7 +47,7 @@ const ButtonWrap = styled.button`
       font-weight: 600;
     `}
 
-    ${(props: ButtonProps) =>
+    ${(props: ButtonTypes) =>
     props.gender &&
     css`
       width: 50%;
@@ -68,7 +69,7 @@ const ButtonWrap = styled.button`
       }
     `}
 
-    ${(props: ButtonProps) =>
+    ${(props: ButtonTypes) =>
     props.submit &&
     css`
       width: 100%;
@@ -89,7 +90,7 @@ const ButtonWrap = styled.button`
       }
     `}
 
-    ${(props: ButtonProps) =>
+    ${(props: ButtonTypes) =>
     props.prev &&
     css`
       ${({ theme }) => theme.mixins.flexCenter()};
@@ -107,7 +108,7 @@ const ButtonWrap = styled.button`
       z-index: 1000;
     `}
 
-    ${(props: ButtonProps) =>
+    ${(props: ButtonTypes) =>
     props.next &&
     css`
       ${({ theme }) => theme.mixins.flexCenter()};

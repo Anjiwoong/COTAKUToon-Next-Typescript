@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
 import { useRecoilValue } from 'recoil';
 
-import { ViewerTypes } from '../../types/viewer-types';
+import { ViewerTypes } from '../../types/viewer/viewer-types';
 import { viewerSettingState } from '../../states/viewerSettingState';
 
 import Button from '../UI/Button';

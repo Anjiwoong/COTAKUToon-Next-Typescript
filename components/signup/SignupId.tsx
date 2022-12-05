@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+
 import useInput from '../../hooks/use-input';
+import { CheckTypes } from '../../types/signup/signup-types';
+
 import Input from '../UI/Input';
-import { checkProps } from '../../types/signup-props';
 import { ErrorMessage, SignupInput, SignupInputText } from './SignupForm';
 
 const idRegex = /^[A-Za-z0-9]{4,15}$/;
 
-const SignupId = (props: checkProps) => {
+const SignupId = (props: CheckTypes) => {
   const {
     value: idValue,
     isValid: idIsValid,

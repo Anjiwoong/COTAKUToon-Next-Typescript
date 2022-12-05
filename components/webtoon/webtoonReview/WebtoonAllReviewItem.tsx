@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { ReviewTypes } from '../../../types/review-types';
+
+import { ReviewTypes } from '../../../types/webtoon/review-types';
 
 import CommentInfo from './CommentInfo';
 import ReviewerInfo from './ReviewerInfo';

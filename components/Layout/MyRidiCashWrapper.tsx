@@ -1,7 +1,9 @@
+import React from 'react';
 import styled from 'styled-components';
+
 import MyRidiCashNavigation from './MyRidiCashNavigation';
 
-const MyRidiCashWrapper = ({ children }: any) => {
+const MyRidiCashWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <CashWrapper>
       <MyRidiCashNavigation />

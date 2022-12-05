@@ -1,7 +1,8 @@
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
-import { HeaderTypes } from '../../../types/header-types';
+
+import { HeaderTypes } from '../../../types/layout/header-types';
 
 const HeaderLoginButton = (props: HeaderTypes) => {
   const { data: session } = useSession();

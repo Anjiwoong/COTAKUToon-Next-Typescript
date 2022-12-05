@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styled, { css } from 'styled-components';
-import { cashNavProps } from '../../../types/cash-navigation-props';
 
-const MyRidiCashNavigationItem = (props: cashNavProps) => {
+import { CashNavTypes } from '../../../types/layout/navigation-types';
+
+const MyRidiCashNavigationItem = (props: CashNavTypes) => {
   const router = useRouter();
 
   const isSelected = router.pathname === props.path;

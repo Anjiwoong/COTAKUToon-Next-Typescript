@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { mypageHomeProps } from '../../../types/mypage-home-props';
+
+import { MypageHomeTypes } from '../../../types/mypage/mypage-home-types';
+
 import { SiZcash } from 'react-icons/si';
 import { MdLocalParking } from 'react-icons/md';
 import { MdDoubleArrow } from 'react-icons/md';
@@ -11,7 +13,7 @@ import { RiCoupon3Fill } from 'react-icons/ri';
 import Button from '../../UI/Button';
 import { notImplementedHandler } from '../../../lib/not-implemented';
 
-const MyAssetInfoItem = (props: mypageHomeProps) => {
+const MyAssetInfoItem = (props: MypageHomeTypes) => {
   return (
     <InfoItem>
       <Container>

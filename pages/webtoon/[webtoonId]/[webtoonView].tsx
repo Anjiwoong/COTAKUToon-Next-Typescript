@@ -7,12 +7,13 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 
+import { getWebtoon, getWebtoonById } from '../../../lib/api-util';
+import { viewerSettingState } from '../../../states/viewerSettingState';
+import { viewerNavigationState } from '../../../states/viewerNavigationState';
+
 import ViewerFooterNav from '../../../components/viewer/ViewerFooterNav';
 import ViewerHeader from '../../../components/viewer/ViewerHeader';
 import ViewerImage from '../../../components/viewer/ViewerImage';
-import { getWebtoon, getWebtoonById } from '../../../lib/api-util';
-import { viewerNavigationState } from '../../../states/viewerNavigationState';
-import { viewerSettingState } from '../../../states/viewerSettingState';
 
 const WebtoonViewerPage = ({
   selectedWebtoon,

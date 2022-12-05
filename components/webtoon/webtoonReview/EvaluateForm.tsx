@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import { SetCommentTypes } from '../../../types/add-review-types';
+import { SetCommentTypes } from '../../../types/webtoon/add-review-types';
 
 import Button from '../../UI/Button';
 

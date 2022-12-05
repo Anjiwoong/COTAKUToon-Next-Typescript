@@ -1,6 +1,6 @@
 import { addRecentWebtoon } from './add-recent-webtoon';
 import { MouseEvent } from 'react';
-import { DataTypes } from '../types/webtoon-types';
+import { DataTypes } from '../types/common/webtoon-types';
 
 export const isAdultCheck = (
   isAdult: boolean | null | undefined,

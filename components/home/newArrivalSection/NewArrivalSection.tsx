@@ -13,7 +13,6 @@ const newArrivalList = [
 ];
 
 const NewArrivalSection = () => {
-  // li  컴포넌트화
   return (
     <Wrapper>
       <ul>

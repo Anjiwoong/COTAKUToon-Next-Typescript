@@ -1,5 +1,5 @@
 import { NextApiResponse } from 'next';
-import { RecentWebtoonTypes } from '../../types/recent-webtoon-types';
+import { RecentWebtoonTypes } from '../../types/mypage/recent-webtoon-types';
 
 import { connectToDatabase } from '../../lib/db-utils';
 
@@ -13,9 +13,9 @@ const handler = async (req: Request, res: NextApiResponse) => {
     try {
       const client = await connectToDatabase();
 
-      const db = client.db();
+      const db = client?.db();
 
-      const document = await db.collection('users').find({}).toArray();
+      const document = await db?.collection('users').find({}).toArray();
 
       res.json({ status: 200, data: document });
     } catch (error) {
@@ -40,16 +40,16 @@ const handler = async (req: Request, res: NextApiResponse) => {
 
     const client = await connectToDatabase();
 
-    const db = client.db();
+    const db = client?.db();
 
-    const existingUser = await db.collection('users').findOne({ id: userId });
+    const existingUser = await db?.collection('users').findOne({ id: userId });
 
     const existingWebtoon = existingUser?.recentWebtoon
       ?.map((data: RecentWebtoonTypes) => data.title)
       .find((data: string) => data === title);
 
     if (existingWebtoon === undefined) {
-      const clickedWebtoon = await db.collection('users').updateOne(
+      const clickedWebtoon = await db?.collection('users').updateOne(
         { _id: existingUser?._id },
         {
           $push: {
@@ -69,7 +69,7 @@ const handler = async (req: Request, res: NextApiResponse) => {
     }
 
     res.status(201).json({ message: 'add recent webtoon!' });
-    client.close();
+    client?.close();
   }
 };
 

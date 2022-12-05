@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components';
 import {
   CarouselItemTypes,
   CarouselItemPropsTypes,
-} from '../../../types/carousel-types';
+} from '../../../types/home/carousel-types';
 
 import { notImplementedHandler } from '../../../lib/not-implemented';
 
@@ -41,8 +41,6 @@ const CarouselSectionItem = ({
             {carousel.up && <span>NEW</span>}
             {carousel.only && <span>ONLY</span>}
             {carousel.free && <span>리다무</span>}
-            {/* {carouselNum}
-            <span>{endPoint}</span> */}
           </CarouselInfo>
           <Title>
             <span>
@@ -104,18 +102,6 @@ const CarouselItem = styled.li`
       transition: min-width calc(${props.duration} * 1ms)
         cubic-bezier(0.6, 0.04, 0.995, 0.56);
     `};
-
-  /* ${(props: CarouselItemPropsTypes) =>
-    (props.endPoint === 'start' || props.endPoint === 'end') &&
-    css`
-      transition: none;
-    `}
-
-  ${(props: CarouselItemPropsTypes) =>
-    (props.endPoint === 'start' || props.endPoint === 'end') &&
-    css`
-      transition: none;
-    `} */
 `;
 
 const CarouselDesc = styled.div`

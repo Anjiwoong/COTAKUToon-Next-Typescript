@@ -1,6 +1,6 @@
 import Link from 'next/link';
-
 import styled from 'styled-components';
+
 import { MdDoubleArrow } from 'react-icons/md';
 
 const MyPageHomeRecentHeader = () => {

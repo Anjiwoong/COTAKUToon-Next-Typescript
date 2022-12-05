@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { MouseEvent } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 

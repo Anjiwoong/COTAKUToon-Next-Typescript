@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+
+import { RateTypes } from '../../types/layout/star-rating-types';
+
 import { AiFillStar } from 'react-icons/ai';
-import { RateTypes } from '../../types/star-rating-types';
 
 const StarRatingLayout = (props: RateTypes) => {
   return (

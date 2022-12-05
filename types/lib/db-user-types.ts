@@ -1,4 +1,4 @@
-import { DataTypes } from './webtoon-types';
+import { DataTypes } from '../common/webtoon-types';
 
 export interface DbUserTypes {
   _id: string;

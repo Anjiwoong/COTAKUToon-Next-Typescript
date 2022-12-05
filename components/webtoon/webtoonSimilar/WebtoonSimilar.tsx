@@ -2,7 +2,7 @@ import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-import { DataTypes } from '../../../types/webtoon-types';
+import { DataTypes } from '../../../types/common/webtoon-types';
 
 import ArticleMiddleTitle from '../../Layout/ArticleMiddleTitle';
 import WebtoonSimilarItem from './WebtoonSimilarItem';

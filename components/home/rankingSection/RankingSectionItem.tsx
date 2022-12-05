@@ -15,7 +15,7 @@ const blurDataURL =
 
 const RankingSectionItem = ({
   webtoon,
-  index,
+  rank,
   isAdult,
   id,
 }: AdultCheckTypes) => {
@@ -37,7 +37,7 @@ const RankingSectionItem = ({
           />
         )}
       </CarouselLink>
-      <CarouselNum>{index}</CarouselNum>
+      <CarouselNum>{rank}</CarouselNum>
       <CarouselDesc>
         <Link
           href={`/webtoon/${webtoon.id}`}

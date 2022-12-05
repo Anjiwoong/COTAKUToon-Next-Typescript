@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { DataTypes } from '../../../types/webtoon-types';
+import { DataTypes } from '../../../types/common/webtoon-types';
 
 import MyPageHomeEmptyRecent from './MyPageHomeEmptyRecent';
 import MyPageHomeRecentHeader from './MyPageHomeRecentHeader';

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { GoTriangleDown } from 'react-icons/go';
 import BusinessContent from './BusinessContent';
 

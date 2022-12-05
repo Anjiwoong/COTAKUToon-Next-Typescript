@@ -1,4 +1,4 @@
-import { ReviewTypes } from './../types/review-types';
+import { ReviewTypes } from '../types/webtoon/review-types';
 import { atom } from 'recoil';
 import { v1 } from 'uuid';
 

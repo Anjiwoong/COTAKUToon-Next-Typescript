@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import ViewerFooterNavBarItem from './ViewerFooterNavBarItem';
 
 const viewerFooterItem = ['연재 홈', '선호작품 목록', '댓글', '보기 설정'];

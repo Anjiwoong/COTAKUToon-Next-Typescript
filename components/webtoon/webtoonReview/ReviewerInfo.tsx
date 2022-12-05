@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { ReviewTypes } from '../../../types/review-types';
+import { ReviewTypes } from '../../../types/webtoon/review-types';
+
 import { StartBg } from '../webtoonInfo/webtoonInfoBody/WebtoonStarRate';
 
 const ReviewerInfo = ({ userId, date, starRating }: ReviewTypes) => {

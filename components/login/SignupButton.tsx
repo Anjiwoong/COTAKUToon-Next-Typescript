@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
+
 import Button from '../UI/Button';
 
 const SignupButton = () => {
@@ -11,7 +12,7 @@ const SignupButton = () => {
 };
 
 const SignupLink = styled(Link)`
-  ${({ theme }) => theme.mixins.autoMargin()}
+  ${({ theme }) => theme.mixins.autoMargin()};
   ${({ theme }) => theme.mixins.paddingX('10px')}
 
   display: block;

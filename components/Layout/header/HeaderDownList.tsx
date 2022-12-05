@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 import { useRouter } from 'next/router';
 import { signIn, useSession } from 'next-auth/react';
 
-import { HeaderTypes } from '../../../types/header-types';
+import { HeaderTypes } from '../../../types/layout/header-types';
 
 import { BiBell } from 'react-icons/bi';
 import { CgShoppingCart } from 'react-icons/cg';

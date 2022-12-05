@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import MyRidiCashInfoImage from './MyRidiCashInfoImage';
 import MyRidiCashInfoText from './MyRidiCashInfoText';
 
