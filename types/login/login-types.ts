@@ -5,7 +5,7 @@ export interface loginProps {
   passwordRef?: Ref<HTMLInputElement>;
 }
 
-export interface loadingProps {
+export interface LoadingTypes {
   loading?: boolean;
   $loading?: boolean;
 }

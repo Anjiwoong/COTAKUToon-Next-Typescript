@@ -1,7 +1,7 @@
 import { atom } from 'recoil';
 import { v1 } from 'uuid';
 
-import { CarouselTypes } from './../types/carousel-types';
+import { CarouselTypes } from '../types/home/carousel-types';
 
 export const mainCarouselState = atom<CarouselTypes[]>({
   key: `mainCarouselState/${v1()}`,

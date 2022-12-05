@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import EtcList from './EtcList';
 
 const Etc = () => {

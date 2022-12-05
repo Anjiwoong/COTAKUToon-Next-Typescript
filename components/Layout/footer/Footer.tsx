@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import NoticeList from './NoticeList';
 
+import NoticeList from './NoticeList';
 import CustomerInfo from './CustomerInfo';
 import Business from './Business';
 import FooterIcon from './FooterIcon';

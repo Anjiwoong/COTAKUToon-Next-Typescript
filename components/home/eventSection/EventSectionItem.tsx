@@ -1,9 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { notImplementedHandler } from '../../../lib/not-implemented';
 
-import { EventSectionTypes } from '../../../types/event-section-types';
+import { EventSectionTypes } from '../../../types/home/event-section-types';
+
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const EventSectionItem = ({ title, cover }: EventSectionTypes) => {
   return (

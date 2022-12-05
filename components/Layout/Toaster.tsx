@@ -1,7 +1,9 @@
 import React from 'react';
-import { AiFillCheckCircle, AiOutlineClose } from 'react-icons/ai';
 import styled from 'styled-components';
-import { ToasterTypes } from '../../types/toaster-types';
+
+import { ToasterTypes } from '../../types/layout/toaster-types';
+
+import { AiFillCheckCircle, AiOutlineClose } from 'react-icons/ai';
 
 const Toaster = (props: ToasterTypes) => {
   return (

@@ -1,9 +1,9 @@
 import { useRecoilValue } from 'recoil';
 import styled, { css } from 'styled-components';
-import { viewerNavigationState } from '../../states/viewerNavigationState';
 
+import { viewerNavigationState } from '../../states/viewerNavigationState';
 import { viewerThemeState } from '../../states/viewerThemeState';
-import { ViewerTypes } from '../../types/viewer-types';
+import { ViewerTypes } from '../../types/viewer/viewer-types';
 
 import ViewerHeaderTitle from './ViewerHeaderTitle';
 

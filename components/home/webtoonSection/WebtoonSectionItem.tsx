@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { AdultCheckTypes } from '../../../types/adult-check-types';
+import { AdultCheckTypes } from '../../../types/common/adult-check-types';
 
 import { SiUpwork } from 'react-icons/si';
 import { BiTimeFive } from 'react-icons/bi';
@@ -24,7 +24,7 @@ const WebtoonSectionItem = ({ webtoon, isAdult, id }: AdultCheckTypes) => {
       >
         <Thumbnail>
           <Image
-            src={isAdultCheck(isAdult, webtoon)}
+            src={isAdultCheck(isAdult, webtoon)!}
             alt="book-cover"
             width={175}
             height={256}

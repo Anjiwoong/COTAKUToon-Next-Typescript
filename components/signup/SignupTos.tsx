@@ -1,31 +1,20 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+
+import { CheckTypes } from '../../types/signup/signup-types';
+
 import Input from '../UI/Input';
-import { checkProps } from '../../types/signup-props';
 import SignupTosItem from './SignupTosItem';
 
+// prettier-ignore
 const tosItem = [
-  {
-    id: 'signup-chk2',
-    title: '이용약관 동의(필수)',
-    option: '약관 보기',
-    essential: true,
-  },
+  { id: 'signup-chk2',  title: '이용약관 동의(필수)', option: '약관 보기', essential: true },
   { id: 'signup-chk3', title: '이벤트, 혜택 알림 수신동의(선택)', option: '' },
-  {
-    id: 'signup-chk4',
-    title: '성별, 생년 정보 제공 동의(선택)',
-    option: '내용 확인',
-  },
-  {
-    id: 'signup-chk5',
-    title: '개인 정보 수집 및 이용 동의(필수)',
-    option: '내용 확인',
-    essential: true,
-  },
+  { id: 'signup-chk4', title: '성별, 생년 정보 제공 동의(선택)', option: '내용 확인' },
+  { id: 'signup-chk5', title: '개인 정보 수집 및 이용 동의(필수)', option: '내용 확인', essential: true },
 ];
 
-const SignupTos = (props: checkProps) => {
+const SignupTos = (props: CheckTypes) => {
   const [allCheck, setAllCheck] = useState(false);
   const [essentialCheck, setEssentialCheck] = useState({
     'signup-chk2': false,

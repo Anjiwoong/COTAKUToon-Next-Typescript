@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
-import { AdultCheckTypes } from '../../../types/adult-check-types';
+import { AdultCheckTypes } from '../../../types/common/adult-check-types';
 
 import {
   addRecentWebtoonHandler,
@@ -15,7 +15,7 @@ const blurDataURL =
 
 const RankingSectionItem = ({
   webtoon,
-  index,
+  rank,
   isAdult,
   id,
 }: AdultCheckTypes) => {
@@ -27,7 +27,7 @@ const RankingSectionItem = ({
       >
         {webtoon.cover && (
           <Image
-            src={isAdultCheck(isAdult, webtoon)}
+            src={isAdultCheck(isAdult, webtoon)!}
             alt="book-cover"
             width={256}
             height={368}
@@ -37,7 +37,7 @@ const RankingSectionItem = ({
           />
         )}
       </CarouselLink>
-      <CarouselNum>{index}</CarouselNum>
+      <CarouselNum>{rank}</CarouselNum>
       <CarouselDesc>
         <Link
           href={`/webtoon/${webtoon.id}`}

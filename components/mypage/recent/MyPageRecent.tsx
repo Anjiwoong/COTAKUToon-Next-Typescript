@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { RecentTypes } from '../../../types/recent-webtoon-types';
+import { RecentTypes } from '../../../types/mypage/recent-webtoon-types';
 
 import MyPageRecentEmptyView from './MyPageRecentEmptyView';
 import MyPageRecentView from './MyPageRecentView';

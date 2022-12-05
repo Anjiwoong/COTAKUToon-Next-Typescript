@@ -1,13 +1,14 @@
 import { forwardRef } from 'react';
 import styled, { css } from 'styled-components';
-import { InputProps } from '../../types/input-props';
 
-const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+import { InputTypes } from '../../types/UI/input-types';
+
+const Input = forwardRef<HTMLInputElement, InputTypes>((props, ref) => {
   return <InputWrap {...props} ref={ref} />;
 });
 
 const InputWrap = styled.input`
-  ${(props: InputProps) =>
+  ${(props: InputTypes) =>
     props.login &&
     css`
       ${({ theme }) => theme.mixins.paddingX('14px')}
@@ -29,14 +30,14 @@ const InputWrap = styled.input`
       }
     `}
 
-  ${(props: InputProps) =>
+  ${(props: InputTypes) =>
     props.password &&
     css`
       border-radius: 0;
       border-top: 0;
     `}
 
-    ${(props: InputProps) =>
+    ${(props: InputTypes) =>
     props.box &&
     css`
       width: 100%;

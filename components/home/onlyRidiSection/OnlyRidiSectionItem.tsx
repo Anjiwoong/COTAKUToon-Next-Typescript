@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { OnlyRidiTypes } from '../../../types/only-ridi-types';
+
+import { OnlyRidiTypes } from '../../../types/home/only-ridi-types';
+
+import { notImplementedHandler } from '../../../lib/not-implemented';
 
 const OnlyRidiSectionItem = ({
   title,
@@ -11,7 +14,7 @@ const OnlyRidiSectionItem = ({
 }: OnlyRidiTypes) => {
   return (
     <Item>
-      <Link href="#">
+      <Link href="#" onClick={notImplementedHandler}>
         <Bg>
           {coverBg !== '' && (
             <BgImage src={coverBg} alt="only-ridi" width={680} height={112} />

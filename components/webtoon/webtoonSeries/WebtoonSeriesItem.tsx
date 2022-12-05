@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 
 import { rentalCheckListState } from '../../../states/rentalCheckListState';
-import { SeriesItemTypes } from '../../../types/webtoon-series-types';
+import { SeriesItemTypes } from '../../../types/webtoon/webtoon-series-types';
 
 import CustomCheckbox from '../../Layout/CustomCheckbox';
 import Button from '../../UI/Button';

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import Button from '../../UI/Button';
 import { FaCoins } from 'react-icons/fa';
 import { notImplementedHandler } from '../../../lib/not-implemented';

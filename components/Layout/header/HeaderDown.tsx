@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { HeaderTypes } from '../../../types/header-types';
-import { DataTypes } from '../../../types/webtoon-types';
+import { HeaderTypes } from '../../../types/layout/header-types';
 
 import HeaderDownList from './HeaderDownList';
 import HeaderDownLogo from './HeaderDownLogo';

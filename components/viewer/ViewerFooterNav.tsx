@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { viewerNavigationState } from '../../states/viewerNavigationState';
 import { viewerThemeState } from '../../states/viewerThemeState';
-import { ViewerTypes } from '../../types/viewer-types';
+import { ViewerTypes } from '../../types/viewer/viewer-types';
 
 import ViewerFooterBottomNav from './ViewerFooterBottomNav';
 import ViewerFooterTopNav from './ViewerFooterTopNav';

@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 
-interface TitleProps {
-  children: string;
-}
-
-const ArticleMiddleTitle = (props: TitleProps) => {
-  return <MiddleTitle>{props.children}</MiddleTitle>;
+const ArticleMiddleTitle = ({ children }: { children: string }) => {
+  return <MiddleTitle>{children}</MiddleTitle>;
 };
 
 const MiddleTitle = styled.h3`

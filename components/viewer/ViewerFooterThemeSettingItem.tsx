@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { ViewerThemeTypes } from '../../types/viewer-types';
+
+import { ViewerThemeTypes } from '../../types/viewer/viewer-types';
+
 import Button from '../UI/Button';
 
 const ViewerFooterThemeSettingItem = ({

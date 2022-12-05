@@ -1,5 +1,6 @@
 import { signOut, useSession } from 'next-auth/react';
 import styled from 'styled-components';
+
 import Button from '../../UI/Button';
 
 const MyAccountInfo = () => {

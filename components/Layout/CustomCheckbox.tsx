@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import Input from '../UI/Input';
 
-import { InputProps } from '../../types/input-props';
+import { InputTypes } from '../../types/UI/input-types';
 
-const CustomCheckbox = (props: InputProps) => {
+const CustomCheckbox = (props: InputTypes) => {
   return (
     <>
       <CustomInput

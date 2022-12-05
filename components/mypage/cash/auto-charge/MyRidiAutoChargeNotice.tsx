@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { BsCheck } from 'react-icons/bs';
 
 const MyRidiAutoChargeNotice = () => {

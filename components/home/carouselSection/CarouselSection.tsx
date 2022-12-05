@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import styled, { css } from 'styled-components';
-import UseInterval from '../../../hooks/use-interval';
 
 import { mainCarouselState } from '../../../states/mainCarouselState';
-import { CarouselListPropsTypes } from '../../../types/carousel-types';
+import { CarouselListPropsTypes } from '../../../types/home/carousel-types';
+import UseInterval from '../../../hooks/use-interval';
 
 import CarouselButton from '../../Layout/CarouselButton';
 import CarouselSectionItem from './CarouselSectionItem';

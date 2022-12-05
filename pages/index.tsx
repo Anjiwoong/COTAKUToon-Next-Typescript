@@ -1,9 +1,10 @@
 import { InferGetStaticPropsType } from 'next';
 
+import { getWebtoon } from '../lib/api-util';
+
 import Footer from '../components/Layout/footer/Footer';
 import Header from '../components/Layout/header/Header';
 import HomeContainer from '../components/home/HomeContainer';
-import { getWebtoon } from '../lib/api-util';
 
 const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (

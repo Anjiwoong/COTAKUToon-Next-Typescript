@@ -1,8 +1,10 @@
 import styled, { css } from 'styled-components';
-import Button from '../UI/Button';
-import { loadingProps } from '../../types/login-props';
 
-const LoginButton = (props: loadingProps) => {
+import { LoadingTypes } from '../../types/login/login-types';
+
+import Button from '../UI/Button';
+
+const LoginButton = (props: LoadingTypes) => {
   return (
     <>
       <ErrorMessage></ErrorMessage>
@@ -25,7 +27,7 @@ const ErrorMessage = styled.span`
 `;
 
 const LoginButtonWrap = styled(Button)`
-  ${(props: loadingProps) =>
+  ${(props: LoadingTypes) =>
     props.$loading &&
     css`
       cursor: not-allowed;

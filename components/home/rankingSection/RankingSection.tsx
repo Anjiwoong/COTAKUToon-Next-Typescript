@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import styled from 'styled-components';
 import Slider, { Settings } from 'react-slick';
 
-import { WebtoonArrTypes } from '../../../types/webtoon-types';
+import { WebtoonArrTypes } from '../../../types/common/webtoon-types';
 
 import RankingSectionItem from './RankingSectionItem';
 import Button from '../../UI/Button';
@@ -44,7 +44,7 @@ const RankingSection = ({ webtoon, isAdult, id }: WebtoonArrTypes) => {
             <RankingSectionItem
               key={webtoon.id}
               webtoon={webtoon}
-              index={i + 1}
+              rank={i + 1}
               isAdult={isAdult}
               id={id}
             />

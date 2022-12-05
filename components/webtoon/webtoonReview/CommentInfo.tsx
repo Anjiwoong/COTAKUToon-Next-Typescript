@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ReviewTypes } from '../../../types/review-types';
+import { ReviewTypes } from '../../../types/webtoon/review-types';
 
 import Button from '../../UI/Button';
 import { AiFillMessage } from 'react-icons/ai';

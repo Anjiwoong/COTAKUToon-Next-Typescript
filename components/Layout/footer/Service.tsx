@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import ServiceList from './ServiceList';
 
 const Service = () => {

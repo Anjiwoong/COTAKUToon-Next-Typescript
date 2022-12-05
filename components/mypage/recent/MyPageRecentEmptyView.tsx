@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { BiBookOpen } from 'react-icons/bi';
 
 const MyPageRecentEmptyView = () => {

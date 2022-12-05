@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styled from 'styled-components';
-import { ArrivalTypes } from '../../../types/new-arrival-types';
+
 import { BiBookOpen } from 'react-icons/bi';
 import { BsBell } from 'react-icons/bs';
 import { BiPlanet } from 'react-icons/bi';
@@ -10,7 +10,7 @@ import { MdOutlineEventNote } from 'react-icons/md';
 import { FiBox } from 'react-icons/fi';
 import { notImplementedHandler } from '../../../lib/not-implemented';
 
-const NewArrivalSectionItem = ({ title }: ArrivalTypes) => {
+const NewArrivalSectionItem = ({ title }: { title: string }) => {
   return (
     <li>
       <Link href="#" onClick={notImplementedHandler}>

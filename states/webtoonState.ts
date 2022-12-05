@@ -1,4 +1,4 @@
-import { DataTypes } from './../types/webtoon-types';
+import { DataTypes } from '../types/common/webtoon-types';
 import { atom, selector } from 'recoil';
 import { v1 } from 'uuid';
 

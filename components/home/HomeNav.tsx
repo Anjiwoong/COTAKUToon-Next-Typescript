@@ -1,12 +1,11 @@
-import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
+
+import { NavItemTypes } from '../../types/home/home-nav-item-types';
+
 import { notImplementedHandler } from '../../lib/not-implemented';
-import { StyleProps } from '../../types/home-props';
 
 const HomeNav = () => {
-  const logoutHandler = () => signOut();
-
   return (
     <nav>
       <NavList>
@@ -15,8 +14,10 @@ const HomeNav = () => {
             웹툰
           </Link>
         </NavItem>
-        <NavItem onClick={logoutHandler}>
-          <Link href="/login">만화</Link>
+        <NavItem>
+          <Link href="#" onClick={notImplementedHandler}>
+            만화
+          </Link>
         </NavItem>
       </NavList>
       <GenreList>
@@ -54,7 +55,7 @@ const NavItem = styled.li`
     color: ${({ theme }) => theme.colors.secondaryFont};
   }
 
-  ${(props: StyleProps) =>
+  ${(props: NavItemTypes) =>
     props.selected &&
     css`
       color: ${({ theme }) => theme.colors.primaryColor};
@@ -98,7 +99,7 @@ const GenreItem = styled.li`
     color: ${({ theme }) => theme.colors.secondaryFont};
   }
 
-  ${(props: StyleProps) =>
+  ${(props: NavItemTypes) =>
     props.selected &&
     css`
       color: ${({ theme }) => theme.colors.white};

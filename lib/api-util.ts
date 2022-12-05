@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { DataTypes } from '../types/webtoon-types';
+import { DataTypes } from '../types/common/webtoon-types';
 
 export const getWebtoon = async () => {
   const filePath = path.join(process.cwd(), 'data', 'webtoon.json');

@@ -1,11 +1,11 @@
+import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import { WebtoonSeriesListTypes } from '../../../types/webtoon-series-types';
+import { WebtoonSeriesListTypes } from '../../../types/webtoon/webtoon-series-types';
 
 import Button from '../../UI/Button';
 import WebtoonSeriesItem from './WebtoonSeriesItem';
 import { GoTriangleDown } from 'react-icons/go';
-import { useState } from 'react';
 
 const WebtoonSeriesList = ({
   id,

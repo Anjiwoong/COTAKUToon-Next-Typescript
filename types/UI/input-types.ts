@@ -1,6 +1,6 @@
 import { ChangeEvent, FocusEvent, Ref } from 'react';
 
-export interface InputProps {
+export interface InputTypes {
   type?: string;
   id?: string;
   name?: string;
