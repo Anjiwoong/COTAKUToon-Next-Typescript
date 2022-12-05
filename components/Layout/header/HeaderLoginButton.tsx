@@ -1,12 +1,15 @@
+import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import styled, { css } from 'styled-components';
 import { HeaderTypes } from '../../../types/header-types';
 
 const HeaderLoginButton = (props: HeaderTypes) => {
+  const { data: session } = useSession();
+
   return (
     <Login sub={props.sub}>
-      <Link href="/login">
-        <span>로그인</span>
+      <Link href={session ? '/mypage' : '/login'}>
+        <span>{session ? '마이페이지' : '로그인'}</span>
       </Link>
     </Login>
   );
