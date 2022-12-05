@@ -41,7 +41,7 @@ const handler = async (req: Request, res: NextApiResponse) => {
   }
 
   const hashedPassword = await hashPassword(password);
-  const isAdult = new Date().getFullYear() - +adult >= 19;
+  const isAdult = new Date().getFullYear() - +adult >= 19 ? 'adult' : 'kids';
 
   const result = await db?.collection('users').insertOne({
     id: id,

@@ -7,7 +7,7 @@ import { WebtoonSearchTypes } from '../../types/UI/webtoon-search-types';
 const SearchModalItem = (props: WebtoonSearchTypes) => {
   const adultCheckHandler = (e: MouseEvent<HTMLAnchorElement>) => {
     if (props.isAdult !== undefined) {
-      if (!props.isAdult && props.webtoon.adult) {
+      if (props.isAdult === 'kids' && props.webtoon.adult) {
         e.preventDefault();
         alert('미성년자는 볼 수 없는 컨텐츠입니다.');
       }

@@ -1,13 +1,14 @@
 import { addRecentWebtoon } from './add-recent-webtoon';
 import { MouseEvent } from 'react';
+
 import { DataTypes } from '../types/common/webtoon-types';
 
 export const isAdultCheck = (
-  isAdult: boolean | null | undefined,
+  isAdult: string | null | undefined,
   webtoon: DataTypes
 ) => {
   if (isAdult !== undefined) {
-    if (isAdult) return `/images/${webtoon.cover}`;
+    if (isAdult === 'adult') return `/images/${webtoon.cover}`;
     if (webtoon.adult) return '/images/cover/adultThumbnail.png';
     else return `/images/${webtoon.cover}`;
   }
@@ -21,11 +22,11 @@ export const isAdultCheck = (
 export const addRecentWebtoonHandler = async (
   e: MouseEvent<HTMLAnchorElement>,
   webtoon: DataTypes,
-  isAdult?: boolean | null,
+  isAdult?: string | null,
   id?: string | null
 ) => {
   if (isAdult !== undefined) {
-    if (!isAdult && webtoon.adult) {
+    if (isAdult === 'kids' && webtoon.adult) {
       e.preventDefault();
       alert('미성년자는 볼 수 없는 컨텐츠입니다.');
       return;
