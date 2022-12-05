@@ -27,7 +27,7 @@ const RankingSectionItem = ({
       >
         {webtoon.cover && (
           <Image
-            src={isAdultCheck(isAdult, webtoon)}
+            src={isAdultCheck(isAdult, webtoon)!}
             alt="book-cover"
             width={256}
             height={368}

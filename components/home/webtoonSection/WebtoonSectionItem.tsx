@@ -24,7 +24,7 @@ const WebtoonSectionItem = ({ webtoon, isAdult, id }: AdultCheckTypes) => {
       >
         <Thumbnail>
           <Image
-            src={isAdultCheck(isAdult, webtoon)}
+            src={isAdultCheck(isAdult, webtoon)!}
             alt="book-cover"
             width={175}
             height={256}

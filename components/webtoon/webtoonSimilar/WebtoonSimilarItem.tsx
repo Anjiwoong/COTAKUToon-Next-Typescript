@@ -20,7 +20,7 @@ const WebtoonSimilarItem = ({ webtoon, isAdult, id }: AdultCheckTypes) => {
         onClick={e => addRecentWebtoonHandler(e, webtoon, isAdult, id)}
       >
         <ThumbnailImage
-          src={isAdultCheck(isAdult, webtoon)}
+          src={isAdultCheck(isAdult, webtoon)!}
           alt="thumbnail"
           width={90}
           height={130}
