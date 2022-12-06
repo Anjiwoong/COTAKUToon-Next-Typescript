@@ -35,7 +35,7 @@ const Mypage = () => {
 };
 
 export const getServerSideProps = async (context: NextPageContext) => {
-  const session = await getSession();
+  const session = await getSession({ req: context.req });
   console.log(session);
 
   if (!session) {
