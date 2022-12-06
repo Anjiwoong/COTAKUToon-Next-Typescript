@@ -2,9 +2,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 
+import { DataTypes } from '../../../types/common/webtoon-types';
+
 import ArticleMiddleTitle from '../../Layout/ArticleMiddleTitle';
 
-const AuthorIntroduce = () => {
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
+const AuthorIntroduce = ({ id, cover }: DataTypes) => {
   return (
     <Introduce>
       <ArticleMiddleTitle>저자 소개</ArticleMiddleTitle>
@@ -23,12 +28,14 @@ const AuthorIntroduce = () => {
         <h4>대표 저서</h4>
         <RepresentativeList>
           <li>
-            <Link href="/webtoon">
+            <Link href={`/webtoon/${id}`}>
               <Image
-                src="/images/cover/bookcover12.webp"
+                src={`/images/${cover}`}
                 alt="대표웹툰"
                 width={90}
                 height={130}
+                placeholder="blur"
+                blurDataURL={blurDataURL}
               />
             </Link>
           </li>

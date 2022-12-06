@@ -1,11 +1,13 @@
+import { DataTypes } from '../../../types/common/webtoon-types';
+
 import AuthorIntroduce from './AuthorIntroduce';
 import BookIntroduce from './BookIntroduce';
 
-const WebtoonIntroduce = () => {
+const WebtoonIntroduce = ({ id, cover }: DataTypes) => {
   return (
     <>
       <BookIntroduce />
-      <AuthorIntroduce />
+      <AuthorIntroduce id={id} cover={cover} />
     </>
   );
 };
