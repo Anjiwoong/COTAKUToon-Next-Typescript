@@ -5,7 +5,7 @@ export const createUser = async (
   adult?: boolean | string,
   recentWebtoon?: []
 ) => {
-  const response = await fetch('/api/auth/signup', {
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/auth/signup`, {
     method: 'POST',
     body: JSON.stringify({ id, password, email, adult, recentWebtoon }),
     headers: {
