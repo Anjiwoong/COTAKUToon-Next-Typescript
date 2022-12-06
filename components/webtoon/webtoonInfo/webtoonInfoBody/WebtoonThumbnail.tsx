@@ -9,6 +9,9 @@ import { AiOutlineHeart, AiFillHeart, AiOutlineCheck } from 'react-icons/ai';
 import { BsPlusLg } from 'react-icons/bs';
 import Toaster from '../../../Layout/Toaster';
 
+const blurDataURL =
+  'data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg==';
+
 const WebtoonThumbnail = (props: DataTypes) => {
   const [favorite, setFavorite] = useState<boolean>(false);
   const [notice, setNotice] = useState<boolean>(false);
@@ -60,6 +63,8 @@ const WebtoonThumbnail = (props: DataTypes) => {
         width={200}
         height={290}
         priority
+        placeholder="blur"
+        blurDataURL={blurDataURL}
       />
       <HeartButton onClick={favoriteHandler}>
         {!favorite && <AiOutlineHeart />}

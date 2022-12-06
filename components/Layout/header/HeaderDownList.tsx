@@ -16,7 +16,6 @@ import { notImplementedHandler } from '../../../lib/not-implemented';
 const HeaderDownList = (props: HeaderTypes) => {
   const { data: session } = useSession();
   const router = useRouter();
-  console.log(session);
 
   const loginHandler = () => {
     if (session) router.replace('/mypage');

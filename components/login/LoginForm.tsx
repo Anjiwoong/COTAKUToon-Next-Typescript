@@ -28,8 +28,6 @@ const LoginForm = () => {
       redirect: false,
     });
 
-    console.log(result?.error);
-
     if (result?.error) {
       alert('로그인 정보를 확인해주세요');
       setIsLoading(false);

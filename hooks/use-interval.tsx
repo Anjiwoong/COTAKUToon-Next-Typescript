@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-const UseInterval = (
+const useInterval = (
   callback: () => void,
   delay: number,
   dependency: number
@@ -22,4 +22,4 @@ const UseInterval = (
   }, [dependency]);
 };
 
-export default UseInterval;
+export default useInterval;
