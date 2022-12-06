@@ -5,8 +5,11 @@ import { getWebtoon } from '../lib/api-util';
 import Footer from '../components/Layout/footer/Footer';
 import Header from '../components/Layout/header/Header';
 import HomeContainer from '../components/home/HomeContainer';
+import { useSession } from 'next-auth/react';
 
 const HomePage = (props: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { data } = useSession();
+  // console.log(data);
   return (
     <>
       <Header webtoon={props.webtoon} />

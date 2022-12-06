@@ -22,19 +22,22 @@ const LoginForm = () => {
     const enteredId = idRef.current?.value;
     const enteredPassword = passwordRef.current?.value;
 
-    try {
-      const result = await signIn('user-credentials', {
-        id: enteredId,
-        password: enteredPassword,
-        redirect: false,
-      });
+    const result = await signIn('user-credentials', {
+      id: enteredId,
+      password: enteredPassword,
+      redirect: false,
+    });
 
-      await router.replace('/');
-      setIsLoading(false);
-    } catch (err) {
+    console.log(result?.error);
+
+    if (result?.error) {
       alert('로그인 정보를 확인해주세요');
       setIsLoading(false);
-      console.log(err);
+    }
+
+    if (!result?.error) {
+      await router.replace('/');
+      setIsLoading(false);
     }
   };
 
