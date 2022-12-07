@@ -44,13 +44,15 @@ export const getStaticProps: GetStaticProps = async ({
 export const getStaticPaths = async () => {
   const data = await getWebtoon();
 
-  const paths = data.map(webtoon => ({
+  const _data = data.slice(0, 10);
+
+  const paths = _data.map(webtoon => ({
     params: { webtoonId: webtoon.id },
   }));
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 

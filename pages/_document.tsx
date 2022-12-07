@@ -35,7 +35,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="ko">
-        <Head></Head>
+        <Head>
+          <link rel="shortcut icon" href="/favicon.svg" />
+        </Head>
         <body>
           <div id="overlay-root"></div>
           <div id="backdrop-root"></div>

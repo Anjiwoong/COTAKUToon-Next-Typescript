@@ -13,10 +13,13 @@ export default function App({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Head>
+            <meta charSet="UTF-8" />
+            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
+            <title>COTAKU TOON</title>
           </Head>
           <RecoilRoot>
             <Component {...pageProps} />
