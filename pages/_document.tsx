@@ -36,13 +36,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
-          <meta charSet="UTF-8" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <title>COTAKU TOON</title>
+          <link rel="shortcut icon" href="/favicon.svg" />
         </Head>
         <body>
           <div id="overlay-root"></div>
