@@ -22,10 +22,7 @@ const handler = async (req: Request, res: NextApiResponse) => {
 
     const removeWebtoon = await db
       ?.collection('users')
-      .updateOne(
-        { _id: existingUser?._id },
-        { $unset: { recentWebtoon: true } }
-      );
+      .updateOne({ _id: existingUser?._id }, { $set: { recentWebtoon: [] } });
 
     res.status(201).json({ message: 'remove recent webtoon!' });
     client?.close();

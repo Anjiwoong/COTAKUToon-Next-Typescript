@@ -15,6 +15,7 @@ export interface RecentWebtoonTypes {
 export interface RecentTypes {
   recent?: DataTypes[];
   id?: string | null;
+  isLoading?: boolean;
 }
 
 export interface RemoveRecentTypes extends RecentTypes {

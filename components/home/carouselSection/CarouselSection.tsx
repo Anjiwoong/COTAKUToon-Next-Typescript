@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 import { mainCarouselState } from '../../../states/mainCarouselState';
 import { CarouselListPropsTypes } from '../../../types/home/carousel-types';
-import UseInterval from '../../../hooks/use-interval';
+import useInterval from '../../../hooks/use-interval';
 
 import CarouselButton from '../../Layout/CarouselButton';
 import CarouselSectionItem from './CarouselSectionItem';
@@ -42,7 +42,7 @@ const CarouselSection = () => {
     };
   }, [carouselNum]);
 
-  UseInterval(
+  useInterval(
     () => {
       setCarouselNum(prev => prev + 1);
       setEndPoint('');

@@ -1,29 +1,15 @@
 import { NextPageContext } from 'next';
-import { getSession, useSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 
 import { RecentTypes } from '../../../types/mypage/recent-webtoon-types';
+import { DbUserTypes } from '../../../types/lib/db-user-types';
 
 import Footer from '../../../components/Layout/footer/Footer';
 import Header from '../../../components/Layout/header/Header';
 import MyPageContainer from '../../../components/Layout/MyPageContainer';
 import MyPageRecent from '../../../components/mypage/recent/MyPageRecent';
-import useSWR from 'swr';
-import { DbUserTypes } from '../../../types/lib/db-user-types';
 
-const RecentViewPage = ({ id }: RecentTypes) => {
-  const { data: session } = useSession();
-
-  const { data: recent } = useSWR('/api/recent-webtoon', url =>
-    fetch(url).then(async res => {
-      const data = await res.json();
-
-      const loginUser = data.data.find(
-        (item: DbUserTypes) => item.id === session?.user?.name
-      );
-      return loginUser.recentWebtoon;
-    })
-  );
-
+const RecentViewPage = ({ id, recent }: RecentTypes) => {
   return (
     <>
       <Header sub />
@@ -38,6 +24,16 @@ const RecentViewPage = ({ id }: RecentTypes) => {
 export const getServerSideProps = async (context: NextPageContext) => {
   const session = await getSession({ req: context.req });
 
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/recent-webtoon`
+  );
+
+  const data = await response.json();
+
+  const loginUser = data.data.find(
+    (item: DbUserTypes) => item.id === session?.user?.name
+  );
+
   if (!session) {
     return {
       redirect: {
@@ -48,7 +44,7 @@ export const getServerSideProps = async (context: NextPageContext) => {
   }
 
   return {
-    props: { id: session.user?.name },
+    props: { id: session.user?.name, recent: loginUser.recentWebtoon || null },
   };
 };
 

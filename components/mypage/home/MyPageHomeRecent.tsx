@@ -1,19 +1,23 @@
+import { ClipLoader } from 'react-spinners';
 import styled from 'styled-components';
 
+import useWebtoon from '../../../hooks/use-webtoon';
 import { DataTypes } from '../../../types/common/webtoon-types';
 
 import MyPageHomeEmptyRecent from './MyPageHomeEmptyRecent';
 import MyPageHomeRecentHeader from './MyPageHomeRecentHeader';
 import MyPageHomeRecentItem from './MyPageHomeRecentItem';
 
-const MyPageHomeRecent = ({ recent }: { recent?: DataTypes[] }) => {
+const MyPageHomeRecent = () => {
+  const { recent, isLoading } = useWebtoon();
+
   return (
     <RecentViewWrapper>
       <MyPageHomeRecentHeader />
-      {!recent?.length && <MyPageHomeEmptyRecent />}
+      {!recent?.length && !isLoading && <MyPageHomeEmptyRecent />}
       {recent?.length !== 0 && (
         <RecentBookList>
-          {recent?.map(data => (
+          {recent?.map((data: DataTypes) => (
             <MyPageHomeRecentItem
               key={data.title}
               id={data.id}
@@ -23,6 +27,11 @@ const MyPageHomeRecent = ({ recent }: { recent?: DataTypes[] }) => {
             />
           ))}
         </RecentBookList>
+      )}
+      {isLoading && (
+        <LoadingSpinner>
+          <ClipLoader color="#1e9eff" size={60} />
+        </LoadingSpinner>
       )}
     </RecentViewWrapper>
   );
@@ -39,6 +48,12 @@ const RecentBookList = styled.ul`
   gap: 40px;
   overflow: hidden;
   margin-top: 20px;
+`;
+
+const LoadingSpinner = styled.div`
+  ${({ theme }) => theme.mixins.flexCenter()};
+
+  height: 150px;
 `;
 
 export default MyPageHomeRecent;
