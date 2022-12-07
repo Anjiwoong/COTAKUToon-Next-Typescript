@@ -65,10 +65,11 @@ export const getStaticProps: GetStaticProps = async ({
 
 export const getStaticPaths = async () => {
   const data = await getWebtoon();
-  const viewList = [...Array(15)].map((_, i) => i + 1);
+  const _data = data.slice(0, 10);
+  const viewList = [...Array(10)].map((_, i) => i + 1);
   const paths: { params: { webtoonId?: string; webtoonView: string } }[] = [];
 
-  data.map(data =>
+  _data.map(data =>
     viewList.map(series =>
       paths.push({
         params: { webtoonId: data.id, webtoonView: `ep${series.toString()}` },
@@ -78,7 +79,7 @@ export const getStaticPaths = async () => {
 
   return {
     paths: paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
