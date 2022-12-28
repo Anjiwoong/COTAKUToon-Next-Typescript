@@ -15,8 +15,7 @@
 
 ### 기능 구현 사진
 
-- 기존 vanillaJS로 만들었던 프로젝트와 기능은 동일하니 이쪽 Repo에서 보시면 감사하겠습니다.
-  https://github.com/Anjiwoong/RIDIProject
+
 
 ### 기능 구현
 
