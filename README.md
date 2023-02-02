@@ -54,7 +54,7 @@
   - next-auth에서 제공하는 `signOut()` 으로 로그아웃 기능 구현
   
 - #### 웹툰 페이지
-  - 클릭한 웹툰의 아이디가 path값으로 전달되기 때문에 getStaticProps에서 `const webtoonId = params?.webtoonId?.toString();`으로 클릭한 웹툰의 데이터 추출
+  - 클릭한 웹툰의 아이디가 path값으로 전달되기 때문에 getStaticProps로 params를 확인해 클릭한 웹툰의 데이터 추출
   - 웹툰 별점 / 댓글 기능 구현
 
 - #### 웹툰 View 페이지
